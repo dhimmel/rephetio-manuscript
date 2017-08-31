@@ -1,4 +1,4 @@
-# Automated scholarly manuscripts on GitHub
+# Project Rephetio Manuscript Source
 
 <!-- usage note: edit the H1 title above to personalize the manuscript -->
 
@@ -9,9 +9,14 @@
 ## Manuscript description
 
 <!-- usage note: edit this section. -->
-
+<!--
 This repository is a template manuscript (a.k.a. rootstock).
 Actual manuscript instances will clone this repository (see [`SETUP.md`](SETUP.md)) and replace this paragraph with a description of their manuscript.
+-->
+
+This repository contains the manuscript for Project Rephetio, an open project to repurpose drugs.
+The formal title of this study is **Systematic integration of biomedical knowledge prioritizes drugs for repurposing**.
+The manuscript is also available on [Thinklab](https://doi.org/10.15363/thinklab.a7) (as a project report) and on [bioRxiv](https://doi.org/10.1101/087619) (as a preprint).
 
 ## Manubot
 
