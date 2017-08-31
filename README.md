@@ -15,4 +15,4 @@ This directory contains the following files, which are mostly ignored on the `ma
 ## Source
 
 The manuscripts in this directory were built from
-[`d9e38726e7390bc7feb45d33239c5fcea925cc02`](https://github.com/dhimmel/rephetio-manuscript/commit/d9e38726e7390bc7feb45d33239c5fcea925cc02).
+[`59cadd6960fe261191ca534403193390586c4ebe`](https://github.com/dhimmel/rephetio-manuscript/commit/59cadd6960fe261191ca534403193390586c4ebe).
