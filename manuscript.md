@@ -31,7 +31,7 @@ The project is also available on Thinklab at <https://doi.org/bszr>._
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@c78f9ad](https://github.com/dhimmel/rephetio-manuscript/tree/c78f9ad09d063982a1668a285b2fdf7b14c9df05)
+from [dhimmel/rephetio-manuscript@a93fd91](https://github.com/dhimmel/rephetio-manuscript/tree/a93fd9195a684c656c94f61a155f7c18cbf8322d)
 on August 31, 2017.
 </em></small>
 
@@ -486,7 +486,7 @@ We conducted our study using Thinklab — a platform for realtime open collabora
 In total, 40 non-team members commented across 86 discussions, which generated 622 comments and 191 notes (Figure @fig:contribution). Thinklab content for this project totaled 145,771 words or 918,837 characters [@KUVxzxrS]. Using an estimated 7,000 words per academic publication as a benchmark, Project Rephetio generated written content comparable in volume to 20.8 publications prior to its completion. We noticed several other benefits from using Thinklab including forging a community of contributors [@17EdosXzD]; receiving feedback during the early stages when feedback was most actionable [@1pWYlPj4]; disseminating our research without delay [@PZA0cOT1; @Mg8fHpkH]; opening avenues for external input [@12sPvUxqQ]; facilitating problem-oriented teaching [@ZFI7ltQO; @13h8FyJFD]; and improving our documentation by maintaining a publication-grade digital lab notebook [@i8fF4cdh].
 
 ![
-**The growth the Project Rephetio corpus on Thinklab over time.** This figure shows Project Rephetio contributions by user over time. Each band represented the cumulative contribution of a Thinklab user to [discussions](http://thinklab.com/p/rephetio/discussion) in the Rephetio project [@KUVxzxrS]. Users are ordered by date of first contribution. Users who contributed over 4,500 characters are named. The square root transformation of characters written per user accentuates the activity of new contributors, thereby emphasizing collaboration and diverse input.
+**The growth the Project Rephetio corpus on Thinklab over time.** This figure shows Project Rephetio contributions by user over time. Each band represented the cumulative contribution of a Thinklab user to [discussions](https://think-lab.github.io/p/rephetio/discussion/) in the Rephetio project [@KUVxzxrS]. Users are ordered by date of first contribution. Users who contributed over 4,500 characters are named. The square root transformation of characters written per user accentuates the activity of new contributors, thereby emphasizing collaboration and diverse input.
 ](https://github.com/dhimmel/thinklytics/raw/d2f6e815452e140058396dccc4e35fca72306285/viz/rephetio-contribution.png){#fig:contribution}
 
 Thinklab began winding down operations in July 2017 and has switched to a static state. While users will no longer be able to add comments, the corpus of content remains browsable at https://think-lab.github.io and available in machine-readable formats at https://github.com/dhimmel/thinklytics.
