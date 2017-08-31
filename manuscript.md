@@ -31,7 +31,7 @@ The project is also available on Thinklab at <https://doi.org/bszr>._
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@819c9bc](https://github.com/dhimmel/rephetio-manuscript/tree/819c9bccb6c0f728901823bbb44720823855b200)
+from [dhimmel/rephetio-manuscript@6bb8c02](https://github.com/dhimmel/rephetio-manuscript/tree/6bb8c022f4676eec6a76a4b0fec814ae7d2c0fdb)
 on August 31, 2017.
 </em></small>
 
