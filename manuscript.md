@@ -31,7 +31,7 @@ The project is also available on Thinklab at <https://doi.org/bszr>._
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@6bb8c02](https://github.com/dhimmel/rephetio-manuscript/tree/6bb8c022f4676eec6a76a4b0fec814ae7d2c0fdb)
+from [dhimmel/rephetio-manuscript@c78f9ad](https://github.com/dhimmel/rephetio-manuscript/tree/c78f9ad09d063982a1668a285b2fdf7b14c9df05)
 on August 31, 2017.
 </em></small>
 
@@ -125,7 +125,7 @@ on August 31, 2017.
 The ability to computationally predict whether a compound treats a disease would improve the economy and success rate of drug approval. This study describes Project Rephetio to systematically model drug efficacy based on 755 existing treatments. First, we constructed Hetionet ([neo4j.het.io](https://neo4j.het.io "Neo4j Hetionet Browser")), an integrative network encoding knowledge from millions of biomedical studies. Hetionet v1.0 consists of 47,031 nodes of 11 types and 2,250,197 relationships of 24 types. Data was integrated from 29 public resources to connect compounds, diseases, genes, anatomies, pathways, biological processes, molecular functions, cellular components, pharmacologic classes, side effects, and symptoms. Next, we identified network patterns that distinguish treatments from non-treatments. Then we predicted the probability of treatment for 209,168 compound–disease pairs ([het.io/repurpose](http://het.io/repurpose/ "Project Rephetio Prediction Browser")). Our predictions validated on two external sets of treatment and provided pharmacological insights on epilepsy, suggesting they will help prioritize drug repurposing candidates. This study was entirely open and received realtime feedback from 40 community members.
 
 
-## Introduction
+## Introduction {.page_break_before}
 
 The cost of developing a new therapeutic drug has been estimated at 1.4 billion dollars [@13c9OPizf], the process typically takes 15 years from lead compound to market [@1G6kSMyT9], and the likelihood of success is stunningly low [@o8yROPbx]. Strikingly, the costs have been doubling every 9 years since 1970, a sort of inverse Moore's law, which is far from an optimal strategy from both a business and public health perspective [@LlRXV6lE]. Drug repurposing — identifying novel uses for existing therapeutics — can drastically reduce the duration, failure rates, and costs of approval [@l64dSPrb]. These benefits stem from the rich preexisting information on approved drugs, including extensive toxicology profiling performed during development, preclinical models, clinical trials, and postmarketing surveillance.
 
@@ -141,7 +141,7 @@ We build on these successes by creating a framework for incorporating the effect
 
 We refer to this study as Project Rephetio (pronounced as **rep**-*het*-*ee*-oh). Both Rephetio and Hetionet are portmanteaus combining the words **rep**urpose, **het**erogeneous, and **net**work with the URL [het.**io**](http://het.io).
 
-## Results
+## Results {.page_break_before}
 
 ### Hetionet v1.0
 
@@ -237,7 +237,7 @@ We evaluated all 1,206 metapaths that traverse from compound to disease and have
 Overall, 709 of the 1,206 metapaths exhibited a statistically significant Δ AUROC at a false discovery rate cutoff of 5%. These 709 metapaths included all 24 metaedges, suggesting that each type of relationship we integrated provided at least some therapeutic utility. However, not all metaedges were equally present in significant metapaths: 259 significant metapaths included a _Compound–binds–Gene_ metaedge, whereas only 4 included a _Gene–participates–Cellular Component_ metaedge. [Table 3](#metapath_table) lists the predictiveness of several metapaths of interest. Refer to the [Discussion](#discussion) for our interpretation of these findings.
 
 Abbrev. | Len. | Δ AUROC | −log₁₀(*p*) | Coef. | Metapath
----- | ---- | ---- | ---- | ---- | ----
+-------- | ----- | ------ | ------ | ------ | ---------------------------------------------------------
 CbGaD | 2 | 14.5% | 6.2 | 0.20 | Compound–binds–Gene–associates–Disease
 CdGuD | 2 | 1.7% | 4.5 |  | Compound–downregulates–Gene–upregulates–Disease
 CrCtD | 2 | 22.8% | 6.9 | 0.15 | Compound–resembles–Compound–treats–Disease
@@ -317,7 +317,7 @@ Also notable are the 15 ictogenic compounds in our top 100 predictions. Nine of 
 
 We also ranked the contribution of the 1,137 side effects that supported the epilepsy predictions through 117,720 _CcSEcCtD_ paths. The top five side effects — ataxia (0.069% of total support), nystagmus (0.049%), diplopia (0.045%), somnolence (0.044%), and vomiting (0.043%) — reflect established adverse effects of antiepileptic drugs [@kETnt13q; @ZOq8ox9u; @Pp1J37KJ; @dXrsMPtN; @15swlTeWU]. In summary, our method simultaneously identified the hallmark side effects of antiepileptic drugs while incorporating this knowledge to prioritize 1,538 compounds for anti-ictogenic activity.
 
-## Discussion
+## Discussion {.page_break_before}
 
 We created Hetionet v1.0 by integrating 29 resources into a single data structure — the hetnet. Consisting of 11 types of nodes and 24 types of relationships, Hetionet v1.0 brings more types of information together than previous leading-studies in biological data integration [@gIhNaGUg]. Moreover, we strove to create a reusable, extensible, and property-rich network. While all of the resources we include are publicly available, their integration was a time-intensive undertaking. Hetionet allows researchers to begin answering integrative questions without having to first spend months processing data.
 
@@ -341,7 +341,7 @@ Future research should focus on gleaning orthogonal information from data types 
 
 Integrating more types of information into Hetionet should also be a future priority. The "network effect" phenomenon suggests that the addition of each new piece of information will enhance the value of Hetionet's existing information. We envision a future where all biological knowledge is encoded into a single hetnet. Hetionet v1.0 was an early attempt, and we hope the strong performance of Project Rephetio in repurposing drugs foreshadows the many applications that will thrive from encoding biology in hetnets.
 
-## Methods
+## Methods {.page_break_before}
 
 Hetionet was built entirely from publicly available resources with the goal of integrating a broad diversity of information types of medical relevance, ranging in scale from molecular to organismal. Practical considerations such as data availability, licensing, reusability, documentation, throughput, and standardization informed our choice of resources. We abided by a simple litmus test for determining how to encode information in a hetnet: nodes represent nouns, relationships represent verbs [@17jtKw4YY; @v6CCM5Cc].
 
