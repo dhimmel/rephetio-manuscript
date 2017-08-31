@@ -23509,11 +23509,11 @@
         [
           2017,
           8,
-          28
+          31
         ]
       ],
-      "date-time": "2017-08-28T21:34:52Z",
-      "timestamp": 1503956092371
+      "date-time": "2017-08-31T14:22:16Z",
+      "timestamp": 1504189336174
     },
     "reference-count": 0,
     "publisher": "JSTOR",
@@ -23545,7 +23545,7 @@
     },
     "page": "87",
     "source": "Crossref",
-    "is-referenced-by-count": 800,
+    "is-referenced-by-count": 801,
     "title": "On the Interpretation of χ 2 from Contingency Tables, and the Calculation of P",
     "prefix": "10.2307",
     "volume": "85",
