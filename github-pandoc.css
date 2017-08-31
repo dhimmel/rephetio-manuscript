@@ -437,6 +437,13 @@ textarea {
    ========================================================================== */
 
 /**
+* Make caption text left-aligned (previousely it was centered).
+*/
+caption {
+    text-align: left;
+}
+
+/**
  * Remove most spacing between table cells.
  */
 
@@ -646,6 +653,7 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
     font-size: 100%;
+    width: 100%;
     font: inherit
 }
 table th {
@@ -659,7 +667,8 @@ table td {
 }
 table tr {
     border-top: 1px solid #ccc;
-    background-color: #fff
+    background-color: #fff;
+    font-size: 75%;
 }
 table tr:nth-child(2n) {
     background-color: #f8f8f8
