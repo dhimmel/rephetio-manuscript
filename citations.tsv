@@ -39,6 +39,7 @@ string	citation	standard_citation	citation_id
 @doi:10.1038/nature06846	doi:10.1038/nature06846	doi:10.1038/nature06846	GWiTuYEr
 @doi:10.1038/nbt.2151	doi:10.1038/nbt.2151	doi:10.1038/nbt.2151	q0hDz8AL
 @doi:10.1038/nbt.2786	doi:10.1038/nbt.2786	doi:10.1038/nbt.2786	o8yROPbx
+@doi:10.1038/nbt.3780	doi:10.1038/nbt.3780	doi:10.1038/nbt.3780	Qh7xTLwz
 @doi:10.1038/nbt1007-1110	doi:10.1038/nbt1007-1110	doi:10.1038/nbt1007-1110	o9zBwdL2
 @doi:10.1038/nchembio.118	doi:10.1038/nchembio.118	doi:10.1038/nchembio.118	CfyRUiAx
 @doi:10.1038/ncomms10331	doi:10.1038/ncomms10331	doi:10.1038/ncomms10331	Q7tc9Lii
@@ -54,14 +55,18 @@ string	citation	standard_citation	citation_id
 @doi:10.1038/nrd3681	doi:10.1038/nrd3681	doi:10.1038/nrd3681	LlRXV6lE
 @doi:10.1038/nrg2615	doi:10.1038/nrg2615	doi:10.1038/nrg2615	NVnnNOCO
 @doi:10.1038/nrn1430	doi:10.1038/nrn1430	doi:10.1038/nrn1430	18HUpN1mo
+@doi:10.1038/sdata.2017.29	doi:10.1038/sdata.2017.29	doi:10.1038/sdata.2017.29	fM8KVdIE
 @doi:10.1038/tp.2015.209	doi:10.1038/tp.2015.209	doi:10.1038/tp.2015.209	POMP3U7G
 @doi:10.1039/C4MB00014E	doi:10.1039/C4MB00014E	doi:10.1039/c4mb00014e	U12IOyfj
 @doi:10.1056/NEJMoa1102035	doi:10.1056/NEJMoa1102035	doi:10.1056/nejmoa1102035	BlcigD44
 @doi:10.1056/NEJMoa1407764	doi:10.1056/NEJMoa1407764	doi:10.1056/nejmoa1407764	RawQU2jb
 @doi:10.1073/pnas.1511912112	doi:10.1073/pnas.1511912112	doi:10.1073/pnas.1511912112	Mg8fHpkH
 @doi:10.1087/0953151053584984	doi:10.1087/0953151053584984	doi:10.1087/0953151053584984	13gsIQnzn
+@doi:10.1093/bib/bbw136	doi:10.1093/bib/bbw136	doi:10.1093/bib/bbw136	wkAk1zdY
 @doi:10.1093/bioinformatics/btr260	doi:10.1093/bioinformatics/btr260	doi:10.1093/bioinformatics/btr260	sC5yzpXL
 @doi:10.1093/bioinformatics/btt549	doi:10.1093/bioinformatics/btt549	doi:10.1093/bioinformatics/btt549	nAw5a44I
+@doi:10.1093/bioinformatics/btw436	doi:10.1093/bioinformatics/btw436	doi:10.1093/bioinformatics/btw436	1GM76rAg8
+@doi:10.1093/bioinformatics/btw731	doi:10.1093/bioinformatics/btw731	doi:10.1093/bioinformatics/btw731	14Ujoje2g
 @doi:10.1093/brain/awn081	doi:10.1093/brain/awn081	doi:10.1093/brain/awn081	tWfbMFc3
 @doi:10.1093/comnet/cnu016	doi:10.1093/comnet/cnu016	doi:10.1093/comnet/cnu016	RZFMnN9C
 @doi:10.1093/database/bav016	doi:10.1093/database/bav016	doi:10.1093/database/bav016	19a21PCCa
@@ -83,11 +88,12 @@ string	citation	standard_citation	citation_id
 @doi:10.1093/nar/gkv1072	doi:10.1093/nar/gkv1072	doi:10.1093/nar/gkv1072	4WZ9VZD7
 @doi:10.1093/nar/gkv1075	doi:10.1093/nar/gkv1075	doi:10.1093/nar/gkv1075	1DRwksl3r
 @doi:10.1093/nar/gkv1351	doi:10.1093/nar/gkv1351	doi:10.1093/nar/gkv1351	VRAAqTPx
+@doi:10.1093/nar/gkw1128	doi:10.1093/nar/gkw1128	doi:10.1093/nar/gkw1128	5cHHEM6Q
 @doi:10.1093/nar/gkw1133	doi:10.1093/nar/gkw1133	doi:10.1093/nar/gkw1133	16cIDAXhG
+@doi:10.1093/nar/gkw943	doi:10.1093/nar/gkw943	doi:10.1093/nar/gkw943	whECp1TM
 @doi:10.1093/nar/gkw993	doi:10.1093/nar/gkw993	doi:10.1093/nar/gkw993	5Bk8rV02
 @doi:10.1093/ntr/nts201	doi:10.1093/ntr/nts201	doi:10.1093/ntr/nts201	RW3iefYj
 @doi:10.1098/rsif.2015.0571	doi:10.1098/rsif.2015.0571	doi:10.1098/rsif.2015.0571	gIhNaGUg
-@doi:10.1101/056473	doi:10.1101/056473	doi:10.1101/056473	7MR5St9Q
 @doi:10.1109/ASONAM.2011.112	doi:10.1109/ASONAM.2011.112	doi:10.1109/asonam.2011.112	iVgtFycM
 @doi:10.1109/BIBM.2012.6392722	doi:10.1109/BIBM.2012.6392722	doi:10.1109/bibm.2012.6392722	1e7BB8HY
 @doi:10.1124/mol.106.025130	doi:10.1124/mol.106.025130	doi:10.1124/mol.106.025130	168N7Bjqa
@@ -107,8 +113,10 @@ string	citation	standard_citation	citation_id
 @doi:10.1186/1758-2946-5-3	doi:10.1186/1758-2946-5-3	doi:10.1186/1758-2946-5-3	14OnuhY6K
 @doi:10.1186/1758-2946-5-7	doi:10.1186/1758-2946-5-7	doi:10.1186/1758-2946-5-7	AP6h5CYA
 @doi:10.1186/gb-2012-13-1-r5	doi:10.1186/gb-2012-13-1-r5	doi:10.1186/gb-2012-13-1-r5	TOC8jpgh
+@doi:10.1186/s13040-016-0102-8	doi:10.1186/s13040-016-0102-8	doi:10.1186/s13040-016-0102-8	1A9ptBnvT
 @doi:10.1186/s13073-014-0095-1	doi:10.1186/s13073-014-0095-1	doi:10.1186/s13073-014-0095-1	XjXzx5KH
 @doi:10.1186/s13321-014-0043-5	doi:10.1186/s13321-014-0043-5	doi:10.1186/s13321-014-0043-5	N3GeOrai
+@doi:10.1186/s13326-016-0110-0	doi:10.1186/s13326-016-0110-0	doi:10.1186/s13326-016-0110-0	46tb9XWt
 @doi:10.1186/s13742-015-0087-0	doi:10.1186/s13742-015-0087-0	doi:10.1186/s13742-015-0087-0	pw3EUXTf
 @doi:10.1242/dmm.003285	doi:10.1242/dmm.003285	doi:10.1242/dmm.003285	17EdosXzD
 @doi:10.1371/journal.pbio.0060184	doi:10.1371/journal.pbio.0060184	doi:10.1371/journal.pbio.0060184	1HPlX2VWO
@@ -138,6 +146,7 @@ string	citation	standard_citation	citation_id
 @doi:10.15363/thinklab.d182	doi:10.15363/thinklab.d182	doi:10.15363/thinklab.d182	5t7pfaPv
 @doi:10.15363/thinklab.d185	doi:10.15363/thinklab.d185	doi:10.15363/thinklab.d185	K463O8CE
 @doi:10.15363/thinklab.d186	doi:10.15363/thinklab.d186	doi:10.15363/thinklab.d186	896kQYbf
+@doi:10.15363/thinklab.d187	doi:10.15363/thinklab.d187	doi:10.15363/thinklab.d187	xWWaK51z
 @doi:10.15363/thinklab.d193	doi:10.15363/thinklab.d193	doi:10.15363/thinklab.d193	17mGFvxXu
 @doi:10.15363/thinklab.d194	doi:10.15363/thinklab.d194	doi:10.15363/thinklab.d194	UlYsCFw5
 @doi:10.15363/thinklab.d200	doi:10.15363/thinklab.d200	doi:10.15363/thinklab.d200	KUVxzxrS
@@ -217,6 +226,7 @@ string	citation	standard_citation	citation_id
 @doi:10.5281/zenodo.48810	doi:10.5281/zenodo.48810	doi:10.5281/zenodo.48810	HDkm1eac
 @doi:10.5281/zenodo.61571	doi:10.5281/zenodo.61571	doi:10.5281/zenodo.61571	1GJM7558r
 @doi:10.5334/jors.ay	doi:10.5334/jors.ay	doi:10.5334/jors.ay	fL5DrqXg
+@doi:10.5808/GI.2017.15.1.19	doi:10.5808/GI.2017.15.1.19	doi:10.5808/gi.2017.15.1.19	LkO4BC2X
 @doi:10.6084/m9.figshare.1418386	doi:10.6084/m9.figshare.1418386	doi:10.6084/m9.figshare.1418386	RksWV6V0
 @doi:10.6084/m9.figshare.3085426.v1	doi:10.6084/m9.figshare.3085426.v1	doi:10.6084/m9.figshare.3085426.v1	fo7BhiM
 @doi:10.6084/m9.figshare.3085837.v1	doi:10.6084/m9.figshare.3085837.v1	doi:10.6084/m9.figshare.3085837.v1	DoFEugtF
@@ -225,3 +235,4 @@ string	citation	standard_citation	citation_id
 @doi:10.7717/peerj-cs.46	doi:10.7717/peerj-cs.46	doi:10.7717/peerj-cs.46	1GXwDMvjL
 @doi:10.7717/peerj.1054	doi:10.7717/peerj.1054	doi:10.7717/peerj.1054	6QECA6Hm
 @doi:10.7717/peerj.175	doi:10.7717/peerj.175	doi:10.7717/peerj.175	g8J7Zkoz
+@doi:10.9790/3021-03822527	doi:10.9790/3021-03822527	doi:10.9790/3021-03822527	4NONxFr3
