@@ -1,5 +1,5 @@
 {
-  "date": "August 31, 2017",
+  "date": "September  1, 2017",
   "authors": [
     {
       "github": "dhimmel",
@@ -61,7 +61,7 @@
   ],
   "ci_source": {
     "repo_slug": "dhimmel/rephetio-manuscript",
-    "commit": "d869e42be1d6d94ba78e964a988ccf92a7229370"
+    "commit": "251ff606a52caa6f2abd59ed3fb22d48e2252b00"
   },
   "manuscript_stats": {
     "reference_counts": {
