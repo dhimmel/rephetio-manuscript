@@ -31,7 +31,7 @@ The project is also available on Thinklab at <https://doi.org/bszr>._
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@d1ff11f](https://github.com/dhimmel/rephetio-manuscript/tree/d1ff11f78928d84ada3c2531c7c225286bdae5a7)
+from [dhimmel/rephetio-manuscript@17c87c9](https://github.com/dhimmel/rephetio-manuscript/tree/17c87c919070b4501655aaaaef408f25d2454b5a)
 on September  1, 2017.
 </em></small>
 
@@ -581,28 +581,28 @@ We extracted nodes from standard terminologies, which provide curated vocabulari
 The ease of mapping external vocabularies, adoption, and comprehensiveness were primary selection criteria.
 Hetionet v1.0 includes nodes from 5 ontologies — which provide hierarchy of entities for a specific domain — selected for their conformity to current best practices [@XEspNtr2].
 
-We selected 137 terms from the [Disease Ontology](http://disease-ontology.org/) (RRID:SCR_000476) [@1GnETgp1H; @f99q1xsw] (which we refer to as DO Slim [@203l6hC3; @rV9FuvXN]) as our **disease** set.
+We selected 137 terms from the [Disease Ontology](http://disease-ontology.org/) [@1GnETgp1H; @f99q1xsw] (which we refer to as DO Slim [@203l6hC3; @rV9FuvXN]) as our **disease** set.
 Our goal was to identify complex diseases that are distinct and specific enough to be clinically relevant yet general enough to be well annotated.
 To this end, we included diseases that have been studied by GWAS and cancer types from `TopNodes_DOcancerslim` [@bkUx1GRz].
 We ensured that no DO Slim disease was a subtype of another DO Slim disease.
-**Symptoms** were extracted from [MeSH](http://www.ncbi.nlm.nih.gov/mesh) (RRID:SCR_004750) by taking the 438 descendants of _Signs and Symptoms_ [@L2B5V7XC; @nO29zy5i].
+**Symptoms** were extracted from [MeSH](http://www.ncbi.nlm.nih.gov/mesh) by taking the 438 descendants of _Signs and Symptoms_ [@L2B5V7XC; @nO29zy5i].
 
-Approved small molecule **compounds** with documented chemical structures were extracted from [DrugBank](http://www.drugbank.ca/) (RRID:SCR_002700) version 4.2 [@6PR8LEXK; @LA0msc0M; @AoxkilGE].
+Approved small molecule **compounds** with documented chemical structures were extracted from [DrugBank](http://www.drugbank.ca/) version 4.2 [@6PR8LEXK; @LA0msc0M; @AoxkilGE].
 Unapproved compounds were excluded because our focus was repurposing.
 In addition, unapproved compounds tend to be less studied than approved compounds making them less attractive for our approach where robust network connectivity is critical.
 Finally, restricting to small molecules with known documented structures enabled us to map between compound vocabularies (see [Mappings](#mappings)).
 
-**Side effects** were extracted from [SIDER](http://sideeffects.embl.de/) (RRID:SCR_004321) version 4.1 [@1DRwksl3r; @dJiw2mmn; @bqoSmLv6].
-SIDER codes side effects using [UMLS](https://www.nlm.nih.gov/research/umls/) (RRID:SCR_006363) identifiers [@iNDjLbkQ], which we also adopted.
+**Side effects** were extracted from [SIDER](http://sideeffects.embl.de/) version 4.1 [@1DRwksl3r; @dJiw2mmn; @bqoSmLv6].
+SIDER codes side effects using [UMLS](https://www.nlm.nih.gov/research/umls/) identifiers [@iNDjLbkQ], which we also adopted.
 **Pharmacologic Classes** were extracted from the DrugCentral [data repository](https://github.com/olegursu/drugtarget "DrugCentral data: olegursu/drugtarget on GitHub") [@5Bk8rV02; @896kQYbf].
 Only pharmacologic classes corresponding to the "Chemical/Ingredient", "Mechanism of Action", and "Physiologic Effect" [FDA class types](https://purl.access.gpo.gov/GPO/LPS118712) were included to avoid pharmacologic classes that were synonymous with indications [@896kQYbf].
 
-Protein-coding human **genes** were extracted from [Entrez Gene](http://www.ncbi.nlm.nih.gov/gene) (RRID:SCR_002473) [@u7vVtngU; @jFjpgUmP; @CeE6BNL6].
-Anatomical structures, which we refer to as **anatomies**, were extracted from [Uberon](http://uberon.org) (RRID:SCR_010668) [@TOC8jpgh].
+Protein-coding human **genes** were extracted from [Entrez Gene](http://www.ncbi.nlm.nih.gov/gene) [@u7vVtngU; @jFjpgUmP; @CeE6BNL6].
+Anatomical structures, which we refer to as **anatomies**, were extracted from [Uberon](http://uberon.org) [@TOC8jpgh].
 We selected a subset of 402 Uberon terms by excluding terms known not to exist in humans and terms that were overly broad or arcane [@o4Fn3BdF; @1CvIurqPN].
 
-**Pathways** were extracted by combining human pathways from [WikiPathways](http://www.wikipathways.org/) (RRID:SCR_002134) [@13dXhDrjJ; @1HPlX2VWO], [Reactome](http://www.reactome.org/) (RRID:SCR_003485) [@VRAAqTPx], and the [Pathway Interaction Database](http://pid.nci.nih.gov/) (RRID:SCR_006866) [@hza2g9jG].
-The latter two resources were retrieved from [Pathway Commons](http://www.pathwaycommons.org/pc2/) (RRID:SCR_002103) [@gHOGRSfH], which compiles pathways from several providers.
+**Pathways** were extracted by combining human pathways from [WikiPathways](http://www.wikipathways.org/) [@13dXhDrjJ; @1HPlX2VWO], [Reactome](http://www.reactome.org/) [@VRAAqTPx], and the [Pathway Interaction Database](http://pid.nci.nih.gov/) [@hza2g9jG].
+The latter two resources were retrieved from [Pathway Commons](http://www.pathwaycommons.org/pc2/) [@gHOGRSfH], which compiles pathways from several providers.
 Duplicate pathways and pathways without multiple participating genes were removed [@15IhnC8cF; @HDkm1eac].
 **Biological processes**, **cellular components**, and **molecular functions** were extracted from the [Gene Ontology](http://geneontology.org/) [@pqVRhFos].
 Only terms with 2–1000 annotated genes were included.
@@ -622,11 +622,11 @@ UniChem's [@14OnuhY6K] Connectivity Search [@N3GeOrai] was used to map compounds
 
 ### Edges
 
-_Anatomy–downregulates–Gene_ and _Anatomy–upregulates–Gene_ edges [@ZQHbR2c0; @5qw2oair; @CMnMXmRF] were extracted from  [Bgee](http://bgee.org/) (RRID:SCR_002028) [@1G9we1aD8], which computes differentially expressed genes by anatomy in post-juvenile adult humans.
+_Anatomy–downregulates–Gene_ and _Anatomy–upregulates–Gene_ edges [@ZQHbR2c0; @5qw2oair; @CMnMXmRF] were extracted from  [Bgee](http://bgee.org/) [@1G9we1aD8], which computes differentially expressed genes by anatomy in post-juvenile adult humans.
 _Anatomy–expresses–Gene_ edges were extracted from Bgee and [TISSUES](http://tissues.jensenlab.org/) [@6QECA6Hm; @utu7TxwB; @14Sym5V3B].
 
 _Compound–binds–Gene_ edges were aggregated from [BindingDB](https://bindingdb.org) [@EcldAPLA; @4WZ9VZD7], [DrugBank](http://www.drugbank.ca/) [@RPxoiilN; @6PR8LEXK], and [DrugCentral](http://drugcentral.org/) [@5Bk8rV02].
-Only binding relationships to single proteins with affinities of at least 1 μM (as determined by Kd, Kᵢ, or IC₅₀) were selected from the October 2015 release of BindingDB (RRID:SCR_000390) [@j7cpyM2e; @3tDTWGId].
+Only binding relationships to single proteins with affinities of at least 1 μM (as determined by Kd, Kᵢ, or IC₅₀) were selected from the October 2015 release of BindingDB [@j7cpyM2e; @3tDTWGId].
 Target, carrier, transporter, and enzyme interactions with single proteins (i.e. excluding protein groups) were extracted from DrugBank 4.2 [@1HGVhWYte; @AoxkilGE].
 In addition, all mapping DrugCentral target relationships were included [@896kQYbf].
 
@@ -637,18 +637,18 @@ _Pharmacologic Class–includes–Compound_ edges were extracted from DrugCentra
 _Compound–downregulates–Gene_ and _Compound–upregulates–Gene_ relationships were computed from LINCS L1000 as described in [Intermediate resources](#intermediate-resources).
 
 _Disease–associates–Gene_ edges were extracted from the GWAS Catalog [@Iq5Pnl3b], DISEASES [@11kBoB0W8; @unrqUImI], DisGeNET [@6db5dHbM; @RBCqf70A], and DOAF [@AQ7jBhId; @1EmRGtMf5].
-The [GWAS Catalog](https://www.ebi.ac.uk/gwas/) (RRID:SCR_012745) compiles disease–SNP associations from published GWAS [@16cIDAXhG].
+The [GWAS Catalog](https://www.ebi.ac.uk/gwas/) compiles disease–SNP associations from published GWAS [@16cIDAXhG].
 We aggregated overlapping loci associated with each disease and identified the mode reported gene for each high confidence locus [@RyLgv2tZ; @7EDqcRMD].
 [DISEASES](http://diseases.jensenlab.org/Search) integrates evidence of association from text mining, curated catalogs, and experimental data [@5gG8hwv7].
 Associations from DISEASES with integrated scores ≥ 2 were included after removing the contribution of DistiLD.
-[DisGeNET](http://www.disgenet.org) (RRID:SCR_006178) integrates evidence from over 10 sources and reports a single score for each association [@aBPdeZSN; @whECp1TM].
+[DisGeNET](http://www.disgenet.org) integrates evidence from over 10 sources and reports a single score for each association [@aBPdeZSN; @whECp1TM].
 Associations with scores ≥ 0.06 were included.
 DOAF mines Entrez Gene GeneRIFs (textual annotations of gene function) for disease mentions [@gLGJypYg].
 Associations with 3 or more supporting GeneRIFs were included.
 _Disease–downregulates–Gene_ and _Disease–upregulates–Gene_ relationships [@fTatgccc; @164R9SolI] were computed using [STARGEO](http://stargeo.org/) as described in [Intermediate resources](#intermediate-resources).
 
 _Disease–localizes–Anatomy_, _Disease–presents–Symptom_, and _Disease–resembles–Disease_ edges were calculated from MEDLINE co-occurrence [@L2B5V7XC; @ZXg5KPir].
-MEDLINE (RRID:SCR_002185) is a subset of 21 million PubMed articles for which designated human curators have assigned topics.
+MEDLINE is a subset of 21 million PubMed articles for which designated human curators have assigned topics.
 When retrieving articles for a given topic (MeSH term), we activated two non-default search options as specified below: `majr` for selecting only articles where the topic is major and `noexp` for suppressing explosion (returning articles linked to MeSH subterms).
 We identified 4,161,769 articles with two or more disease topics; 696,252 articles with both a disease topic (`majr`) and an anatomy topic (`noexp`) [@xPGUgS3q]; and 363,928 articles with both a disease topic (`majr`) and a symptom topic (`noexp`).
 We used a Fisher's exact test [@TWAPY3zr] to identify pairs of terms that occurred together more than would be expected by chance in their respective corpus.
