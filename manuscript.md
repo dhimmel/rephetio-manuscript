@@ -31,7 +31,7 @@ The project is also available on Thinklab at <https://doi.org/bszr>._
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@e9ef8e5](https://github.com/dhimmel/rephetio-manuscript/tree/e9ef8e5b35b80dda70657cf72303189cc867bec3)
+from [dhimmel/rephetio-manuscript@d1ff11f](https://github.com/dhimmel/rephetio-manuscript/tree/d1ff11f78928d84ada3c2531c7c225286bdae5a7)
 on September  1, 2017.
 </em></small>
 
@@ -627,8 +627,7 @@ _Anatomy–expresses–Gene_ edges were extracted from Bgee and [TISSUES](http:/
 
 _Compound–binds–Gene_ edges were aggregated from [BindingDB](https://bindingdb.org) [@EcldAPLA; @4WZ9VZD7], [DrugBank](http://www.drugbank.ca/) [@RPxoiilN; @6PR8LEXK], and [DrugCentral](http://drugcentral.org/) [@5Bk8rV02].
 Only binding relationships to single proteins with affinities of at least 1 μM (as determined by Kd, Kᵢ, or IC₅₀) were selected from the October 2015 release of BindingDB (RRID:SCR_000390) [@j7cpyM2e; @3tDTWGId].
-Target, carrier, transporter, and enzyme interactions with single proteins (i.e.
-excluding protein groups) were extracted from DrugBank 4.2 [@1HGVhWYte; @AoxkilGE].
+Target, carrier, transporter, and enzyme interactions with single proteins (i.e. excluding protein groups) were extracted from DrugBank 4.2 [@1HGVhWYte; @AoxkilGE].
 In addition, all mapping DrugCentral target relationships were included [@896kQYbf].
 
 _Compound–treats–Disease_ (disease-modifying indications) and _Compound–palliates–Disease_ (symptomatic indications) edges are from PharmacotherapyDB as described in [Intermediate resources](#intermediate-resources).
