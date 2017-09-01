@@ -76,5 +76,42 @@
   "container-title": "Lecture Notes in Computer Science",
   "URL": "https://doi.org/10.1007/978-3-540-69828-9_12",
   "short_url": "https://doi.org/b6wnrr"
+},
+{
+  "standard_citation": "doi:10.1016/s1059-1311(03)00082-7",
+  "type": "article-journal",
+  "title": "The effect of antiepileptic drugs on visual performance",
+  "volume": "13",
+  "issue": "2",
+  "page": "113-128",
+  "author": [
+    {
+      "given": "Emma J",
+      "family": "Roff Hilton"
+    },
+    {
+      "given": "Sarah L",
+      "family": "Hosking"
+    },
+    {
+      "given": "Tim",
+      "family": "Betts"
+    }
+  ],
+  "container-title": "Seizure",
+  "container-title-short": "Seizure",
+  "publisher": "Elsevier BV",
+  "issued": {
+    "date-parts": [
+      [
+        2003,
+        5,
+        30
+      ]
+    ]
+  },
+  "DOI": "10.1016/s1059-1311(03)00082-7",
+  "URL": "https://doi.org/10.1016/s1059-1311(03)00082-7",
+  "short_url": "https://doi.org/bjkshw"
 }
 ]
