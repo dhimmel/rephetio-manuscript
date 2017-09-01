@@ -3797,153 +3797,39 @@
     "id": "17jtKw4YY"
   },
   {
-    "indexed": {
-      "date-parts": [
-        [
-          2017,
-          8,
-          8
-        ]
-      ],
-      "date-time": "2017-08-08T18:51:45Z",
-      "timestamp": 1502218305825
-    },
-    "reference-count": 161,
-    "publisher": "Elsevier BV",
+    "type": "article-journal",
+    "title": "The effect of antiepileptic drugs on visual performance",
+    "volume": "13",
     "issue": "2",
-    "license": [
+    "page": "113-128",
+    "author": [
       {
-        "URL": "http://www.elsevier.com/tdm/userlicense/1.0/",
-        "start": {
-          "date-parts": [
-            [
-              2004,
-              3,
-              1
-            ]
-          ],
-          "date-time": "2004-03-01T00:00:00Z",
-          "timestamp": 1078099200000
-        },
-        "delay-in-days": 0,
-        "content-version": "tdm"
+        "given": "Emma J",
+        "family": "Roff Hilton"
       },
       {
-        "URL": "http://www.elsevier.com/open-access/userlicense/1.0/",
-        "start": {
-          "date-parts": [
-            [
-              2013,
-              8,
-              22
-            ]
-          ],
-          "date-time": "2013-08-22T00:00:00Z",
-          "timestamp": 1377129600000
-        },
-        "delay-in-days": 3461,
-        "content-version": "vor"
+        "given": "Sarah L",
+        "family": "Hosking"
+      },
+      {
+        "given": "Tim",
+        "family": "Betts"
       }
     ],
-    "content-domain": {
-      "domain": [],
-      "crossmark-restriction": false
-    },
-    "published-print": {
+    "container-title": "Seizure",
+    "container-title-short": "Seizure",
+    "publisher": "Elsevier BV",
+    "issued": {
       "date-parts": [
         [
-          2004,
-          3
+          2003,
+          5,
+          30
         ]
       ]
     },
     "DOI": "10.1016/s1059-1311(03)00082-7",
-    "type": "article-journal",
-    "created": {
-      "date-parts": [
-        [
-          2003,
-          6,
-          3
-        ]
-      ],
-      "date-time": "2003-06-03T00:25:55Z",
-      "timestamp": 1054599955000
-    },
-    "page": "113-128",
-    "source": "Crossref",
-    "is-referenced-by-count": 36,
-    "title": "The effect of antiepileptic drugs on visual performance",
-    "prefix": "10.1016",
-    "volume": "13",
-    "author": [
-      {
-        "given": "EMMA J",
-        "family": "ROFF HILTON",
-        "affiliation": []
-      },
-      {
-        "given": "SARAH L",
-        "family": "HOSKING",
-        "affiliation": []
-      },
-      {
-        "given": "TIM",
-        "family": "BETTS",
-        "affiliation": []
-      }
-    ],
-    "member": "78",
-    "container-title": "Seizure",
-    "original-title": [],
-    "link": [
-      {
-        "URL": "http://api.elsevier.com/content/article/PII:S1059131103000827?httpAccept=text/xml",
-        "content-type": "text/xml",
-        "content-version": "vor",
-        "intended-application": "text-mining"
-      },
-      {
-        "URL": "http://api.elsevier.com/content/article/PII:S1059131103000827?httpAccept=text/plain",
-        "content-type": "text/plain",
-        "content-version": "vor",
-        "intended-application": "text-mining"
-      }
-    ],
-    "deposited": {
-      "date-parts": [
-        [
-          2017,
-          6,
-          15
-        ]
-      ],
-      "date-time": "2017-06-15T21:47:06Z",
-      "timestamp": 1497563226000
-    },
-    "score": 1.0,
-    "subtitle": [],
-    "short-title": [],
-    "issued": {
-      "date-parts": [
-        [
-          2004,
-          3
-        ]
-      ]
-    },
-    "references-count": 161,
-    "alternative-id": [
-      "S1059131103000827"
-    ],
     "URL": "https://doi.org/10.1016/s1059-1311(03)00082-7",
-    "relation": {},
-    "subject": [
-      "Neurology",
-      "Clinical Neurology",
-      "General Medicine"
-    ],
-    "container-title-short": "Seizure",
     "short_url": "https://doi.org/bjkshw",
     "id": "Pp1J37KJ"
   },
