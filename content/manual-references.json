@@ -1,22 +1,80 @@
 [
- {
-  "URL": "https://github.com/greenelab/manubot-rootstock",
-  "title": "greenelab/manubot-rootstock GitHub repository",
-  "container-title": "GitHub",
+{
+  "publisher": "SAGE Publications, Inc.",
+  "DOI": "10.4135/9781483349985.n37",
+  "type": "entry-encyclopedia",
+  "author": [
+    {
+     "family": "Knaus",
+     "given": "Karen"
+    }
+  ],
+  "editor": [
+    {
+      "family": "Boslaugh",
+      "given": "Sarah E"
+    }
+  ],
+  "ISBN": "9781483350004",
   "issued": {
     "date-parts": [
       [
-        2017
+        2016,
+        3,
+        29
       ]
     ]
   },
+  "title": "Anatomical Therapeutic Chemical Classification System (WHO)",
+  "container-title": "The SAGE Encyclopedia of Pharmacology and Society",
+  "URL": "https://doi.org/10.4135/9781483349985.n37",
+  "short_url": "https://doi.org/gbr42m",
+  "standard_citation": "doi:10.4135/9781483349985.n37"
+},
+{
+  "standard_citation": "doi:10.1007/978-3-540-69828-9_12",
+  "publisher-location": "Berlin, Heidelberg",
+  "publisher": "Springer Berlin Heidelberg",
+  "DOI": "10.1007/978-3-540-69828-9_12",
+  "type": "chapter",
+  "issued": {
+    "date-parts": [
+      [
+        2008,
+        6
+      ]
+    ]
+  },
+  "page": "124-131",
+  "title": "Bgee: Integrating and Comparing Heterogeneous Transcriptome Data Among Species",
   "author": [
     {
-     "family": "Himmelstein",
-     "given": "Daniel"
+      "given": "Frederic",
+      "family": "Bastian"
+    },
+    {
+      "given": "Gilles",
+      "family": "Parmentier"
+    },
+    {
+      "given": "Julien",
+      "family": "Roux"
+    },
+    {
+      "given": "Sebastien",
+      "family": "Moretti"
+    },
+    {
+      "given": "Vincent",
+      "family": "Laudet"
+    },
+    {
+      "given": "Marc",
+      "family": "Robinson-Rechavi"
     }
   ],
-  "type": "webpage",
-  "standard_citation": "url:https://github.com/greenelab/manubot-rootstock"
- }
+  "container-title": "Lecture Notes in Computer Science",
+  "URL": "https://doi.org/10.1007/978-3-540-69828-9_12",
+  "short_url": "https://doi.org/b6wnrr"
+}
 ]
