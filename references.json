@@ -13754,6 +13754,162 @@
       "date-parts": [
         [
           2017,
+          9,
+          1
+        ]
+      ],
+      "date-time": "2017-09-01T05:40:06Z",
+      "timestamp": 1504244406226
+    },
+    "posted": {
+      "date-parts": [
+        [
+          2016,
+          11,
+          14
+        ]
+      ]
+    },
+    "group-title": "Bioinformatics",
+    "reference-count": 0,
+    "publisher": "Cold Spring Harbor Laboratory",
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "accepted": {
+      "date-parts": [
+        [
+          2017,
+          8,
+          31
+        ]
+      ]
+    },
+    "abstract": "<jats:p>The ability to computationally predict whether a compound treats a disease would improve the economy and success rate of drug approval. This study describes Project Rephetio to systematically model drug efficacy based on 755 existing treatments. First, we constructed Hetionet (https://neo4j.het.io), an integrative network encoding knowledge from millions of biomedical studies. Hetionet v1.0 consists of 47,031 nodes of 11 types and 2,250,197 relationships of 24 types. Data was integrated from 29 public resources to connect compounds, diseases, genes, anatomies, pathways, biological processes, molecular functions, cellular components, pharmacologic classes, side effects, and symptoms. Next, we identified network patterns that distinguish treatments from non-treatments. Then we predicted the probability of treatment for 209,168 compound–disease pairs (http://het.io/repurpose). Our predictions validated on two external sets of treatment and provided pharmacological insights on epilepsy, suggesting they will help prioritize drug repurposing candidates. This study was entirely open and received realtime feedback from 40 community members.</jats:p>",
+    "DOI": "10.1101/087619",
+    "type": "manuscript",
+    "created": {
+      "date-parts": [
+        [
+          2016,
+          11,
+          15
+        ]
+      ],
+      "date-time": "2016-11-15T23:53:21Z",
+      "timestamp": 1479254001000
+    },
+    "source": "Crossref",
+    "is-referenced-by-count": 0,
+    "title": "Systematic integration of biomedical knowledge prioritizes drugs for repurposing",
+    "prefix": "10.1101",
+    "author": [
+      {
+        "ORCID": "http://orcid.org/0000-0002-3012-7446",
+        "authenticated-orcid": false,
+        "given": "Daniel S.",
+        "family": "Himmelstein",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http://orcid.org/0000-0002-1073-3190",
+        "authenticated-orcid": false,
+        "given": "Antoine",
+        "family": "Lizee",
+        "affiliation": []
+      },
+      {
+        "given": "Christine",
+        "family": "Hessler",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http://orcid.org/0000-0002-3586-3442",
+        "authenticated-orcid": false,
+        "given": "Leo",
+        "family": "Brueggeman",
+        "affiliation": []
+      },
+      {
+        "given": "Sabrina L.",
+        "family": "Chen",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http://orcid.org/0000-0003-0990-4674",
+        "authenticated-orcid": false,
+        "given": "Dexter",
+        "family": "Hadley",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http://orcid.org/0000-0001-9275-3066",
+        "authenticated-orcid": false,
+        "given": "Ari",
+        "family": "Green",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http://orcid.org/0000-0001-8075-4176",
+        "authenticated-orcid": false,
+        "given": "Pouya",
+        "family": "Khankhanian",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http://orcid.org/0000-0003-0067-194X",
+        "authenticated-orcid": false,
+        "given": "Sergio E.",
+        "family": "Baranzini",
+        "affiliation": []
+      }
+    ],
+    "member": "246",
+    "container-title": [],
+    "original-title": [],
+    "link": [
+      {
+        "URL": "https://syndication.highwire.org/content/doi/10.1101/087619",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2017,
+          9,
+          1
+        ]
+      ],
+      "date-time": "2017-09-01T05:10:23Z",
+      "timestamp": 1504242623000
+    },
+    "score": 1.0,
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2016,
+          11,
+          14
+        ]
+      ]
+    },
+    "references-count": 0,
+    "URL": "https://doi.org/10.1101/087619",
+    "relation": {},
+    "short_url": "https://doi.org/bs4f",
+    "id": "11rVTcUCK"
+  },
+  {
+    "indexed": {
+      "date-parts": [
+        [
+          2017,
           8,
           23
         ]
@@ -18231,6 +18387,129 @@
     "relation": {},
     "short_url": "https://doi.org/bd9g",
     "id": "lMaNoR9y"
+  },
+  {
+    "indexed": {
+      "date-parts": [
+        [
+          2017,
+          8,
+          10
+        ]
+      ],
+      "date-time": "2017-08-10T03:18:35Z",
+      "timestamp": 1502335115939
+    },
+    "reference-count": 0,
+    "publisher": "ThinkLab",
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "DOI": "10.15363/thinklab.a7",
+    "type": "report",
+    "created": {
+      "date-parts": [
+        [
+          2016,
+          11,
+          14
+        ]
+      ],
+      "date-time": "2016-11-14T04:57:22Z",
+      "timestamp": 1479099442000
+    },
+    "source": "Crossref",
+    "is-referenced-by-count": 0,
+    "title": "Rephetio: Repurposing drugs on a hetnet [report]",
+    "prefix": "10.15363",
+    "author": [
+      {
+        "given": "Daniel",
+        "family": "Himmelstein",
+        "affiliation": []
+      },
+      {
+        "given": "Antoine",
+        "family": "Lizee",
+        "affiliation": []
+      },
+      {
+        "given": "Chrissy",
+        "family": "Hessler",
+        "affiliation": []
+      },
+      {
+        "given": "Leo",
+        "family": "Brueggeman",
+        "affiliation": []
+      },
+      {
+        "given": "Sabrina",
+        "family": "Chen",
+        "affiliation": []
+      },
+      {
+        "given": "Dexter",
+        "family": "Hadley",
+        "affiliation": []
+      },
+      {
+        "given": "Ari",
+        "family": "Green",
+        "affiliation": []
+      },
+      {
+        "given": "Pouya",
+        "family": "Khankhanian",
+        "affiliation": []
+      },
+      {
+        "given": "Sergio",
+        "family": "Baranzini",
+        "affiliation": []
+      }
+    ],
+    "member": "6260",
+    "published-online": {
+      "date-parts": [
+        [
+          2016,
+          11,
+          13
+        ]
+      ]
+    },
+    "container-title": [],
+    "original-title": [],
+    "deposited": {
+      "date-parts": [
+        [
+          2017,
+          7,
+          16
+        ]
+      ],
+      "date-time": "2017-07-16T03:32:26Z",
+      "timestamp": 1500175946000
+    },
+    "score": 1.0,
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2016,
+          11,
+          13
+        ]
+      ]
+    },
+    "references-count": 0,
+    "URL": "https://doi.org/10.15363/thinklab.a7",
+    "relation": {},
+    "short_url": "https://doi.org/bszr",
+    "id": "vwZsseRS"
   },
   {
     "indexed": {

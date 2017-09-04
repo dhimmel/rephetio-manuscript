@@ -9,7 +9,7 @@ author-meta:
 - Ari Green
 - "Pouya\_Khankhanian"
 - "Sergio\_E.\_Baranzini"
-date-meta: '2017-09-01'
+date-meta: '2017-09-04'
 keywords:
 - Rephetio
 - Hetionet
@@ -23,16 +23,12 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 ...
 
 
-
-_A DOI-citable version of this manuscript is available at <https://doi.org/10.1101/087619>.
-The project is also available on Thinklab at <https://doi.org/bszr>._
-
  
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@17c87c9](https://github.com/dhimmel/rephetio-manuscript/tree/17c87c919070b4501655aaaaef408f25d2454b5a)
-on September  1, 2017.
+from [dhimmel/rephetio-manuscript@355decc](https://github.com/dhimmel/rephetio-manuscript/tree/355decc39d69ee2ea8a9b46d42653d1f14079f86)
+on September  4, 2017.
 </em></small>
 
 ## Authors
@@ -292,7 +288,7 @@ At length 3, all 66 pairs are connected.
 At length 4, the source–target pair with the fewest types of connectivity (Side Effect to Symptom) has 13 metapaths, while the pair with the most connectivity types (Gene to Gene) has 3,542 pairs.
 This high level of connectivity across a diversity of biomedical entities forms the foundation for automated translation of knowledge into biomedical insight.
 
-Hetionet v1.0 is accessible via a Neo4j Browser at https://neo4j.het.io.
+Hetionet v1.0 is accessible via a Neo4j Browser at <https://neo4j.het.io>.
 This public Neo4j instance provides users an installation-free method to query and visualize the network.
 The Browser contains a tutorial guide as well as guides with the details of each Project Rephetio prediction.
 Hetionet v1.0 is also [available for download](https://github.com/dhimmel/hetionet "Hetionet on GitHub") in JSON, Neo4j, and TSV formats [@kVUF2wf3].
@@ -885,7 +881,7 @@ As an aside, several additional indication catalogs have recently been published
 
 ### Realtime open science & Thinklab
 
-We conducted our study using Thinklab — a platform for realtime open collaborative science — on which this study was the first project.
+We conducted our study using Thinklab — a platform for realtime open collaborative science — on which this study was the first project [@G26bEIcn].
 We began the study by publicly proposing the idea and inviting discussion [@lMaNoR9y].
 We continued by chronicling our progress via discussions.
 We used Thinklab as the frontend to coordinate and report our analyses and GitHub as the backend to host our code, data, and notebooks.
@@ -907,7 +903,14 @@ The square root transformation of characters written per user accentuates the ac
 ](https://github.com/dhimmel/thinklytics/raw/d2f6e815452e140058396dccc4e35fca72306285/viz/rephetio-contribution.png){#fig:contribution}
 
 Thinklab began winding down operations in July 2017 and has switched to a static state.
-While users will no longer be able to add comments, the corpus of content remains browsable at https://think-lab.github.io and available in machine-readable formats at https://github.com/dhimmel/thinklytics.
+While users will no longer be able to add comments, the corpus of content remains browsable at <https://think-lab.github.io> and available in machine-readable formats at [`dhimmel/thinklytics`](https://github.com/dhimmel/thinklytics).
+
+The preprint for this study is available at [doi.org/bs4f](https://doi.org/bs4f) [@11rVTcUCK].
+The manuscript was written in markdown, originally on Thinklab at [doi.org/bszr](https://doi.org/bszr) [@vwZsseRS].
+In August 2017, we switched to using the Manubot system to generate the manuscript.
+With Manubot, a GitHub repository ([`dhimmel/rephetio-manuscript`](https://github.com/dhimmel/rephetio-manuscript/)) tracks the manuscript's source code, while continuous integration automatically rebuilds the manuscript upon changes.
+As a result, the latest version of the manuscript is always available at [dhimmel.github.io/rephetio-manuscript](https://dhimmel.github.io/rephetio-manuscript/).
+Additionally, readers can leave feedback or questions for the Project Rephetio team via [GitHub Issues](https://github.com/dhimmel/rephetio-manuscript/issues).
 
 ## Acknowledgements
 
