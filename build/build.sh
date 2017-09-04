@@ -14,7 +14,7 @@ manubot \
   --log-level=INFO
 
 # pandoc settings
-CSL_PATH=build/assets/style.csl
+CSL_PATH=https://github.com/dhimmel/manubot-rootstock/raw/5f01555cd81f67591de271bfb564487c65ca3313/build/assets/style.csl
 DOCX_PATH=build/assets/pandoc-reference.docx
 BIBLIOGRAPHY_PATH=output/references.json
 INPUT_PATH=output/manuscript.md
