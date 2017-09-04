@@ -23,11 +23,11 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 ...
 
 
- 
+
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@6e5bd32](https://github.com/dhimmel/rephetio-manuscript/tree/6e5bd32affca4bdcc12ab46426d7cb92768ad3a3)
+from [dhimmel/rephetio-manuscript@d8a0958](https://github.com/dhimmel/rephetio-manuscript/tree/d8a0958fc684b79bcd1f61ab0ca4de3f8370f469)
 on September  4, 2017.
 </em></small>
 
@@ -924,4 +924,4 @@ This material is based upon work supported by the National Science Foundation Gr
 SEB is supported by the Heidrich Family and Friends Foundation.
 
 
-# References {.page_break_before}
+## References {.page_break_before}
