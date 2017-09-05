@@ -9,7 +9,7 @@ author-meta:
 - Ari Green
 - "Pouya\_Khankhanian"
 - "Sergio\_E.\_Baranzini"
-date-meta: '2017-09-04'
+date-meta: '2017-09-05'
 keywords:
 - Rephetio
 - Hetionet
@@ -27,8 +27,8 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@d8a0958](https://github.com/dhimmel/rephetio-manuscript/tree/d8a0958fc684b79bcd1f61ab0ca4de3f8370f469)
-on September  4, 2017.
+from [dhimmel/rephetio-manuscript@b5953b1](https://github.com/dhimmel/rephetio-manuscript/tree/b5953b1067f01f84f7b484a42823038f7d51edb0)
+on September  5, 2017.
 </em></small>
 
 ## Authors
@@ -920,8 +920,10 @@ Additionally, the founder of Thinklab, Jesse Spaulding, supported community cont
 We also appreciate DigitalOcean's sponsorship the Hetionet Browser to cover its hosting costs.
 Finally, we would like to thank Neo Technology, whose staff provided excellent technical support.
 
-This material is based upon work supported by the National Science Foundation Graduate Research Fellowship under Grant No. 1144247 to DSH.
+This material is based upon work supported by the National Science Foundation Graduate Research Fellowship under Grant Number 1144247 to DSH.
 SEB is supported by the Heidrich Family and Friends Foundation.
+DH is supported by the the National Cancer Institute of the National Institutes of Health under Award Number UH2CA203792 and the National Library of Medicine under Award Number 1U01LM012675.
+The content is solely the responsibility of the authors and does not necessarily represent the official views of the NIH.
 
 
 ## References {.page_break_before}
