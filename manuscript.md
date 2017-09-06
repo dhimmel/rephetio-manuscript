@@ -9,7 +9,7 @@ author-meta:
 - Ari Green
 - "Pouya\_Khankhanian"
 - "Sergio\_E.\_Baranzini"
-date-meta: '2017-09-05'
+date-meta: '2017-09-06'
 keywords:
 - Rephetio
 - Hetionet
@@ -27,8 +27,8 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@b5953b1](https://github.com/dhimmel/rephetio-manuscript/tree/b5953b1067f01f84f7b484a42823038f7d51edb0)
-on September  5, 2017.
+from [dhimmel/rephetio-manuscript@735128a](https://github.com/dhimmel/rephetio-manuscript/tree/735128a615ec804c31cca4046f66601ef2ea24d3)
+on September  6, 2017.
 </em></small>
 
 ## Authors
@@ -927,3 +927,6 @@ The content is solely the responsibility of the authors and does not necessarily
 
 
 ## References {.page_break_before}
+
+<!-- Explicitly insert bibliography here -->
+<div id="refs"></div>
