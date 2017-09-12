@@ -9,7 +9,7 @@ author-meta:
 - Ari Green
 - "Pouya\_Khankhanian"
 - "Sergio\_E.\_Baranzini"
-date-meta: '2017-09-06'
+date-meta: '2017-09-12'
 keywords:
 - Rephetio
 - Hetionet
@@ -27,8 +27,8 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@735128a](https://github.com/dhimmel/rephetio-manuscript/tree/735128a615ec804c31cca4046f66601ef2ea24d3)
-on September  6, 2017.
+from [dhimmel/rephetio-manuscript@1253a52](https://github.com/dhimmel/rephetio-manuscript/tree/1253a528bdaca483154cd219136181e1de563eb6)
+on September 12, 2017.
 </em></small>
 
 ## Authors
@@ -598,7 +598,7 @@ Anatomical structures, which we refer to as **anatomies**, were extracted from [
 We selected a subset of 402 Uberon terms by excluding terms known not to exist in humans and terms that were overly broad or arcane [@o4Fn3BdF; @1CvIurqPN].
 
 **Pathways** were extracted by combining human pathways from [WikiPathways](http://www.wikipathways.org/) [@13dXhDrjJ; @1HPlX2VWO], [Reactome](http://www.reactome.org/) [@VRAAqTPx], and the [Pathway Interaction Database](http://pid.nci.nih.gov/) [@hza2g9jG].
-The latter two resources were retrieved from [Pathway Commons](http://www.pathwaycommons.org/pc2/) [@gHOGRSfH], which compiles pathways from several providers.
+The latter two resources were retrieved from [Pathway Commons](http://www.pathwaycommons.org/pc2/) (RRID:SCR_002103) [@gHOGRSfH], which compiles pathways from several providers.
 Duplicate pathways and pathways without multiple participating genes were removed [@15IhnC8cF; @HDkm1eac].
 **Biological processes**, **cellular components**, and **molecular functions** were extracted from the [Gene Ontology](http://geneontology.org/) [@pqVRhFos].
 Only terms with 2–1000 annotated genes were included.
@@ -676,7 +676,7 @@ These resources are referred to as intermediate resources and described below.
 
 #### Transcriptional signatures of disease using STARGEO
 
-[STARGEO](http://stargeo.org/) is a nascent platform for annotating and meta-analyzing differential gene expression experiments.
+[STARGEO](http://stargeo.org/) is a nascent platform for annotating and meta-analyzing differential gene expression experiments [@rc4BI37X].
 The STAR acronym stands for Search-Tag-Analyze Resources, while GEO refers to the Gene Expression Omnibus [@14VfbatMA; @tGvcfcsl].
 STARGEO is a layer on top of GEO that crowdsources sample annotation and automates meta-analysis.
 
@@ -757,10 +757,53 @@ However, upon releasing a preliminary version of Hetionet [@3RePz9QS], a communi
 In essence, both copyright (rights of exclusivity automatically granted to original works) and terms of use (rules that users must agree to in order to use a resource) place legally-binding restrictions on data reuse.
 In short, public data is not by default open data.
 
-Hetionet v1.0 integrates 29 resources, but two resources were removed prior to the v1.0 release.
+Hetionet v1.0 integrates 29 resources (Table @tbl:resources), but two resources were removed prior to the v1.0 release.
 Of the total [31 resources](https://github.com/dhimmel/integrate/blob/725f4e4b4a737cfb15abe55ef36386c23e1c4f1f/licenses/README.md "Source license table on GitHub") [@4G0GW8oe], five were United States government works not subject to copyright, and twelve had licenses that met the [Open Definition](http://opendefinition.org/od/2.1/en/) of knowledge version 2.1.
 Four resources allowed only non-commercial reuse.
 Most problematic were the remaining nine resources that had no license — which equates to all rights reserved by default and forbids reuse [@137tbemL9] — and one resource that explicitly forbid redistribution.
+
+| Resource | Components | ∈ | License | References |
+| -------- | ---------- | --- | ----- | ---------- |
+| [Entrez Gene](https://www.ncbi.nlm.nih.gov/gene) | G | 1 | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/NCBI.md) | RRID:SCR_002473 [@u7vVtngU; @jFjpgUmP; @CeE6BNL6] |
+| [LabeledIn](https://ftp.ncbi.nlm.nih.gov/pub/lu/LabeledIn/) | CtD, CpD | 1 | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/LabeledIn.txt) | RRID:SCR_015667 [@1HvRcrCfe; @19a21PCCa; @Cb3mhTB5] |
+| [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html) | DlA, DpS, DrD | 1 | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/MEDLINE.md) | RRID:SCR_002185 [@L2B5V7XC; @ZXg5KPir] |
+| [MeSH](https://www.nlm.nih.gov/mesh/) | S | 1 | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/MeSH.md) | RRID:SCR_004750 [@L2B5V7XC; @nO29zy5i] |
+| Pathway Interaction Database | PW, GpPW | 1 |  | RRID:SCR_006866 [@hza2g9jG; @15IhnC8cF; @HDkm1eac] |
+| [Disease Ontology](http://disease-ontology.org/) | D | 2 ✅ | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) | RRID:SCR_000476 [@1GnETgp1H; @f99q1xsw; @203l6hC3; @rV9FuvXN] |
+| [DISEASES](http://diseases.jensenlab.org/Search) | DaG | 2 ✅ | [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/) | RRID:SCR_015664 [@5gG8hwv7; @11kBoB0W8; @unrqUImI] |
+| [DrugCentral](http://drugcentral.org/) | PC, CbG, PCiC | 2 ✅ | [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/) | RRID:SCR_015663 [@5Bk8rV02; @896kQYbf] |
+| [Gene Ontology](http://www.geneontology.org/) | BP, CC, MF, GpBP, GpCC, GpMF | 2 ✅ | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode) | RRID:SCR_002811 [@pqVRhFos; @AIFvkizu; @i148MVII; @1yPa6qxQ] |
+| [GWAS Catalog](https://www.ebi.ac.uk/gwas/) | DaG | 2 ✅ | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/EBI.md) | RRID:SCR_012745 [@16cIDAXhG; @Iq5Pnl3b; @RyLgv2tZ; @7EDqcRMD] |
+| [Reactome](http://reactome.org/) | PW, GpPW | 2 ✅ | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/Reactome.md) | RRID:SCR_003485 [@VRAAqTPx; @gHOGRSfH; @15IhnC8cF; @HDkm1eac] |
+| LINCS L1000 | CdG, CuG, Gr>G | 2 ✅ | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/L1000.md) | [@1GWQXgksp; @fo7BhiM; @mruqBx3u] |
+| [TISSUES](http://tissues.jensenlab.org/Search) | AeG | 2 ✅ | [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/) | RRID:SCR_015665 [@6QECA6Hm; @utu7TxwB; @14Sym5V3B] |
+| [Uberon](http://uberon.github.io/) | A | 2 ✅ | [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/) | RRID:SCR_010668 [@TOC8jpgh; @o4Fn3BdF; @1CvIurqPN] |
+| [WikiPathways](http://www.wikipathways.org/) | PW, GpPW | 2 ✅ | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) / [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/WikiPathways.md) | RRID:SCR_002134 [@13dXhDrjJ; @1HPlX2VWO; @15IhnC8cF; @HDkm1eac] |
+| [BindingDB](https://www.bindingdb.org) | CbG | 2 ✅ | [mixed](https://github.com/dhimmel/integrate/blob/master/licenses/custom/BingindDB.md) CC BY 3.0 & CC BY-SA 3.0 | RRID:SCR_000390 [@EcldAPLA; @4WZ9VZD7; @j7cpyM2e; @3tDTWGId] |
+| [DisGeNET](http://www.disgenet.org/) | DaG | 2 ✅ | [ODbL](http://opendatacommons.org/licenses/odbl/) | RRID:SCR_006178 [@aBPdeZSN; @whECp1TM; @6db5dHbM; @RBCqf70A] |
+| [DrugBank](https://www.drugbank.ca/) | C, CbG, CrC | 2 | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/DrugBank.md) | RRID:SCR_002700 [@6PR8LEXK; @LA0msc0M; @AoxkilGE; @AlI8nuJy] |
+| [MEDI](https://www.vumc.org/cpm/center-precision-medicine-blog/medi-ensemble-medication-indication-resource) | CtD, CpD | 2 | [CC BY-NC-SA 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US) | RRID:SCR_015668 [@meQc13o1; @evXE89NK] |
+| PREDICT | CtD, CpD | 2 | [CC BY-NC-SA 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/) | [@dr9ERRtb; @evXE89NK] |
+| [SIDER](http://sideeffects.embl.de/) | SE, CcSE | 2 | [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/) | RRID:SCR_004321 [@1DRwksl3r; @dJiw2mmn; @bqoSmLv6] |
+| [Bgee](http://bgee.org/) | AeG, AdG, AuG | 4 |  | RRID:SCR_002028 [@1G9we1aD8; @ZQHbR2c0; @5qw2oair; @CMnMXmRF] |
+| [DOAF](http://doa.nubic.northwestern.edu/pages/search.php) | DaG | 4 |  | RRID:SCR_015666 [@gLGJypYg; @AQ7jBhId; @1EmRGtMf5] |
+| ehrlink | CtD, CpD | 4 |  | [@QFWKZ9ms; @uoysFmL] |
+| [Evolutionary Rate Covariation](http://csb.pitt.edu/erc_analysis/Methods.php) | GcG | 4 |  | RRID:SCR_015669 [@p6mbx8kO; @k8MhA90p; @IZHE5ysl] |
+| [hetio-dag](http://het.io/disease-genes/) | GiG | 4 |  | [@WkPlH1ds; @z0vsZcm0; @rTcQZ8h2] |
+| Incomplete Interactome | GiG | 4 |  | [@2jkcXYxN; @gPtjkxTB; @z0vsZcm0; @rTcQZ8h2] |
+| [Human Interactome Database](http://interactome.dfci.harvard.edu/H_sapiens/) | GiG | 4 |  | RRID:SCR_015670 [@lnDqu0oW; @6kBEzeyD; @18f2p3v36; @LCyCrr7W; @z0vsZcm0; @rTcQZ8h2] |
+| [STARGEO](http://stargeo.org/) | DdG, DuG | 4 |  | [@rc4BI37X; @fTatgccc; @164R9SolI] |
+
+Table: **The 29 public data resources integrated to construct Hetionet v1.0.**
+Components notes which types of nodes and edges in Hetionet v1.0 derived from the resource (as per the abbreviations in Tables @tbl:metanodes & @tbl:metaedges).
+∈ notes the general category of license [@4G0GW8oe].
+∈1 refers to United States government works that we deemed not subject to copyright.
+∈2 refers to resources with licenses that allow use, redistribution, and modification (although some restrictions may still exist).
+The subset of ∈2 licenses that we deemed to meet the the [Open Definition](http://opendefinition.org/od/2.1/en/) of knowledge version 2.1 are denoted with ✅.
+∈4 refers to resources without a license, hence all rights reserved.
+References provides [Research Resource Identifiers](https://scicrunch.org/resources) as well as citations to resource publications and related Project Rephetio materials.
+For information on license provenance, institutional affiliations, and funding for each resource, see the [online table](https://github.com/dhimmel/integrate/blob/725f4e4b4a737cfb15abe55ef36386c23e1c4f1f/licenses/README.md).
+{#tbl:resources}
 
 Additional difficulty resulted from license incompatibles across resources, which was caused primarily by non-commercial and share-alike stipulations.
 Furthermore, it was often unclear who owned the data [@13gsIQnzn].

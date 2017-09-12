@@ -8232,6 +8232,73 @@
     "id": "18HUpN1mo"
   },
   {
+    "type": "article-journal",
+    "DOI": "10.1038/sdata.2017.125",
+    "URL": "https://doi.org/10.1038/sdata.2017.125",
+    "title": "Precision annotation of digital samples in NCBI’s Gene Expression Omnibus",
+    "container-title": "Scientific Data",
+    "author": [
+      {
+        "literal": "Dexter Hadley"
+      },
+      {
+        "literal": "James Pan"
+      },
+      {
+        "literal": "Osama El-Sayed"
+      },
+      {
+        "literal": "Jihad Al-Jabban"
+      },
+      {
+        "literal": "Imad Al-Jabban"
+      },
+      {
+        "literal": "Tej Azad"
+      },
+      {
+        "literal": "Mohamed Hadied"
+      },
+      {
+        "literal": "Shuaib Raza"
+      },
+      {
+        "literal": "Benjamin Rayikanti"
+      },
+      {
+        "literal": "Bin Chen"
+      },
+      {
+        "literal": "Hyojung Paik"
+      },
+      {
+        "literal": "Dvir Aran"
+      },
+      {
+        "literal": "Jordan Spatz"
+      },
+      {
+        "literal": "Daniel Himmelstein"
+      },
+      {
+        "literal": "Maryam Panahiazar"
+      },
+      {
+        "literal": "Sanchita Bhattacharya"
+      },
+      {
+        "literal": "Marina Sirota"
+      },
+      {
+        "literal": "Mark Musen"
+      },
+      {
+        "literal": "Atul Butte"
+      }
+    ],
+    "id": "rc4BI37X"
+  },
+  {
     "indexed": {
       "date-parts": [
         [
