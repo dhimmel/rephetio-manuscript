@@ -27,7 +27,7 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@1253a52](https://github.com/dhimmel/rephetio-manuscript/tree/1253a528bdaca483154cd219136181e1de563eb6)
+from [dhimmel/rephetio-manuscript@91922a7](https://github.com/dhimmel/rephetio-manuscript/tree/91922a73109249fb077c8482846975cf9ce1ec6a)
 on September 12, 2017.
 </em></small>
 
@@ -763,7 +763,7 @@ Four resources allowed only non-commercial reuse.
 Most problematic were the remaining nine resources that had no license — which equates to all rights reserved by default and forbids reuse [@137tbemL9] — and one resource that explicitly forbid redistribution.
 
 | Resource | Components | ∈ | License | References |
-| -------- | ---------- | --- | ----- | ---------- |
+| ---------------- | ----------- | ---- | -------- | ------------------------- |
 | [Entrez Gene](https://www.ncbi.nlm.nih.gov/gene) | G | 1 | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/NCBI.md) | RRID:SCR_002473 [@u7vVtngU; @jFjpgUmP; @CeE6BNL6] |
 | [LabeledIn](https://ftp.ncbi.nlm.nih.gov/pub/lu/LabeledIn/) | CtD, CpD | 1 | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/LabeledIn.txt) | RRID:SCR_015667 [@1HvRcrCfe; @19a21PCCa; @Cb3mhTB5] |
 | [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html) | DlA, DpS, DrD | 1 | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/MEDLINE.md) | RRID:SCR_002185 [@L2B5V7XC; @ZXg5KPir] |
