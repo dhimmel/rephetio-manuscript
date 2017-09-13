@@ -9,7 +9,7 @@ author-meta:
 - Ari Green
 - "Pouya\_Khankhanian"
 - "Sergio\_E.\_Baranzini"
-date-meta: '2017-09-12'
+date-meta: '2017-09-13'
 keywords:
 - Rephetio
 - Hetionet
@@ -27,8 +27,8 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@cae5dc2](https://github.com/dhimmel/rephetio-manuscript/tree/cae5dc29e0078860c288a6b6a4cff3a6df999466)
-on September 12, 2017.
+from [dhimmel/rephetio-manuscript@a2eec6a](https://github.com/dhimmel/rephetio-manuscript/tree/a2eec6aba8b803deb0d7e172a4b1d6db2fbbfcf8)
+on September 13, 2017.
 </em></small>
 
 ## Authors
@@ -763,7 +763,7 @@ Four resources allowed only non-commercial reuse.
 Most problematic were the remaining nine resources that had no license — which equates to all rights reserved by default and forbids reuse [@137tbemL9] — and one resource that explicitly forbid redistribution.
 
 | Resource | Components | ∈ | License | References |
-| ----------------- | --------------- | ---- | ------------ | ------------------------ |
+| ----------------- | --------------- | ----- | ------------ | ------------------------ |
 | [Entrez Gene](https://www.ncbi.nlm.nih.gov/gene) | G | 1 | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/NCBI.md) | RRID:SCR_002473 [@u7vVtngU; @jFjpgUmP; @CeE6BNL6] |
 | [LabeledIn](https://ftp.ncbi.nlm.nih.gov/pub/lu/LabeledIn/) | CtD, CpD | 1 | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/LabeledIn.txt) | RRID:SCR_015667 [@1HvRcrCfe; @19a21PCCa; @Cb3mhTB5] |
 | [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html) | DlA, DpS, DrD | 1 | [custom](https://github.com/dhimmel/integrate/blob/master/licenses/custom/MEDLINE.md) | RRID:SCR_002185 [@L2B5V7XC; @ZXg5KPir] |
