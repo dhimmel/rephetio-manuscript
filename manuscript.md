@@ -27,7 +27,7 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@c032a19](https://github.com/dhimmel/rephetio-manuscript/tree/c032a193635e871ff59cb2faf937ded1fd1aead7)
+from [dhimmel/rephetio-manuscript@58c7a35](https://github.com/dhimmel/rephetio-manuscript/tree/58c7a3519aa720ef2e991f6ca68c82e078c82e0b)
 on September 14, 2017.
 </em></small>
 
@@ -970,7 +970,7 @@ We also appreciate DigitalOcean's sponsorship the Hetionet Browser to cover its 
 Finally, we would like to thank Neo Technology, whose staff provided excellent technical support.
 
 This material is based upon work supported by the National Science Foundation Graduate Research Fellowship under Grant Number 1144247 to DSH.
-SEB is supported by the Heidrich Family and Friends Foundation.
+SEB is supported by NINDS/NIH Grant Number 5R01NS088155 and the Heidrich Family and Friends Foundation.
 DH is supported by the the National Cancer Institute of the National Institutes of Health under Award Number UH2CA203792 and the National Library of Medicine under Award Number 1U01LM012675.
 The content is solely the responsibility of the authors and does not necessarily represent the official views of the NIH.
 

@@ -61,13 +61,13 @@
   ],
   "ci_source": {
     "repo_slug": "dhimmel/rephetio-manuscript",
-    "commit": "c032a193635e871ff59cb2faf937ded1fd1aead7"
+    "commit": "58c7a3519aa720ef2e991f6ca68c82e078c82e0b"
   },
   "manuscript_stats": {
     "reference_counts": {
       "doi": 241,
       "total": 241
     },
-    "word_count": 12051
+    "word_count": 12056
   }
 }
