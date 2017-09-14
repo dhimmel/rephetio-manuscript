@@ -27,7 +27,7 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@374e807](https://github.com/dhimmel/rephetio-manuscript/tree/374e80705b7910d77644e45d409744d64fef68ff)
+from [dhimmel/rephetio-manuscript@1d59f8a](https://github.com/dhimmel/rephetio-manuscript/tree/1d59f8a4dc4906745562fe2abb1a53416c778c67)
 on September 14, 2017.
 </em></small>
 
@@ -939,7 +939,7 @@ We noticed several other benefits from using Thinklab including forging a commun
 ![
 **The growth the Project Rephetio corpus on Thinklab over time.**
 This figure shows Project Rephetio contributions by user over time.
-Each band represented the cumulative contribution of a Thinklab user to [discussions](https://think-lab.github.io/p/rephetio/discussion/) in the Rephetio project [@KUVxzxrS].
+Each band represented the cumulative contribution of a Thinklab user to [discussions](https://think-lab.github.io/p/rephetio/discussion/) in Project Rephetio [@KUVxzxrS].
 Users are ordered by date of first contribution.
 Users who contributed over 4,500 characters are named.
 The square root transformation of characters written per user accentuates the activity of new contributors, thereby emphasizing collaboration and diverse input.
@@ -957,7 +957,7 @@ Additionally, readers can leave feedback or questions for the Project Rephetio t
 
 ## Acknowledgements
 
-We are immensely grateful to our [Thinklab contributors](https://think-lab.github.io/p/rephetio/leaderboard/ "Rephetio Project Thinklab Leaderboard") who joined us in our experiment of radically open science.
+We are immensely grateful to our [Thinklab contributors](https://think-lab.github.io/p/rephetio/leaderboard/ "Project Rephetio Thinklab Leaderboard") who joined us in our experiment of radically open science.
 The following non-team members provided contributions that received 5 or more Thinklab points: Lars Juhl Jensen, Frederic Bastian, Alexander Pico, Casey Greene, Benjamin Good, Craig Knox, Mike Gilson, Chris Mungall, Katie Fortney, Venkat Malladi, Tudor Oprea, MacKenzie Smith, Caty Chung, Allison McCoy, Alexey Strokach, Ritu Khare, Greg Way, Marina Sirota, Raghavendran Partha, Oleg Ursu, Jesse Spaulding, Gaya Nadarajan, Alex Ratner, Scooter Morris, Alessandro Didonna, Alex Pankov, Tong Shu Li, and Janet Piñero.
 Additionally, the founder of Thinklab, Jesse Spaulding, supported community contributions and developed the platform with Project Rephetio's needs in mind.
 We also appreciate DigitalOcean's sponsorship the Hetionet Browser to cover its hosting costs.
