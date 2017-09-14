@@ -27,7 +27,7 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@1d59f8a](https://github.com/dhimmel/rephetio-manuscript/tree/1d59f8a4dc4906745562fe2abb1a53416c778c67)
+from [dhimmel/rephetio-manuscript@c032a19](https://github.com/dhimmel/rephetio-manuscript/tree/c032a193635e871ff59cb2faf937ded1fd1aead7)
 on September 14, 2017.
 </em></small>
 
@@ -491,7 +491,7 @@ In summary, our method simultaneously identified the hallmark side effects of an
 We created Hetionet v1.0 by integrating 29 resources into a single data structure — the hetnet.
 Consisting of 11 types of nodes and 24 types of relationships, Hetionet v1.0 brings more types of information together than previous leading-studies in biological data integration [@gIhNaGUg].
 Moreover, we strove to create a reusable, extensible, and property-rich network.
-While all of the resources we include are publicly available, their integration was a time-intensive undertaking.
+While all of the resources we include are publicly available, their integration was a time-intensive undertaking and required careful consideration of legal barriers to data reuse.
 Hetionet allows researchers to begin answering integrative questions without having to first spend months processing data.
 
 Our public Neo4j instance allows users to immediately interact with Hetionet.
@@ -954,6 +954,12 @@ In August 2017, we switched to using the Manubot system to generate the manuscri
 With Manubot, a GitHub repository ([`dhimmel/rephetio-manuscript`](https://github.com/dhimmel/rephetio-manuscript/)) tracks the manuscript's source code, while continuous integration automatically rebuilds the manuscript upon changes.
 As a result, the latest version of the manuscript is always available at [dhimmel.github.io/rephetio-manuscript](https://dhimmel.github.io/rephetio-manuscript/).
 Additionally, readers can leave feedback or questions for the Project Rephetio team via [GitHub Issues](https://github.com/dhimmel/rephetio-manuscript/issues).
+
+### Software & data availability
+
+All software and datasets from Project Rephetio are publicly available on [GitHub](https://git.io/v5zvX "Project Rephetio GitHub Repositories"), [Zenodo](https://goo.gl/FMiqHq "Project Rephetio Zenodo Records"), or [Figshare](https://doi.org/ccq3 "Project Rephetio Collection on Figshare") [@JTRRKBmL].
+Additional documentation for these materials is available in the corresponding [Thinklab discussions](https://think-lab.github.io/p/rephetio/discussion/ "Project Rephetio discussions on Thinklab").
+For reader convenience, software, datasets, and Thinklab discussions have been cited throughout the manuscript as relevant.
 
 ## Acknowledgements
 

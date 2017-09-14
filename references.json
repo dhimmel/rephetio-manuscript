@@ -26393,6 +26393,37 @@
     "short_url": "https://doi.org/f3mqvq"
   },
   {
+    "type": "article",
+    "id": "JTRRKBmL",
+    "author": [
+      {
+        "family": "Himmelstein",
+        "given": "Daniel"
+      },
+      {
+        "family": "Brueggeman",
+        "given": "Leo"
+      },
+      {
+        "family": "Baranzini",
+        "given": "Sergio"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2017
+        ]
+      ]
+    },
+    "abstract": "This collection contains figshare uploads created during the course of the Rephetio project, which constructed an integrative hetnet for drug repurposing.",
+    "DOI": "10.6084/m9.figshare.c.2861359.v1",
+    "publisher": "Figshare",
+    "title": "Figshare depositions from Project Rephetio",
+    "URL": "https://doi.org/10.6084/m9.figshare.c.2861359.v1",
+    "short_url": "https://doi.org/ccq3"
+  },
+  {
     "indexed": {
       "date-parts": [
         [
