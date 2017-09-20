@@ -8232,70 +8232,208 @@
     "id": "18HUpN1mo"
   },
   {
-    "type": "article-journal",
+    "indexed": {
+      "date-parts": [
+        [
+          2017,
+          9,
+          19
+        ]
+      ],
+      "date-time": "2017-09-19T13:40:25Z",
+      "timestamp": 1505828425950
+    },
+    "reference-count": 53,
+    "publisher": "Springer Nature",
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
     "DOI": "10.1038/sdata.2017.125",
-    "URL": "https://doi.org/10.1038/sdata.2017.125",
-    "title": "Precision annotation of digital samples in NCBI’s Gene Expression Omnibus",
-    "container-title": "Scientific Data",
+    "type": "article-journal",
+    "created": {
+      "date-parts": [
+        [
+          2017,
+          9,
+          19
+        ]
+      ],
+      "date-time": "2017-09-19T13:02:21Z",
+      "timestamp": 1505826141000
+    },
+    "page": "170125",
+    "source": "Crossref",
+    "is-referenced-by-count": 0,
+    "title": "Precision annotation of digital samples in NCBI’s gene expression omnibus",
+    "prefix": "10.1038",
+    "volume": "4",
     "author": [
       {
-        "literal": "Dexter Hadley"
+        "given": "Dexter",
+        "family": "Hadley",
+        "affiliation": []
       },
       {
-        "literal": "James Pan"
+        "given": "James",
+        "family": "Pan",
+        "affiliation": []
       },
       {
-        "literal": "Osama El-Sayed"
+        "given": "Osama",
+        "family": "El-Sayed",
+        "affiliation": []
       },
       {
-        "literal": "Jihad Al-Jabban"
+        "given": "Jihad",
+        "family": "Aljabban",
+        "affiliation": []
       },
       {
-        "literal": "Imad Al-Jabban"
+        "given": "Imad",
+        "family": "Aljabban",
+        "affiliation": []
       },
       {
-        "literal": "Tej Azad"
+        "given": "Tej D.",
+        "family": "Azad",
+        "affiliation": []
       },
       {
-        "literal": "Mohamed Hadied"
+        "given": "Mohamad O.",
+        "family": "Hadied",
+        "affiliation": []
       },
       {
-        "literal": "Shuaib Raza"
+        "given": "Shuaib",
+        "family": "Raza",
+        "affiliation": []
       },
       {
-        "literal": "Benjamin Rayikanti"
+        "given": "Benjamin Abhishek",
+        "family": "Rayikanti",
+        "affiliation": []
       },
       {
-        "literal": "Bin Chen"
+        "given": "Bin",
+        "family": "Chen",
+        "affiliation": []
       },
       {
-        "literal": "Hyojung Paik"
+        "given": "Hyojung",
+        "family": "Paik",
+        "affiliation": []
       },
       {
-        "literal": "Dvir Aran"
+        "ORCID": "http://orcid.org/0000-0001-6334-5039",
+        "authenticated-orcid": false,
+        "given": "Dvir",
+        "family": "Aran",
+        "affiliation": []
       },
       {
-        "literal": "Jordan Spatz"
+        "given": "Jordan",
+        "family": "Spatz",
+        "affiliation": []
       },
       {
-        "literal": "Daniel Himmelstein"
+        "ORCID": "http://orcid.org/0000-0002-3012-7446",
+        "authenticated-orcid": false,
+        "given": "Daniel",
+        "family": "Himmelstein",
+        "affiliation": []
       },
       {
-        "literal": "Maryam Panahiazar"
+        "given": "Maryam",
+        "family": "Panahiazar",
+        "affiliation": []
       },
       {
-        "literal": "Sanchita Bhattacharya"
+        "ORCID": "http://orcid.org/0000-0002-3056-0733",
+        "authenticated-orcid": false,
+        "given": "Sanchita",
+        "family": "Bhattacharya",
+        "affiliation": []
       },
       {
-        "literal": "Marina Sirota"
+        "given": "Marina",
+        "family": "Sirota",
+        "affiliation": []
       },
       {
-        "literal": "Mark Musen"
+        "given": "Mark A.",
+        "family": "Musen",
+        "affiliation": []
       },
       {
-        "literal": "Atul Butte"
+        "ORCID": "http://orcid.org/0000-0002-7433-2740",
+        "authenticated-orcid": false,
+        "given": "Atul J.",
+        "family": "Butte",
+        "affiliation": []
       }
     ],
+    "member": "339",
+    "published-online": {
+      "date-parts": [
+        [
+          2017,
+          9,
+          19
+        ]
+      ]
+    },
+    "container-title": "Scientific Data",
+    "original-title": [],
+    "link": [
+      {
+        "URL": "http://www.nature.com/articles/sdata2017125",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2017,
+          9,
+          19
+        ]
+      ],
+      "date-time": "2017-09-19T13:02:21Z",
+      "timestamp": 1505826141000
+    },
+    "score": 1.0,
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2017,
+          9,
+          19
+        ]
+      ]
+    },
+    "references-count": 53,
+    "alternative-id": [
+      "sdata2017125"
+    ],
+    "URL": "https://doi.org/10.1038/sdata.2017.125",
+    "relation": {
+      "cites": []
+    },
+    "subject": [
+      "Statistics, Probability and Uncertainty",
+      "Statistics and Probability",
+      "Education",
+      "Library and Information Sciences",
+      "Information Systems",
+      "Computer Science Applications"
+    ],
+    "container-title-short": "Sci. Data",
+    "short_url": "https://doi.org/gbv379",
     "id": "rc4BI37X"
   },
   {
