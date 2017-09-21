@@ -9,7 +9,7 @@ author-meta:
 - Ari Green
 - "Pouya\_Khankhanian"
 - "Sergio\_E.\_Baranzini"
-date-meta: '2017-09-20'
+date-meta: '2017-09-21'
 keywords:
 - Rephetio
 - Hetionet
@@ -27,8 +27,8 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@359edfc](https://github.com/dhimmel/rephetio-manuscript/tree/359edfce558f2beac51a7b796d5cc58e5614195a)
-on September 20, 2017.
+from [dhimmel/rephetio-manuscript@a1d9f78](https://github.com/dhimmel/rephetio-manuscript/tree/a1d9f787decd4af7edbfe918ffa58f3c33c3cea2)
+on September 21, 2017.
 </em></small>
 
 ## Authors
@@ -622,7 +622,7 @@ _Anatomy–downregulates–Gene_ and _Anatomy–upregulates–Gene_ edges [@ZQHb
 _Anatomy–expresses–Gene_ edges were extracted from Bgee and [TISSUES](http://tissues.jensenlab.org/) [@6QECA6Hm; @utu7TxwB; @14Sym5V3B].
 
 _Compound–binds–Gene_ edges were aggregated from [BindingDB](https://bindingdb.org) [@EcldAPLA; @4WZ9VZD7], [DrugBank](http://www.drugbank.ca/) [@RPxoiilN; @6PR8LEXK], and [DrugCentral](http://drugcentral.org/) [@5Bk8rV02].
-Only binding relationships to single proteins with affinities of at least 1 μM (as determined by Kd, Kᵢ, or IC₅₀) were selected from the October 2015 release of BindingDB [@j7cpyM2e; @3tDTWGId].
+Only binding relationships to single proteins with affinities of at least 1 μM (as determined by K<sub>d</sub>, Kᵢ, or IC₅₀) were selected from the October 2015 release of BindingDB [@j7cpyM2e; @3tDTWGId].
 Target, carrier, transporter, and enzyme interactions with single proteins (i.e. excluding protein groups) were extracted from DrugBank 4.2 [@1HGVhWYte; @AoxkilGE].
 In addition, all mapping DrugCentral target relationships were included [@896kQYbf].
 
@@ -683,7 +683,7 @@ STARGEO is a layer on top of GEO that crowdsources sample annotation and automat
 Using STARGEO, we computed differentially expressed genes between healthy and diseased samples for 49 diseases [@fTatgccc; @164R9SolI].
 First, we and others created case/control tags for 66 diseases.
 After combing through GEO series and tagging samples, 49 diseases had sufficient data for case-control meta-analysis: multiple series with at least 3 cases and 3 controls.
-For each disease, we performed a random effects meta-analysis on each gene to combine log2 fold-change across series.
+For each disease, we performed a random effects meta-analysis on each gene to combine log₂ fold-change across series.
 These analyses incorporated 27,019 unique samples from 460 series on 107 platforms.
 
 Differentially expressed genes (false discovery rate ≤ 0.05) were identified for each disease.
