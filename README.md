@@ -16,7 +16,12 @@ Actual manuscript instances will clone this repository (see [`SETUP.md`](SETUP.m
 
 This repository contains the manuscript for Project Rephetio, an open project to repurpose drugs.
 The formal title of this study is **Systematic integration of biomedical knowledge prioritizes drugs for repurposing**.
-The manuscript is also available on [Thinklab](https://doi.org/10.15363/thinklab.a7) (as a project report) and on [bioRxiv](https://doi.org/10.1101/087619) (as a preprint).
+The manuscript is also available on [Thinklab](https://doi.org/10.15363/thinklab.a7) (as a project report), [bioRxiv](https://doi.org/10.1101/087619) (as a preprint), and [eLife](https://doi.org/10.7554/eLife.26726) (as a research article).
+The manuscript can be cited as:
+
+> [**Systematic integration of biomedical knowledge prioritizes drugs for repurposing**](https://doi.org/10.7554/eLife.26726)<br>
+Daniel S Himmelstein, Antoine Lizee, Christine Hessler, Leo Brueggeman, Sabrina L Chen, Dexter Hadley, Ari Green, Pouya Khankhanian, Sergio E Baranzini<br>
+_eLife_ (2017-09-22) DOI: `10.7554/eLife.26726`
 
 ## Manubot
 
