@@ -9,7 +9,7 @@ author-meta:
 - Ari Green
 - "Pouya\_Khankhanian"
 - "Sergio\_E.\_Baranzini"
-date-meta: '2017-09-22'
+date-meta: '2017-10-03'
 keywords:
 - Rephetio
 - Hetionet
@@ -27,8 +27,8 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 
 <small><em>
 This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@5358af5](https://github.com/dhimmel/rephetio-manuscript/tree/5358af54ea83dcabb3eed3805ba87455b00f5bf8)
-on September 22, 2017.
+from [dhimmel/rephetio-manuscript@7b5b0e6](https://github.com/dhimmel/rephetio-manuscript/tree/7b5b0e67fb9ab159c84c230dd5c07001941d82af)
+on October  3, 2017.
 </em></small>
 
 ## Authors
@@ -323,7 +323,7 @@ Features were standardized prior to model fitting to make the coefficients compa
 Overall, 709 of the 1,206 metapaths exhibited a statistically significant Δ AUROC at a false discovery rate cutoff of 5%.
 These 709 metapaths included all 24 metaedges, suggesting that each type of relationship we integrated provided at least some therapeutic utility.
 However, not all metaedges were equally present in significant metapaths: 259 significant metapaths included a _Compound–binds–Gene_ metaedge, whereas only 4 included a _Gene–participates–Cellular Component_ metaedge.
-[Table 3](#metapath_table) lists the predictiveness of several metapaths of interest.
+Table @tbl:metapaths lists the predictiveness of several metapaths of interest.
 Refer to the [Discussion](#discussion) for our interpretation of these findings.
 
 Abbrev. | Len. | Δ AUROC | −log₁₀(*p*) | Coef. | Metapath
