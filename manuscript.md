@@ -9,7 +9,7 @@ author-meta:
 - Ari Green
 - "Pouya\_Khankhanian"
 - "Sergio\_E.\_Baranzini"
-date-meta: '2017-10-03'
+date-meta: '2019-03-14'
 keywords:
 - Rephetio
 - Hetionet
@@ -25,10 +25,14 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 
 
 
+
+
 <small><em>
-This manuscript was automatically generated
-from [dhimmel/rephetio-manuscript@7b5b0e6](https://github.com/dhimmel/rephetio-manuscript/tree/7b5b0e67fb9ab159c84c230dd5c07001941d82af)
-on October  3, 2017.
+This manuscript
+([permalink](https://dhimmel.github.io/rephetio-manuscript/v/1ddd48dabdb669a3c09b1a3dfdfee455f642b5a9/))
+was automatically generated
+from [dhimmel/rephetio-manuscript@1ddd48d](https://github.com/dhimmel/rephetio-manuscript/tree/1ddd48dabdb669a3c09b1a3dfdfee455f642b5a9)
+on March 14, 2019.
 </em></small>
 
 ## Authors
@@ -36,22 +40,22 @@ on October  3, 2017.
 
 
 + **Daniel S. Himmelstein**<br>
-    ![ORCID icon](images/orcid.svg){height="13px"}
+    ![ORCID icon](images/orcid.svg){.inline_icon}
     [0000-0002-3012-7446](https://orcid.org/0000-0002-3012-7446)
-    · ![GitHub icon](images/github.svg){height="13px"}
+    · ![GitHub icon](images/github.svg){.inline_icon}
     [dhimmel](https://github.com/dhimmel)
-    · ![Twitter icon](images/twitter.svg){height="13px"}
+    · ![Twitter icon](images/twitter.svg){.inline_icon}
     [dhimmel](https://twitter.com/dhimmel)<br>
   <small>
      Program in Biological & Medical Informatics, University of California, San Francisco; Department of Systems Pharmacology & Translational Therapeutics, University of Pennsylvania
   </small>
 
 + **Antoine Lizee**<br>
-    ![ORCID icon](images/orcid.svg){height="13px"}
+    ![ORCID icon](images/orcid.svg){.inline_icon}
     [0000-0002-1073-3190](https://orcid.org/0000-0002-1073-3190)
-    · ![GitHub icon](images/github.svg){height="13px"}
+    · ![GitHub icon](images/github.svg){.inline_icon}
     [antoine-lizee](https://github.com/antoine-lizee)
-    · ![Twitter icon](images/twitter.svg){height="13px"}
+    · ![Twitter icon](images/twitter.svg){.inline_icon}
     [A_Lizee](https://twitter.com/A_Lizee)<br>
   <small>
      Department of Neurology, University of California, San Francisco; ITUN-CRTI-UMR 1064 Inserm, University of Nantes
@@ -63,52 +67,52 @@ on October  3, 2017.
   </small>
 
 + **Leo Brueggeman**<br>
-    ![ORCID icon](images/orcid.svg){height="13px"}
+    ![ORCID icon](images/orcid.svg){.inline_icon}
     [0000-0002-3586-3442](https://orcid.org/0000-0002-3586-3442)
-    · ![GitHub icon](images/github.svg){height="13px"}
+    · ![GitHub icon](images/github.svg){.inline_icon}
     [LABrueggs](https://github.com/LABrueggs)
-    · ![Twitter icon](images/twitter.svg){height="13px"}
+    · ![Twitter icon](images/twitter.svg){.inline_icon}
     [LeoBman](https://twitter.com/LeoBman)<br>
   <small>
      Department of Neurology, University of California, San Francisco; University of Iowa
   </small>
 
 + ** Sabrina L. Chen**<br>
-    · ![GitHub icon](images/github.svg){height="13px"}
+    · ![GitHub icon](images/github.svg){.inline_icon}
     [sabrinalchen](https://github.com/sabrinalchen)<br>
   <small>
      Department of Neurology, University of California, San Francisco; Johns Hopkins University
   </small>
 
 + ** Dexter Hadley**<br>
-    ![ORCID icon](images/orcid.svg){height="13px"}
+    ![ORCID icon](images/orcid.svg){.inline_icon}
     [0000-0003-0990-4674](https://orcid.org/0000-0003-0990-4674)
-    · ![GitHub icon](images/github.svg){height="13px"}
+    · ![GitHub icon](images/github.svg){.inline_icon}
     [idrdex](https://github.com/idrdex)
-    · ![Twitter icon](images/twitter.svg){height="13px"}
+    · ![Twitter icon](images/twitter.svg){.inline_icon}
     [iDrDex](https://twitter.com/iDrDex)<br>
   <small>
      Institute for Computational Health Sciences, Department of Pediatrics; University of California, San Francisco
   </small>
 
 + **Ari Green**<br>
-    ![ORCID icon](images/orcid.svg){height="13px"}
+    ![ORCID icon](images/orcid.svg){.inline_icon}
     [0000-0001-9275-3066](https://orcid.org/0000-0001-9275-3066)<br>
   <small>
      Department of Neurology, University of California, San Francisco
   </small>
 
 + **Pouya Khankhanian**<br>
-    ![ORCID icon](images/orcid.svg){height="13px"}
+    ![ORCID icon](images/orcid.svg){.inline_icon}
     [0000-0001-8075-4176](https://orcid.org/0000-0001-8075-4176)<br>
   <small>
      Department of Neurology, University of California, San Francisco; Center for Neuroengineering and Therapeutics, University of Pennsylvania
   </small>
 
 + **Sergio E. Baranzini**<br>
-    ![ORCID icon](images/orcid.svg){height="13px"}
+    ![ORCID icon](images/orcid.svg){.inline_icon}
     [0000-0003-0067-194X](https://orcid.org/0000-0003-0067-194X)
-    · ![GitHub icon](images/github.svg){height="13px"}
+    · ![GitHub icon](images/github.svg){.inline_icon}
     [sebaran](https://github.com/sebaran)<br>
   <small>
      Department of Neurology, University of California, San Francisco

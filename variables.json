@@ -1,5 +1,5 @@
 {
-  "date": "October  3, 2017",
+  "date": "March 14, 2019",
   "authors": [
     {
       "github": "dhimmel",
@@ -7,7 +7,14 @@
       "orcid": "0000-0002-3012-7446",
       "twitter": "dhimmel",
       "email": "daniel.himmelstein@gmail.com",
-      "affiliations": "Program\u00a0in\u00a0Biological\u00a0&\u00a0Medical\u00a0Informatics,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco; Department\u00a0of\u00a0Systems\u00a0Pharmacology\u00a0&\u00a0Translational\u00a0Therapeutics,\u00a0University\u00a0of\u00a0Pennsylvania"
+      "affiliations": [
+        "Program\u00a0in\u00a0Biological\u00a0&\u00a0Medical\u00a0Informatics,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco",
+        "Department\u00a0of\u00a0Systems\u00a0Pharmacology\u00a0&\u00a0Translational\u00a0Therapeutics,\u00a0University\u00a0of\u00a0Pennsylvania"
+      ],
+      "affiliation_numbers": [
+        1,
+        2
+      ]
     },
     {
       "github": "antoine-lizee",
@@ -15,59 +22,143 @@
       "orcid": "0000-0002-1073-3190",
       "twitter": "A_Lizee",
       "email": "antoine.lizee@gmail.com",
-      "affiliations": "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco; ITUN-CRTI-UMR\u00a01064\u00a0Inserm,\u00a0University\u00a0of\u00a0Nantes"
+      "affiliations": [
+        "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco",
+        "ITUN-CRTI-UMR\u00a01064\u00a0Inserm,\u00a0University\u00a0of\u00a0Nantes"
+      ],
+      "affiliation_numbers": [
+        3,
+        4
+      ]
     },
     {
       "name": "Christine\u00a0Hessler",
       "initials": "CH",
-      "affiliations": "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco"
+      "affiliations": [
+        "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco"
+      ],
+      "affiliation_numbers": [
+        3
+      ]
     },
     {
       "github": "LABrueggs",
       "name": "Leo\u00a0Brueggeman",
       "orcid": "0000-0002-3586-3442",
       "twitter": "LeoBman",
-      "affiliations": "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco; University\u00a0of\u00a0Iowa"
+      "affiliations": [
+        "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco",
+        "University\u00a0of\u00a0Iowa"
+      ],
+      "affiliation_numbers": [
+        3,
+        5
+      ]
     },
     {
       "github": "sabrinalchen",
       "name": "\u00a0Sabrina\u00a0L.\u00a0Chen",
-      "affiliations": "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco; Johns\u00a0Hopkins\u00a0University"
+      "affiliations": [
+        "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco",
+        "Johns\u00a0Hopkins\u00a0University"
+      ],
+      "affiliation_numbers": [
+        3,
+        6
+      ]
     },
     {
       "github": "idrdex",
       "name": "\u00a0Dexter\u00a0Hadley",
       "orcid": "0000-0003-0990-4674",
       "twitter": "iDrDex",
-      "affiliations": "Institute\u00a0for\u00a0Computational\u00a0Health\u00a0Sciences,\u00a0Department\u00a0of\u00a0Pediatrics;\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco"
+      "affiliations": [
+        "Institute\u00a0for\u00a0Computational\u00a0Health\u00a0Sciences,\u00a0Department\u00a0of\u00a0Pediatrics;\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco"
+      ],
+      "affiliation_numbers": [
+        7
+      ]
     },
     {
       "name": "Ari Green",
       "orcid": "0000-0001-9275-3066",
-      "affiliations": "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco"
+      "affiliations": [
+        "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco"
+      ],
+      "affiliation_numbers": [
+        3
+      ]
     },
     {
       "name": "Pouya\u00a0Khankhanian",
       "orcid": "0000-0001-8075-4176",
-      "affiliations": "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco; Center\u00a0for\u00a0Neuroengineering\u00a0and\u00a0Therapeutics,\u00a0University\u00a0of\u00a0Pennsylvania"
+      "affiliations": [
+        "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco",
+        "Center\u00a0for\u00a0Neuroengineering\u00a0and\u00a0Therapeutics,\u00a0University\u00a0of\u00a0Pennsylvania"
+      ],
+      "affiliation_numbers": [
+        3,
+        8
+      ]
     },
     {
       "github": "sebaran",
       "name": "Sergio\u00a0E.\u00a0Baranzini",
       "orcid": "0000-0003-0067-194X",
       "email": "sergio.baranzini@ucsf.edu",
-      "affiliations": "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco"
+      "affiliations": [
+        "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco"
+      ],
+      "affiliation_numbers": [
+        3
+      ]
+    }
+  ],
+  "affiliations": [
+    {
+      "affiliation": "Program\u00a0in\u00a0Biological\u00a0&\u00a0Medical\u00a0Informatics,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco",
+      "affiliation_number": 1
+    },
+    {
+      "affiliation": "Department\u00a0of\u00a0Systems\u00a0Pharmacology\u00a0&\u00a0Translational\u00a0Therapeutics,\u00a0University\u00a0of\u00a0Pennsylvania",
+      "affiliation_number": 2
+    },
+    {
+      "affiliation": "Department\u00a0of\u00a0Neurology,\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco",
+      "affiliation_number": 3
+    },
+    {
+      "affiliation": "ITUN-CRTI-UMR\u00a01064\u00a0Inserm,\u00a0University\u00a0of\u00a0Nantes",
+      "affiliation_number": 4
+    },
+    {
+      "affiliation": "University\u00a0of\u00a0Iowa",
+      "affiliation_number": 5
+    },
+    {
+      "affiliation": "Johns\u00a0Hopkins\u00a0University",
+      "affiliation_number": 6
+    },
+    {
+      "affiliation": "Institute\u00a0for\u00a0Computational\u00a0Health\u00a0Sciences,\u00a0Department\u00a0of\u00a0Pediatrics;\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco",
+      "affiliation_number": 7
+    },
+    {
+      "affiliation": "Center\u00a0for\u00a0Neuroengineering\u00a0and\u00a0Therapeutics,\u00a0University\u00a0of\u00a0Pennsylvania",
+      "affiliation_number": 8
     }
   ],
   "ci_source": {
     "repo_slug": "dhimmel/rephetio-manuscript",
-    "commit": "7b5b0e67fb9ab159c84c230dd5c07001941d82af"
+    "repo_owner": "dhimmel",
+    "repo_name": "rephetio-manuscript",
+    "commit": "1ddd48dabdb669a3c09b1a3dfdfee455f642b5a9"
   },
   "manuscript_stats": {
     "reference_counts": {
       "doi": 241,
       "total": 241
     },
-    "word_count": 12056
+    "word_count": 12117
   }
 }
