@@ -25,14 +25,14 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 
 
 
-This manuscript was published in _eLife_ on February 9, 2018. The DOI-citable version is available at <https://doi.org/10.7554/eLife.32822>.
+This manuscript was published in _eLife_ on February 9, 2018. The DOI-citable version is available at <https://doi.org/10.7554/eLife.26726>.
 
 
 <small><em>
 This manuscript
-([permalink](https://dhimmel.github.io/rephetio-manuscript/v/a38db2dc169830322253212189380197b3eeeffd/))
+([permalink](https://dhimmel.github.io/rephetio-manuscript/v/b7f9f14047594c835bfeaf3368cd35924e4eac31/))
 was automatically generated
-from [dhimmel/rephetio-manuscript@a38db2d](https://github.com/dhimmel/rephetio-manuscript/tree/a38db2dc169830322253212189380197b3eeeffd)
+from [dhimmel/rephetio-manuscript@b7f9f14](https://github.com/dhimmel/rephetio-manuscript/tree/b7f9f14047594c835bfeaf3368cd35924e4eac31)
 on March 14, 2019.
 </em></small>
 
