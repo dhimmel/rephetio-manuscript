@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Daniel S. Himmelstein">
+  <meta name="author" content="Antoine Lizee">
+  <meta name="author" content="Christine Hessler">
+  <meta name="author" content="Leo Brueggeman">
+  <meta name="author" content=" Sabrina L. Chen">
+  <meta name="author" content=" Dexter Hadley">
+  <meta name="author" content="Ari Green">
+  <meta name="author" content="Pouya Khankhanian">
+  <meta name="author" content="Sergio E. Baranzini">
+  <meta name="dcterms.date" content="2017-08-31">
+  <meta name="keywords" content="Rephetio, Hetionet, repurposing, hetnets, systems pharmacology, networks, machine learning, data science">
+  <title>Systematic integration of biomedical knowledge prioritizes drugs for repurposing</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="github-pandoc.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <!-- Insert Analytics Script Below -->
+  <script>
+  </script>
+  <!-- End Analytics Script -->
+</head>
+<body>
+<header>
+<h1 class="title">Systematic integration of biomedical knowledge prioritizes drugs for repurposing</h1>
+</header>
+<p><em>A DOI-citable version of this manuscript is available at <a href="https://doi.org/10.1101/087619" class="uri">https://doi.org/10.1101/087619</a>. The project is also available on Thinklab at <a href="https://doi.org/bszr" class="uri">https://doi.org/bszr</a>.</em></p>
+<p><small><em> This manuscript was automatically generated from <a href="https://github.com/dhimmel/rephetio-manuscript/tree/b7b8bd3a7e0b3c5b3ad4f4f59feb28813126c756">dhimmel/rephetio-manuscript@b7b8bd3</a> on August 31, 2017. </em></small></p>
+<h2 id="authors">Authors</h2>
+<ul>
+<li><p><strong>Daniel S. Himmelstein</strong><br> <img src="images/orcid.svg" alt="ORCID icon" height="13" /> <a href="https://orcid.org/0000-0002-3012-7446">0000-0002-3012-7446</a> · <img src="images/github.svg" alt="GitHub icon" height="13" /> <a href="https://github.com/dhimmel">dhimmel</a> · <img src="images/twitter.svg" alt="Twitter icon" height="13" /> <a href="https://twitter.com/dhimmel">dhimmel</a><br> <small> Program in Biological &amp; Medical Informatics, University of California, San Francisco; Department of Systems Pharmacology &amp; Translational Therapeutics, University of Pennsylvania </small></p></li>
+<li><p><strong>Antoine Lizee</strong><br> <img src="images/orcid.svg" alt="ORCID icon" height="13" /> <a href="https://orcid.org/0000-0002-1073-3190">0000-0002-1073-3190</a> · <img src="images/github.svg" alt="GitHub icon" height="13" /> <a href="https://github.com/antoine-lizee">antoine-lizee</a> · <img src="images/twitter.svg" alt="Twitter icon" height="13" /> <a href="https://twitter.com/A_Lizee">A_Lizee</a><br> <small> Department of Neurology, University of California, San Francisco; ITUN-CRTI-UMR 1064 Inserm, University of Nantes </small></p></li>
+<li><p><strong>Christine Hessler</strong><br><br> <small> Department of Neurology, University of California, San Francisco </small></p></li>
+<li><p><strong>Leo Brueggeman</strong><br> <img src="images/orcid.svg" alt="ORCID icon" height="13" /> <a href="https://orcid.org/0000-0002-3586-3442">0000-0002-3586-3442</a> · <img src="images/github.svg" alt="GitHub icon" height="13" /> <a href="https://github.com/LABrueggs">LABrueggs</a> · <img src="images/twitter.svg" alt="Twitter icon" height="13" /> <a href="https://twitter.com/LeoBman">LeoBman</a><br> <small> Department of Neurology, University of California, San Francisco; University of Iowa </small></p></li>
+<li><p><strong> Sabrina L. Chen</strong><br> · <img src="images/github.svg" alt="GitHub icon" height="13" /> <a href="https://github.com/sabrinalchen">sabrinalchen</a><br> <small> Department of Neurology, University of California, San Francisco; Johns Hopkins University </small></p></li>
+<li><p><strong> Dexter Hadley</strong><br> <img src="images/orcid.svg" alt="ORCID icon" height="13" /> <a href="https://orcid.org/0000-0003-0990-4674">0000-0003-0990-4674</a> · <img src="images/github.svg" alt="GitHub icon" height="13" /> <a href="https://github.com/idrdex">idrdex</a> · <img src="images/twitter.svg" alt="Twitter icon" height="13" /> <a href="https://twitter.com/iDrDex">iDrDex</a><br> <small> Institute for Computational Health Sciences, Department of Pediatrics; University of California, San Francisco </small></p></li>
+<li><p><strong>Ari Green</strong><br> <img src="images/orcid.svg" alt="ORCID icon" height="13" /> <a href="https://orcid.org/0000-0001-9275-3066">0000-0001-9275-3066</a><br> <small> Department of Neurology, University of California, San Francisco </small></p></li>
+<li><p><strong>Pouya Khankhanian</strong><br> <img src="images/orcid.svg" alt="ORCID icon" height="13" /> <a href="https://orcid.org/0000-0001-8075-4176">0000-0001-8075-4176</a><br> <small> Department of Neurology, University of California, San Francisco; Center for Neuroengineering and Therapeutics, University of Pennsylvania </small></p></li>
+<li><p><strong>Sergio E. Baranzini</strong><br> <img src="images/orcid.svg" alt="ORCID icon" height="13" /> <a href="https://orcid.org/0000-0003-0067-194X">0000-0003-0067-194X</a> · <img src="images/github.svg" alt="GitHub icon" height="13" /> <a href="https://github.com/sebaran">sebaran</a><br> <small> Department of Neurology, University of California, San Francisco </small></p></li>
+</ul>
+<h2 id="abstract" class="page_break_before">Abstract</h2>
+<p>The ability to computationally predict whether a compound treats a disease would improve the economy and success rate of drug approval. This study describes Project Rephetio to systematically model drug efficacy based on 755 existing treatments. First, we constructed Hetionet (<a href="https://neo4j.het.io" title="Neo4j Hetionet Browser">neo4j.het.io</a>), an integrative network encoding knowledge from millions of biomedical studies. Hetionet v1.0 consists of 47,031 nodes of 11 types and 2,250,197 relationships of 24 types. Data was integrated from 29 public resources to connect compounds, diseases, genes, anatomies, pathways, biological processes, molecular functions, cellular components, pharmacologic classes, side effects, and symptoms. Next, we identified network patterns that distinguish treatments from non-treatments. Then we predicted the probability of treatment for 209,168 compound–disease pairs (<a href="http://het.io/repurpose/" title="Project Rephetio Prediction Browser">het.io/repurpose</a>). Our predictions validated on two external sets of treatment and provided pharmacological insights on epilepsy, suggesting they will help prioritize drug repurposing candidates. This study was entirely open and received realtime feedback from 40 community members.</p>
+<h2 id="introduction">Introduction</h2>
+<p>The cost of developing a new therapeutic drug has been estimated at 1.4 billion dollars <span class="citation" data-cites="13c9OPizf">[<a href="#ref-13c9OPizf">1</a>]</span>, the process typically takes 15 years from lead compound to market <span class="citation" data-cites="1G6kSMyT9">[<a href="#ref-1G6kSMyT9">2</a>]</span>, and the likelihood of success is stunningly low <span class="citation" data-cites="o8yROPbx">[<a href="#ref-o8yROPbx">3</a>]</span>. Strikingly, the costs have been doubling every 9 years since 1970, a sort of inverse Moore’s law, which is far from an optimal strategy from both a business and public health perspective <span class="citation" data-cites="LlRXV6lE">[<a href="#ref-LlRXV6lE">4</a>]</span>. Drug repurposing — identifying novel uses for existing therapeutics — can drastically reduce the duration, failure rates, and costs of approval <span class="citation" data-cites="l64dSPrb">[<a href="#ref-l64dSPrb">5</a>]</span>. These benefits stem from the rich preexisting information on approved drugs, including extensive toxicology profiling performed during development, preclinical models, clinical trials, and postmarketing surveillance.</p>
+<p>Drug repurposing is poised to become more efficient as mining of electronic health records (EHRs) to retrospectively assess the effect of drugs gains feasibility <span class="citation" data-cites="1DqOihfS7 qe6nlENB uEnvNfkN PlU5rcL2">[<a href="#ref-1DqOihfS7">6</a>–<a href="#ref-PlU5rcL2">9</a>]</span>. However, systematic approaches to repurpose drugs based on mining EHRs alone will likely lack power due to multiple testing. Similar to the approach followed to increase the power of genome-wide association studies (GWAS) <span class="citation" data-cites="NVnnNOCO tWfbMFc3">[<a href="#ref-NVnnNOCO">10</a>,<a href="#ref-tWfbMFc3">11</a>]</span>, integration of biological knowledge to prioritize drug repurposing will help overcome limited EHR sample size and data quality.</p>
+<p>In addition to repurposing, several other paradigm shifts in drug development have been proposed to improve efficiency. Since small molecules tend to bind to many targets, polypharmacology aims to find synergy in the multiple effects of a drug <span class="citation" data-cites="jEoUmJ1q">[<a href="#ref-jEoUmJ1q">12</a>]</span>. Network pharmacology assumes diseases consist of a multitude of molecular alterations resulting in a robust disease state. Network pharmacology seeks to uncover multiple points of intervention into a specific pathophysiological state that together rehabilitate an otherwise resilient disease process <span class="citation" data-cites="CfyRUiAx o9zBwdL2">[<a href="#ref-CfyRUiAx">13</a>,<a href="#ref-o9zBwdL2">14</a>]</span>. Although target-centric drug discovery has dominated the field for decades, phenotypic screens have more recently resulted in a comparatively higher number of first-in-class small molecules <span class="citation" data-cites="rlm4VbAG">[<a href="#ref-rlm4VbAG">15</a>]</span>. Recent technological advances have enabled a new paradigm in which mid- to high-throughput assessment of intermediate phenotypes, such as the molecular response to drugs, is replacing the classic target discovery approach <span class="citation" data-cites="pDj3SSat asJHSSQt 1HKxAhwf6">[<a href="#ref-pDj3SSat">16</a>–<a href="#ref-1HKxAhwf6">18</a>]</span>. Furthermore, integration of multiple channels of evidence, particularly diverse types of data, can overcome the limitations and weak performance inherent to data of a single domain <span class="citation" data-cites="FeoOXk3G">[<a href="#ref-FeoOXk3G">19</a>]</span>. Modern computational approaches offer a convenient platform to tie these developments together as the reduced cost and increased velocity of <em>in silico</em> experimentation massively lowers the barriers to entry and price of failure <span class="citation" data-cites="1BhjJDilX uYu55hot">[<a href="#ref-1BhjJDilX">20</a>,<a href="#ref-uYu55hot">21</a>]</span>.</p>
+<p>Hetnets (short for heterogeneous networks) are networks with multiple types of nodes and relationships. They offer an intuitive, versatile and powerful structure for data integration. In this study, we developed a hetnet (Hetionet v1.0) by integrating knowledge and experimental findings from decades of biomedical research spanning millions of publications. We adapted an algorithm originally developed for social network analysis and applied it to Hetionet v1.0 to identify patterns of efficacy and predict new uses for drugs. The algorithm performs edge prediction through a machine learning framework that accommodates the breadth and depth of information contained in Hetionet v1.0 <span class="citation" data-cites="WkPlH1ds iVgtFycM">[<a href="#ref-WkPlH1ds">22</a>,<a href="#ref-iVgtFycM">23</a>]</span>. Our approach represents an <em>in silico</em> implementation of network pharmacology that natively incorporates polypharmacology and high-throughput phenotypic screening.</p>
+<p>One fundamental characteristic of our method is that it learns and evaluates itself on existing medical indications (i.e. a “gold standard”). Next, we introduce previous approaches that also performed comprehensive evaluation on existing treatments. A 2011 study, named PREDICT, compiled 1,933 treatments between 593 drugs and 313 diseases <span class="citation" data-cites="dr9ERRtb">[<a href="#ref-dr9ERRtb">24</a>]</span>. Starting from the premise that similar drugs treat similar diseases, PREDICT trained a classifier that incorporates 5 types of drug-drug and 2 types of disease-disease similarity. A 2014 study compiled 890 treatments between 152 drugs and 145 diseases with transcriptional signatures <span class="citation" data-cites="XjXzx5KH">[<a href="#ref-XjXzx5KH">25</a>]</span>. The authors found that compounds triggering an opposing transcriptional response to the disease were more likely to be treatments, although this effect was weak and limited to cancers. A 2016 study compiled 402 treatments between 238 drugs and 78 diseases and used a single proximity score — the average shortest path distance between a drug’s targets and disease’s associated proteins on the interactome — as a classifier <span class="citation" data-cites="Q7tc9Lii">[<a href="#ref-Q7tc9Lii">26</a>]</span>.</p>
+<p>We build on these successes by creating a framework for incorporating the effects of any biological relationship into the prediction of whether a drug treats a disease. By doing this, we were able to capture a multitude of effects that have been suggested as influential for drug repurposing including drug-drug similarity <span class="citation" data-cites="dr9ERRtb 1e7BB8HY">[<a href="#ref-dr9ERRtb">24</a>,<a href="#ref-1e7BB8HY">27</a>]</span>, disease-disease similarity <span class="citation" data-cites="dr9ERRtb 1GLO5AbWr">[<a href="#ref-dr9ERRtb">24</a>,<a href="#ref-1GLO5AbWr">28</a>]</span>, transcriptional signatures <span class="citation" data-cites="XjXzx5KH Ot5bUkmI asJHSSQt z3bwpLel 1HKxAhwf6">[<a href="#ref-asJHSSQt">17</a>,<a href="#ref-1HKxAhwf6">18</a>,<a href="#ref-XjXzx5KH">25</a>,<a href="#ref-Ot5bUkmI">29</a>,<a href="#ref-z3bwpLel">30</a>]</span>, protein interactions <span class="citation" data-cites="Q7tc9Lii">[<a href="#ref-Q7tc9Lii">26</a>]</span>, genetic association <span class="citation" data-cites="REXpV7nA q0hDz8AL">[<a href="#ref-REXpV7nA">31</a>,<a href="#ref-q0hDz8AL">32</a>]</span>, drug side effects <span class="citation" data-cites="19OI9ou2t 1GXwDMvjL">[<a href="#ref-19OI9ou2t">33</a>,<a href="#ref-1GXwDMvjL">34</a>]</span>, disease symptoms <span class="citation" data-cites="XwZAW9xR">[<a href="#ref-XwZAW9xR">35</a>]</span>, and molecular pathways <span class="citation" data-cites="U12IOyfj">[<a href="#ref-U12IOyfj">36</a>]</span>. Our ability to create such an integrative model of drug efficacy relies on the hetnet data structure to unite diverse information. On Hetionet v1.0, our algorithm learns which types of compound–disease paths discriminate treatments from non-treatments in order to predict the probability that a compound treats a disease.</p>
+<p>We refer to this study as Project Rephetio (pronounced as <strong>rep</strong>-<em>het</em>-<em>ee</em>-oh). Both Rephetio and Hetionet are portmanteaus combining the words <strong>rep</strong>urpose, <strong>het</strong>erogeneous, and <strong>net</strong>work with the URL <a href="http://het.io">het.<strong>io</strong></a>.</p>
+<h2 id="results">Results</h2>
+<h3 id="hetionet-v1.0">Hetionet v1.0</h3>
+<p>We obtained and integrated data from 29 publicly available resources to create Hetionet v1.0 (Figure <a href="#fig:hetionet">1</a>). The hetnet contains 47,031 nodes of 11 types (Table <a href="#tbl:metanodes">1</a>) and 2,250,197 relationships of 24 types (Table <a href="#tbl:metaedges">2</a>). The nodes consist of 1,552 small molecule compounds and 137 complex diseases, as well as genes, anatomies, pathways, biological processes, molecular functions, cellular components, perturbations, pharmacologic classes, drug side effects, and disease symptoms. The edges represent relationships between these nodes and encompass the collective knowledge produced by millions of studies over the last half century.</p>
+<figure>
+<img src="https://github.com/dhimmel/rephetio/raw/4ca4926b83babe2d4425dd2c387dfcc93f07d321/figure/hetionet-v1.0-ABC.png" alt="Figure 1: Hetionet v1.0. A) The metagraph, a schema of the network types. B) The hetnet visualized. Nodes are drawn as dots and laid out orbitally, thus forming circles. Edges are colored by type. C) Metapath counts by path length. The number of different types of paths of a given length that connect two node types is shown. For example, the top-left tile in the Length 1 panel denotes that Anatomy nodes are not connected to themselves (i.e. no edges connect nodes of this type between themselves). However, the bottom-left tile of the Length 4 panel denotes that 88 types of length-four paths connect Symptom to Anatomy nodes." id="fig:hetionet" /><figcaption>Figure 1: <strong>Hetionet v1.0.</strong> A) The metagraph, a schema of the network types. B) The hetnet visualized. Nodes are drawn as dots and laid out orbitally, thus forming circles. Edges are colored by type. C) Metapath counts by path length. The number of different types of paths of a given length that connect two node types is shown. For example, the top-left tile in the Length 1 panel denotes that Anatomy nodes are not connected to themselves (i.e. no edges connect nodes of this type between themselves). However, the bottom-left tile of the Length 4 panel denotes that 88 types of length-four paths connect Symptom to Anatomy nodes.</figcaption>
+</figure>
+<p>For example, <em>Compound–binds–Gene</em> edges represent when a compound binds to a protein encoded by a gene. This information has been extracted from the literature by human curators and compiled into databases such as DrugBank, ChEMBL, DrugCentral, and BindingDB. We combined these databases to create 11,571 binding edges between 1,389 compounds and 1,689 genes. These edges were compiled from 10,646 distinct publications, which Hetionet binding edges reference as an attribute. Binding edges represent a comprehensive catalog constructed from low throughput experimentation. However, we also integrated findings from high throughput technologies — many of which have only recently become available. For example, we generated consensus transcriptional signatures for compounds in LINCS L1000 and diseases in STARGEO.</p>
+<a name="tbl:metanodes"></a>
+<table>
+<caption>Table 1: <strong>Metanodes.</strong> Hetionet v1.0 includes 11 node types (metanodes). For each metanode, this table shows the abbreviation, number of nodes, number of nodes without any edges, and the number of metaedges connecting the metanode. </caption>
+<thead>
+<tr class="header">
+<th>Metanode</th>
+<th>Abbr</th>
+<th>Nodes</th>
+<th>Disconnected</th>
+<th>Metaedges</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Anatomy</td>
+<td>A</td>
+<td>402</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Biological Process</td>
+<td>BP</td>
+<td>11,381</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Cellular Component</td>
+<td>CC</td>
+<td>1,391</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Compound</td>
+<td>C</td>
+<td>1,552</td>
+<td>14</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>Disease</td>
+<td>D</td>
+<td>137</td>
+<td>1</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>Gene</td>
+<td>G</td>
+<td>20,945</td>
+<td>1,800</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>Molecular Function</td>
+<td>MF</td>
+<td>2,884</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Pathway</td>
+<td>PW</td>
+<td>1,822</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Pharmacologic Class</td>
+<td>PC</td>
+<td>345</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Side Effect</td>
+<td>SE</td>
+<td>5,734</td>
+<td>33</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Symptom</td>
+<td>S</td>
+<td>438</td>
+<td>23</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<a name="tbl:metaedges"></a>
+<table>
+<caption>Table 2: <strong>Metaedges.</strong> Hetionet v1.0 contains 24 edge types (metaedges). For each metaedge, the table reports the abbreviation, the number of edges, the number of source nodes connected by the edges, and the number of target nodes connected by the edges. Note that all metaedges besides <em>Gene→regulates→Gene</em> are undirected. </caption>
+<thead>
+<tr class="header">
+<th>Metaedge</th>
+<th>Abbr</th>
+<th>Edges</th>
+<th>Sources</th>
+<th>Targets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Anatomy–downregulates–Gene</td>
+<td>AdG</td>
+<td>102,240</td>
+<td>36</td>
+<td>15,097</td>
+</tr>
+<tr class="even">
+<td>Anatomy–expresses–Gene</td>
+<td>AeG</td>
+<td>526,407</td>
+<td>241</td>
+<td>18,094</td>
+</tr>
+<tr class="odd">
+<td>Anatomy–upregulates–Gene</td>
+<td>AuG</td>
+<td>97,848</td>
+<td>36</td>
+<td>15,929</td>
+</tr>
+<tr class="even">
+<td>Compound–binds–Gene</td>
+<td>CbG</td>
+<td>11,571</td>
+<td>1,389</td>
+<td>1,689</td>
+</tr>
+<tr class="odd">
+<td>Compound–causes–Side Effect</td>
+<td>CcSE</td>
+<td>138,944</td>
+<td>1,071</td>
+<td>5,701</td>
+</tr>
+<tr class="even">
+<td>Compound–downregulates–Gene</td>
+<td>CdG</td>
+<td>21,102</td>
+<td>734</td>
+<td>2,880</td>
+</tr>
+<tr class="odd">
+<td>Compound–palliates–Disease</td>
+<td>CpD</td>
+<td>390</td>
+<td>221</td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td>Compound–resembles–Compound</td>
+<td>CrC</td>
+<td>6,486</td>
+<td>1,042</td>
+<td>1,054</td>
+</tr>
+<tr class="odd">
+<td>Compound–treats–Disease</td>
+<td>CtD</td>
+<td>755</td>
+<td>387</td>
+<td>77</td>
+</tr>
+<tr class="even">
+<td>Compound–upregulates–Gene</td>
+<td>CuG</td>
+<td>18,756</td>
+<td>703</td>
+<td>3,247</td>
+</tr>
+<tr class="odd">
+<td>Disease–associates–Gene</td>
+<td>DaG</td>
+<td>12,623</td>
+<td>134</td>
+<td>5,392</td>
+</tr>
+<tr class="even">
+<td>Disease–downregulates–Gene</td>
+<td>DdG</td>
+<td>7,623</td>
+<td>44</td>
+<td>5,745</td>
+</tr>
+<tr class="odd">
+<td>Disease–localizes–Anatomy</td>
+<td>DlA</td>
+<td>3,602</td>
+<td>133</td>
+<td>398</td>
+</tr>
+<tr class="even">
+<td>Disease–presents–Symptom</td>
+<td>DpS</td>
+<td>3,357</td>
+<td>133</td>
+<td>415</td>
+</tr>
+<tr class="odd">
+<td>Disease–resembles–Disease</td>
+<td>DrD</td>
+<td>543</td>
+<td>112</td>
+<td>106</td>
+</tr>
+<tr class="even">
+<td>Disease–upregulates–Gene</td>
+<td>DuG</td>
+<td>7,731</td>
+<td>44</td>
+<td>5,630</td>
+</tr>
+<tr class="odd">
+<td>Gene–covaries–Gene</td>
+<td>GcG</td>
+<td>61,690</td>
+<td>9,043</td>
+<td>9,532</td>
+</tr>
+<tr class="even">
+<td>Gene–interacts–Gene</td>
+<td>GiG</td>
+<td>147,164</td>
+<td>9,526</td>
+<td>14,084</td>
+</tr>
+<tr class="odd">
+<td>Gene–participates–Biological Process</td>
+<td>GpBP</td>
+<td>559,504</td>
+<td>14,772</td>
+<td>11,381</td>
+</tr>
+<tr class="even">
+<td>Gene–participates–Cellular Component</td>
+<td>GpCC</td>
+<td>73,566</td>
+<td>10,580</td>
+<td>1,391</td>
+</tr>
+<tr class="odd">
+<td>Gene–participates–Molecular Function</td>
+<td>GpMF</td>
+<td>97,222</td>
+<td>13,063</td>
+<td>2,884</td>
+</tr>
+<tr class="even">
+<td>Gene–participates–Pathway</td>
+<td>GpPW</td>
+<td>84,372</td>
+<td>8,979</td>
+<td>1,822</td>
+</tr>
+<tr class="odd">
+<td>Gene→regulates→Gene</td>
+<td>Gr&gt;G</td>
+<td>265,672</td>
+<td>4,634</td>
+<td>7,048</td>
+</tr>
+<tr class="even">
+<td>Pharmacologic Class–includes–Compound</td>
+<td>PCiC</td>
+<td>1,029</td>
+<td>345</td>
+<td>724</td>
+</tr>
+</tbody>
+</table>
+<p>While Hetionet v1.0 is ideally suited for drug repurposing, the network has broader biological applicability. For example, we have prototyped queries for a) identifying drugs that target a specific pathway, b) identifying biological processes involved in a specific disease, c) identifying the drug targets responsible for causing a specific side effect, and d) identifying anatomies with transcriptional relevance for a specific disease <span class="citation" data-cites="YbRIZhWW">[<a href="#ref-YbRIZhWW">37</a>]</span>. Each of these queries was simple to write and took less than a second to run on our publicly available Hetionet Browser. While it is possible that existing services provide much of the aforementioned functionality, they offer less versatility. Hetionet differentiates itself in its ability to flexibly query across multiple domains of information. As a proof of concept, we enhanced the biological process query (b), which identified processes that were enriched for disease-associated genes, using multiple sclerosis (MS) as an example disease. The enhanced query identified genes that interact with MS GWAS-genes. However, interacting genes were discarded unless they were upregulated in an MS-related anatomy (i.e. anatomical structure, e.g. organ or tissue). Then relevant biological processes were identified. Thus, the single query spanned 4 node and 5 relationship types. Furthermore, the portion of the query to identify paths meeting the above specification required only four lines of Cypher code.</p>
+<p>The integrative potential of Hetionet v1.0 is reflected by its connectivity. Among the 11 metanodes, there are 66 possible source–target pairs. However, only 11 of them have at least one direct connection. In contrast, for paths of length 2, 50 pairs have connectivity (paths types that start on the source node type and end on the target node type, see Figure <a href="#fig:hetionet">1</a>C). At length 3, all 66 pairs are connected. At length 4, the source–target pair with the fewest types of connectivity (Side Effect to Symptom) has 13 metapaths, while the pair with the most connectivity types (Gene to Gene) has 3,542 pairs. This high level of connectivity across a diversity of biomedical entities forms the foundation for automated translation of knowledge into biomedical insight.</p>
+<p>Hetionet v1.0 is accessible via a Neo4j Browser at https://neo4j.het.io. This public Neo4j instance provides users an installation-free method to query and visualize the network. The Browser contains a tutorial guide as well as guides with the details of each Project Rephetio prediction. Hetionet v1.0 is also <a href="https://github.com/dhimmel/hetionet" title="Hetionet on GitHub">available for download</a> in JSON, Neo4j, and TSV formats <span class="citation" data-cites="kVUF2wf3">[<a href="#ref-kVUF2wf3">38</a>]</span>. The JSON and Neo4j database formats include node and edge properties — such as URLs, source and license information, and confidence scores — and are thus recommended.</p>
+<h3 id="systematic-mechanisms-of-efficacy">Systematic mechanisms of efficacy</h3>
+<p>One aim of Project Rephetio was to systematically evaluate how drugs exert their therapeutic potential. To address this question, we compiled a gold standard of 755 disease-modifying indications, which form the <em>Compound–treats–Disease</em> edges in Hetionet v1.0. Next, we identified types of paths (metapaths) that occurred more frequently between treatments than non-treatments (any compound–disease pair that is not a treatment). The advantage of this approach is that metapaths naturally correspond to mechanisms of pharmacological efficacy. For example, the <em>Compound–binds–Gene–associates–Disease</em> (<em>CbGaD</em>) metapath identifies when a drug binds to a protein corresponding to a gene involved in the disease.</p>
+<p>We evaluated all 1,206 metapaths that traverse from compound to disease and have length of 2–4 (Figure <a href="#fig:features">2</a>A). To control for the different degrees of nodes, we used the degree-weighted path count (<em>DWPC</em>) — which downweights paths going through highly-connected nodes <span class="citation" data-cites="WkPlH1ds">[<a href="#ref-WkPlH1ds">22</a>]</span> — to assess path prevalence. In addition, we compared the performance of each metapath to a baseline computed from permuted networks. Hetnet permutation preserves node degree while eliminating edge specificity, allowing us to isolate the portion of unpermuted metapath performance resulting from actual network paths. We refer to the permutation-adjusted performance measure as Δ AUROC.</p>
+<figure>
+<img src="https://github.com/dhimmel/learn/raw/c214fd582196896689e0d5fa432d618bbe586822/prediction/figure/features.png" alt="Figure 2: Performance by type and model coefficients. A) The performance of the DWPCs for 1,206 metapaths, organized by their composing metaedges. The larger dots represent metapaths that were significantly affected by permutation (false discovery rate &lt; 5%). Metaedges are ordered by their best performing metapath. Since a metapath’s performance is limited by its least informative metaedge, the best performing metapath for a metaedge provides a lower bound on the pharmacologic utility of a given domain of information. B) Barplot of the model coefficients. Features were standardized prior to model fitting to make the coefficients comparable [39]." id="fig:features" /><figcaption>Figure 2: <strong>Performance by type and model coefficients.</strong> A) The performance of the DWPCs for <a href="http://het.io/repurpose/metapaths.html" title="Project Rephetio Metapath Browser">1,206 metapaths</a>, organized by their composing metaedges. The larger dots represent metapaths that were significantly affected by permutation (false discovery rate &lt; 5%). Metaedges are ordered by their best performing metapath. Since a metapath’s performance is limited by its least informative metaedge, the best performing metapath for a metaedge provides a lower bound on the pharmacologic utility of a given domain of information. B) Barplot of the model coefficients. Features were standardized prior to model fitting to make the coefficients comparable <span class="citation" data-cites="uHJFShcv">[<a href="#ref-uHJFShcv">39</a>]</span>.</figcaption>
+</figure>
+<p>Overall, 709 of the 1,206 metapaths exhibited a statistically significant Δ AUROC at a false discovery rate cutoff of 5%. These 709 metapaths included all 24 metaedges, suggesting that each type of relationship we integrated provided at least some therapeutic utility. However, not all metaedges were equally present in significant metapaths: 259 significant metapaths included a <em>Compound–binds–Gene</em> metaedge, whereas only 4 included a <em>Gene–participates–Cellular Component</em> metaedge. <a href="#metapath_table">Table 3</a> lists the predictiveness of several metapaths of interest. Refer to the <a href="#discussion">Discussion</a> for our interpretation of these findings.</p>
+<a name="tbl:metapaths"></a>
+<table style="width:42%;">
+<caption>Table 3: <strong>The predictiveness of select metapaths.</strong> A small selection of the <a href="http://het.io/repurpose/metapaths.html" title="Project Rephetio Metapath Browser">1,206 metapaths</a> is provided. Len. refers to number of metaedges composing the metapath. Δ AUROC and −log10(<em>p</em>) assess the performance of a metapath’s DWPC in discriminating treatments from non-treatments (in the all-features stage as <a href="#machine-learning-approach">described in Methods</a>). <em>p</em> assesses whether permutation affected AUROC. For reference, <em>p</em> = 0.05 corresponds to −log10(<em>p</em>) = 1.30. Note that several metapaths shown here provided little evidence that Δ AUROC ≠ 0 underscoring their poor ability to predict whether a compound treated a disease. Coef. reports a metapath’s logistic regression coefficient as seen in Figure <a href="#fig:features">2</a>B. Metapaths removed in feature selection have missing coefficients whereas metapaths given zero-weight by the elastic net have coef. = 0.0. </caption>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Abbrev.</th>
+<th>Len.</th>
+<th>Δ AUROC</th>
+<th>−log₁₀(<em>p</em>)</th>
+<th>Coef.</th>
+<th>Metapath</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CbGaD</td>
+<td>2</td>
+<td>14.5%</td>
+<td>6.2</td>
+<td>0.20</td>
+<td>Compound–binds–Gene–associates–Disease</td>
+</tr>
+<tr class="even">
+<td>CdGuD</td>
+<td>2</td>
+<td>1.7%</td>
+<td>4.5</td>
+<td></td>
+<td>Compound–downregulates–Gene–upregulates–Disease</td>
+</tr>
+<tr class="odd">
+<td>CrCtD</td>
+<td>2</td>
+<td>22.8%</td>
+<td>6.9</td>
+<td>0.15</td>
+<td>Compound–resembles–Compound–treats–Disease</td>
+</tr>
+<tr class="even">
+<td>CtDrD</td>
+<td>2</td>
+<td>17.2%</td>
+<td>5.8</td>
+<td>0.13</td>
+<td>Compound–treats–Disease–resembles–Disease</td>
+</tr>
+<tr class="odd">
+<td>CuGdD</td>
+<td>2</td>
+<td>1.1%</td>
+<td>2.6</td>
+<td></td>
+<td>Compound–upregulates–Gene–downregulates–Disease</td>
+</tr>
+<tr class="even">
+<td>CbGbCtD</td>
+<td>3</td>
+<td>21.7%</td>
+<td>6.5</td>
+<td>0.22</td>
+<td>Compound–binds–Gene–binds–Compound–treats–Disease</td>
+</tr>
+<tr class="odd">
+<td>CbGeAlD</td>
+<td>3</td>
+<td>8.4%</td>
+<td>5.2</td>
+<td>0.04</td>
+<td>Compound–binds–Gene–expresses–Anatomy–localizes–Disease</td>
+</tr>
+<tr class="even">
+<td>CbGiGaD</td>
+<td>3</td>
+<td>9.0%</td>
+<td>4.4</td>
+<td>0.00</td>
+<td>Compound–binds–Gene–interacts–Gene–associates–Disease</td>
+</tr>
+<tr class="odd">
+<td>CcSEcCtD</td>
+<td>3</td>
+<td>14.0%</td>
+<td>6.8</td>
+<td>0.08</td>
+<td>Compound–causes–Side Effect–causes–Compound–treats–Disease</td>
+</tr>
+<tr class="even">
+<td>CdGdCtD</td>
+<td>3</td>
+<td>3.8%</td>
+<td>4.6</td>
+<td>0.00</td>
+<td>Compound–downregulates–Gene–downregulates–Compound–treats–Disease</td>
+</tr>
+<tr class="odd">
+<td>CdGuCtD</td>
+<td>3</td>
+<td>-2.1%</td>
+<td>2.4</td>
+<td></td>
+<td>Compound–downregulates–Gene–upregulates–Compound–treats–Disease</td>
+</tr>
+<tr class="even">
+<td>CiPCiCtD</td>
+<td>3</td>
+<td>23.3%</td>
+<td>7.5</td>
+<td>0.16</td>
+<td>Compound–includes–Pharmacologic Class–includes–Compound–treats–Disease</td>
+</tr>
+<tr class="odd">
+<td>CpDpCtD</td>
+<td>3</td>
+<td>4.3%</td>
+<td>3.9</td>
+<td>0.06</td>
+<td>Compound–palliates–Disease–palliates–Compound–treats–Disease</td>
+</tr>
+<tr class="even">
+<td>CrCrCtD</td>
+<td>3</td>
+<td>17.0%</td>
+<td>5.0</td>
+<td>0.12</td>
+<td>Compound–resembles–Compound–resembles–Compound–treats–Disease</td>
+</tr>
+<tr class="odd">
+<td>CrCbGaD</td>
+<td>3</td>
+<td>8.2%</td>
+<td>6.1</td>
+<td>0.002</td>
+<td>Compound–resembles–Compound–binds–Gene–associates–Disease</td>
+</tr>
+<tr class="even">
+<td>CtDdGdD</td>
+<td>3</td>
+<td>4.2%</td>
+<td>3.9</td>
+<td></td>
+<td>Compound–treats–Disease–downregulates–Gene–downregulates–Disease</td>
+</tr>
+<tr class="odd">
+<td>CtDdGuD</td>
+<td>3</td>
+<td>0.5%</td>
+<td>1.0</td>
+<td></td>
+<td>Compound–treats–Disease–downregulates–Gene–upregulates–Disease</td>
+</tr>
+<tr class="even">
+<td>CtDlAlD</td>
+<td>3</td>
+<td>12.4%</td>
+<td>6.0</td>
+<td></td>
+<td>Compound–treats–Disease–localizes–Anatomy–localizes–Disease</td>
+</tr>
+<tr class="odd">
+<td>CtDpSpD</td>
+<td>3</td>
+<td>13.9%</td>
+<td>6.1</td>
+<td></td>
+<td>Compound–treats–Disease–presents–Symptom–presents–Disease</td>
+</tr>
+<tr class="even">
+<td>CtDuGdD</td>
+<td>3</td>
+<td>0.7%</td>
+<td>1.3</td>
+<td></td>
+<td>Compound–treats–Disease–upregulates–Gene–downregulates–Disease</td>
+</tr>
+<tr class="odd">
+<td>CtDuGuD</td>
+<td>3</td>
+<td>1.1%</td>
+<td>1.4</td>
+<td></td>
+<td>Compound–treats–Disease–upregulates–Gene–upregulates–Disease</td>
+</tr>
+<tr class="even">
+<td>CuGdCtD</td>
+<td>3</td>
+<td>-1.6%</td>
+<td>2.9</td>
+<td></td>
+<td>Compound–upregulates–Gene–downregulates–Compound–treats–Disease</td>
+</tr>
+<tr class="odd">
+<td>CuGuCtD</td>
+<td>3</td>
+<td>4.4%</td>
+<td>3.5</td>
+<td>0.00</td>
+<td>Compound–upregulates–Gene–upregulates–Compound–treats–Disease</td>
+</tr>
+<tr class="even">
+<td>CbGiGiGaD</td>
+<td>4</td>
+<td>7.0%</td>
+<td>5.1</td>
+<td>0.00</td>
+<td>Compound–binds–Gene–interacts–Gene–interacts–Gene–associates–Disease</td>
+</tr>
+<tr class="odd">
+<td>CbGpBPpGaD</td>
+<td>4</td>
+<td>4.9%</td>
+<td>3.8</td>
+<td>0.00</td>
+<td>Compound–binds–Gene–participates–Biological Process–participates–Gene–associates–Disease</td>
+</tr>
+<tr class="even">
+<td>CbGpPWpGaD</td>
+<td>4</td>
+<td>7.6%</td>
+<td>7.9</td>
+<td>0.05</td>
+<td>Compound–binds–Gene–participates–Pathway–participates–Gene–associates–Disease</td>
+</tr>
+</tbody>
+</table>
+<h3 id="predictions-of-drug-efficacy">Predictions of drug efficacy</h3>
+<p>We implemented a machine learning approach to translate the network connectivity between a compound and a disease into a probability of treatment <span class="citation" data-cites="vvdoVrc6 YJJU5X2C">[<a href="#ref-vvdoVrc6">40</a>,<a href="#ref-YJJU5X2C">41</a>]</span>. The approach relies on the 755 known treatments as positives and 29,044 non-treatments as negatives to train a logistic regression model. The features consisted of a prior probability of treatment, node degrees for 14 metaedges, and DWPCs for 123 metapaths that were well suited for modeling. A cross-validated elastic net was used to minimize overfitting, yielding a model with 31 features (Figure <a href="#fig:features">2</a>B). The DWPC features with negative coefficients appear to be included as node-degree-capturing covariates, i.e. they reflect the general connectivity of the compound and disease rather than specific paths between them. However, the 11 DWPC features with non-negligible positive coefficients represent the most salient types of connectivity for systematically modeling drug efficacy. See the metapaths with positive coefficients in Table <a href="#tbl:metapaths">3</a> for unabbreviated names. As an example, the <em>CcSEcCtD</em> feature assesses whether the compound causes the same side effects as compounds that treat the disease. Alternatively, the <em>CbGeAlD</em> feature assesses whether the compound binds to genes that are expressed in the anatomies affected by the disease.</p>
+<p>We applied this model to predict the probability of treatment between each of 1,538 connected compounds and each of 136 connected diseases, resulting in predictions for 209,168 compound–disease pairs <span class="citation" data-cites="HZpkiQh0">[<a href="#ref-HZpkiQh0">42</a>]</span>, available at http://het.io/repurpose/. The 755 known disease-modifying indications were highly ranked (AUROC = 97.4%, Figure <a href="#fig:performance">3</a>). The predictions also successfully prioritized two external validation sets: novel indications from DrugCentral (AUROC = 85.5%) and novel indications in clinical trial (AUROC = 70.0%). Together, these findings indicate that Project Rephetio has the ability to recognize efficacious compound–disease pairs.</p>
+<figure>
+<img src="https://github.com/dhimmel/learn/raw/25093893ed53730ab5cfdac49561c4b6bd3376c5/prediction/figure/performance.png" alt="Figure 3: Predictions performance on four indication sets. We assess how well our predictions prioritize four sets of indications. A) The y-axis labels denote the number of indications (+) and non-indications (−) composing each set. Violin plots with quartile lines show the distribution of indications when compound–disease pairs are ordered by their prediction. In all four cases, the actual indications were ranked highly by our predictions. B) ROC Curves with AUROCs in the legend. C) Precision–Recall Curves with AUPRCs in the legend." id="fig:performance" /><figcaption>Figure 3: <strong>Predictions performance on four indication sets.</strong> We assess how well our predictions prioritize four sets of indications. A) The y-axis labels denote the number of indications (+) and non-indications (−) composing each set. Violin plots with quartile lines show the distribution of indications when compound–disease pairs are ordered by their prediction. In all four cases, the actual indications were ranked highly by our predictions. B) ROC Curves with AUROCs in the legend. C) Precision–Recall Curves with AUPRCs in the legend.</figcaption>
+</figure>
+<p>Predictions were scaled to the overall prevalence of treatments (0.36%). Hence a compound–disease pair that received a prediction of 1% represents a 2-fold enrichment over the null probability. Of the 3,980 predictions with a probability exceeding 1%, 586 corresponded to known disease-modifying indications, leaving 3,394 repurposing candidates. For a given compound or disease, we provide the percentile rank of each prediction. Therefore, users can assess whether a given prediction is a top prediction for the compound or disease. In addition, our table-based prediction browser links to a custom guide for each prediction, which displays in the Neo4j Hetionet Browser. Each guide includes a query to display the top paths supporting the prediction and lists clinical trials investigating the indication.</p>
+<h4 id="nicotine-dependence-case-study">Nicotine dependence case study</h4>
+<p>There are currently two FDA-approved medications for smoking cessation (varenicline and bupropion) that are not nicotine replacement therapies. PharmacotherapyDB v1.0 lists varenicline as a disease-modifying indication and nicotine itself as a symptomatic indication for nicotine dependence, but is missing bupropion. Bupropion was first approved for depression in 1985. Owing to the serendipitous observation that it decreased smoking in depressed patients taking this drug, Bupropion was approved for smoking cessation in 1997 <span class="citation" data-cites="RW3iefYj">[<a href="#ref-RW3iefYj">43</a>]</span>. Therefore we looked whether Project Rephetio could have predicted this repurposing. Bupropion was the 9th best <a href="http://het.io/repurpose/browse.html?id=DOID_0050742" title="Project Rephetio predictions for nicotine dependence (DOID:0050742)">prediction for nicotine dependence</a> (99.5th percentile) with a probability 2.50-fold greater than the null. Figure <a href="#fig:bupropion_nicotine">4</a> shows the top paths supporting the repurposing of bupropion.</p>
+<figure>
+<img src="https://github.com/dhimmel/rephetio/raw/4ca4926b83babe2d4425dd2c387dfcc93f07d321/nicotine-dependence/bupropion-nicotine-dependence.png" alt="Figure 4: Evidence supporting the repurposing of bupropion for smoking cessation. This figure shows the 10 most supportive paths (out of 365 total) for treating nicotine dependence with bupropion, as available in this prediction’s Neo4j Browser guide. Our method detected that bupropion targets the CHRNA3 gene, which is also targeted by the known-treatment varenicline [44]. Furthermore, CHRNA3 is associated with nicotine dependence [45] and participates in several pathways that contain other nicotinic-acetylcholine-receptor (nAChR) genes associated with nicotine dependence. Finally, bupropion causes terminal insomnia [46] as does varenicline [47], which could indicate an underlying common mechanism of action." id="fig:bupropion_nicotine" /><figcaption>Figure 4: <strong>Evidence supporting the repurposing of bupropion for smoking cessation.</strong> This figure shows the 10 most supportive paths (out of 365 total) for treating nicotine dependence with bupropion, as available in this prediction’s <a href="https://neo4j.het.io/browser/?cmd=play&amp;arg=https://neo4j.het.io/guides/rep/DB01156/DOID_0050742.html" title="Hetionet Neo4j Browser with a prefilled command to play the bupropion–nicotine-dependence guide">Neo4j Browser guide</a>. Our method detected that bupropion targets the <em>CHRNA3</em> gene, which is also targeted by the known-treatment varenicline <span class="citation" data-cites="168N7Bjqa">[<a href="#ref-168N7Bjqa">44</a>]</span>. Furthermore, <em>CHRNA3</em> is associated with nicotine dependence <span class="citation" data-cites="GWiTuYEr">[<a href="#ref-GWiTuYEr">45</a>]</span> and participates in several pathways that contain other nicotinic-acetylcholine-receptor (nAChR) genes associated with nicotine dependence. Finally, bupropion causes terminal insomnia <span class="citation" data-cites="eW0L7JxP">[<a href="#ref-eW0L7JxP">46</a>]</span> as does varenicline <span class="citation" data-cites="N7Bg6WAk">[<a href="#ref-N7Bg6WAk">47</a>]</span>, which could indicate an underlying common mechanism of action.</figcaption>
+</figure>
+<p>Atop the nicotine dependence predictions were nicotine (10.97-fold over null), cytisine (10.58-fold), and galantamine (9.50-fold). Cytisine is widely used in Eastern Europe for smoking cessation due to its availability at a fraction of the cost of other pharmaceutical options <span class="citation" data-cites="ankMHU1X">[<a href="#ref-ankMHU1X">48</a>]</span>. In the last half decade, large scale clinical trials have confirmed cytisine’s efficacy <span class="citation" data-cites="BlcigD44 RawQU2jb">[<a href="#ref-BlcigD44">49</a>,<a href="#ref-RawQU2jb">50</a>]</span>. Galantamine, an approved Alzheimer’s treatment, is currently in <a href="https://clinicaltrials.gov/ct2/show/NCT01669538" title="Effect of Galantamine on Short-term Abstinence (GAL-K)">Phase 2 trial</a> for smoking cessation and is showing promising results <span class="citation" data-cites="POMP3U7G">[<a href="#ref-POMP3U7G">51</a>]</span>. In summary, nicotine dependence illustrates Project Rephetio’s ability to predict efficacious treatments and prioritize historic and contemporary repurposing opportunities.</p>
+<h4 id="epilepsy-case-study">Epilepsy case study</h4>
+<p>Several factors make epilepsy an interesting disease for evaluating repurposing predictions <span class="citation" data-cites="X7gFn4rX">[<a href="#ref-X7gFn4rX">52</a>]</span>. Antiepileptic drugs work by increasing the seizure threshold — the amount of electric stimulation that is required to induce seizure. The effect of a drug on the seizure threshold can be cheaply and reliably tested in rodent models. As a result, the viability of most approved drugs in treating epilepsy is known.</p>
+<p>We focused our evaluation on the top 100 scoring compounds — referred to as the epilepsy predictions in this section — after discarding a single combination drug. We classified each compound as anti-ictogenic (seizure suppressing), unknown (no established effect on the seizure threshold), or ictogenic (seizure generating) according to medical literature <span class="citation" data-cites="X7gFn4rX">[<a href="#ref-X7gFn4rX">52</a>]</span>. Of the top 100 epilepsy predictions, 77 were anti-ictogenic, 8 were unknown, and 15 were ictogenic (Figure <a href="#fig:epilepsy">5</a>A). Notably, the predictions contained 23 of the 25 disease-modifying antiepileptics in PharamcotherapyDB v1.0.</p>
+<figure>
+<img src="https://github.com/dhimmel/rephetio/raw/960194b4870d897b254596c9bb336b6a94cabb76/epilepsy/figure/combined/compound-network-combined.png" alt="Figure 5: Top 100 epilepsy predictions. A) Compounds — ranked from 1 to 100 by their predicted probability of treating epilepsy — are colored by their effect on seizures [52]. The highest predictions are almost exclusively anti-ictogenic. Further down the prediction list, the prevalence of drugs with an ictogenic (contraindication) or unknown (novel repurposing candidate) effect on epilepsy increases. All compounds shown received probabilities far exceeding the null probability of treatment (0.36%). B) A chemical similarity network of the epilepsy predictions, with each compound’s 2D structure [53]. Edges are Compound–resembles–Compound relationships from Hetionet v1.0. Nodes are colored by their effect on seizures. C) The relative contribution of important drug targets to each epilepsy prediction [53]. Specifically, pie charts show how the 8 most-supportive drug targets across all 100 epilepsy predictions contribute to individual predictions. Other Targets represents the aggregate contribution of all targets not listed. The network layout is identical to B." id="fig:epilepsy" /><figcaption>Figure 5: <strong>Top 100 epilepsy predictions.</strong> A) Compounds — ranked from 1 to 100 by their predicted probability of treating epilepsy — are colored by their effect on seizures <span class="citation" data-cites="X7gFn4rX">[<a href="#ref-X7gFn4rX">52</a>]</span>. The highest predictions are almost exclusively anti-ictogenic. Further down the prediction list, the prevalence of drugs with an ictogenic (contraindication) or unknown (novel repurposing candidate) effect on epilepsy increases. All compounds shown received probabilities far exceeding the null probability of treatment (0.36%). B) A chemical similarity network of the epilepsy predictions, with each compound’s 2D structure <span class="citation" data-cites="11rtJxxFQ">[<a href="#ref-11rtJxxFQ">53</a>]</span>. Edges are <em>Compound–resembles–Compound</em> relationships from Hetionet v1.0. Nodes are colored by their effect on seizures. C) The relative contribution of important drug targets to each epilepsy prediction <span class="citation" data-cites="11rtJxxFQ">[<a href="#ref-11rtJxxFQ">53</a>]</span>. Specifically, pie charts show how the 8 most-supportive drug targets across all 100 epilepsy predictions contribute to individual predictions. Other Targets represents the aggregate contribution of all targets not listed. The network layout is identical to B.</figcaption>
+</figure>
+<p>Many of the 77 anti-ictogenic compounds were not first-line antiepileptic drugs. Instead, they were used as ancillary drugs in the treatment of status epilepticus. For example, we predicted four halogenated ethers, two of which (isoflurane and desflurane) are used clinically to treat life-threatening seizures that persist despite treatment <span class="citation" data-cites="QneW9LSU">[<a href="#ref-QneW9LSU">54</a>]</span>. As inhaled anesthetics, these compounds are not appropriate as daily epilepsy medications, but are feasible for refractory status epilepticus where patients are intubated.</p>
+<p>Given this high precision (77%), the 8 compounds of unknown effect are promising repurposing candidates. For example, acamprosate — whose top prediction was epilepsy — is a taurine analog that promotes alcohol abstinence. Support for this repurposing arose from acamprosate’s inhibition of the glutamate receptor and positive modulation of the GABAᴀ receptor (Figure <a href="#fig:epilepsy">5</a>C). If effective against epilepsy, acamprosate could serve a dual benefit for recovering alcoholics who experience seizures from alcohol withdrawal.</p>
+<p>While certain classes of compounds were highly represented in our epilepsy predictions, such benzodiazepines and barbiturates, there was also considerable diversity <span class="citation" data-cites="X7gFn4rX">[<a href="#ref-X7gFn4rX">52</a>]</span>. The 100 predicted compounds encompassed 26 third-level ATC codes <span class="citation" data-cites="aIzBdEjd">[<a href="#ref-aIzBdEjd">55</a>]</span>, such as antiarrhythmics (quinidine, classified as anti-ictogenic) and urologicals (phenazopyridine, classified as unknown). Furthermore, 25 of the compounds were chemically distinct, i.e. they did not resemble any of the other epilepsy predictions (Figure <a href="#fig:epilepsy">5</a>B).</p>
+<p>Next, we investigated which components of Hetionet contributed to the epilepsy predictions <span class="citation" data-cites="X7gFn4rX">[<a href="#ref-X7gFn4rX">52</a>]</span>. In total, 392,956 paths of 12 types supported the predictions. Using several different methods for grouping paths, we were able to quantify the aggregate biological evidence. Our algorithm primarily drew on two aspects of epilepsy: its known treatments (76% of the total support) and its genetic associations (22% of support). In contrast, our algorithm drew heavily on several aspects of the predicted compounds: their targeted genes (44%), their chemically similar compounds (30%), their pharmacologic classes, their palliative indications (5%), and their side effects (4%).</p>
+<p>Specifically, 266,192 supporting paths originated with a <em>Compound–binds–Gene</em> relationship. Aggregating support by these genes shows the extent that 121 different drug targets contributed to the predictions <span class="citation" data-cites="X7gFn4rX">[<a href="#ref-X7gFn4rX">52</a>]</span>. In order of importance, the predictions targeted GABAᴀ receptors (15.3% of total support), cytochrome P450 enzymes (5.6%), the sodium channel (4.6%), glutamate receptors (3.8%), the calcium channel (2.7%), carbonic anhydrases (2.5%), cholinergic receptors (2.1%) and the potassium channel (1.4%). Besides cytochrome P450, which primarily influences pharmacokinetics <span class="citation" data-cites="raqMZfVJ">[<a href="#ref-raqMZfVJ">56</a>]</span>, our method detected and leveraged bonafide anti-ictogenic mechanisms <span class="citation" data-cites="18HUpN1mo">[<a href="#ref-18HUpN1mo">57</a>]</span>. Figure <a href="#fig:epilepsy">5</a>C shows drug target contributions per compound and illustrates the considerable mechanistic diversity among the predictions.</p>
+<p>Also notable are the 15 ictogenic compounds in our top 100 predictions. Nine of the ictogenic compounds share a tricyclic structure (Figure <a href="#fig:epilepsy">5</a>B), five of which are tricyclic antidepressants. While the ictogenic mechanisms of these antidepressants are still unclear <span class="citation" data-cites="SVg4FFYB">[<a href="#ref-SVg4FFYB">58</a>]</span>, Figure <a href="#fig:epilepsy">5</a>C suggests their anticholinergic effects may be responsible <span class="citation" data-cites="qVZAsQFH">[<a href="#ref-qVZAsQFH">59</a>]</span>, in accordance with previous theories <span class="citation" data-cites="R4OlZJil">[<a href="#ref-R4OlZJil">60</a>]</span>.</p>
+<p>We also ranked the contribution of the 1,137 side effects that supported the epilepsy predictions through 117,720 <em>CcSEcCtD</em> paths. The top five side effects — ataxia (0.069% of total support), nystagmus (0.049%), diplopia (0.045%), somnolence (0.044%), and vomiting (0.043%) — reflect established adverse effects of antiepileptic drugs <span class="citation" data-cites="kETnt13q ZOq8ox9u Pp1J37KJ dXrsMPtN 15swlTeWU">[<a href="#ref-kETnt13q">61</a>–<a href="#ref-15swlTeWU">65</a>]</span>. In summary, our method simultaneously identified the hallmark side effects of antiepileptic drugs while incorporating this knowledge to prioritize 1,538 compounds for anti-ictogenic activity.</p>
+<h2 id="discussion">Discussion</h2>
+<p>We created Hetionet v1.0 by integrating 29 resources into a single data structure — the hetnet. Consisting of 11 types of nodes and 24 types of relationships, Hetionet v1.0 brings more types of information together than previous leading-studies in biological data integration <span class="citation" data-cites="gIhNaGUg">[<a href="#ref-gIhNaGUg">66</a>]</span>. Moreover, we strove to create a reusable, extensible, and property-rich network. While all of the resources we include are publicly available, their integration was a time-intensive undertaking. Hetionet allows researchers to begin answering integrative questions without having to first spend months processing data.</p>
+<p>Our public Neo4j instance allows users to immediately interact with Hetionet. Through the Cypher language, users can perform highly specialized graph queries with only a few lines of code. Queries can be executed in the web browser or programmatically from a language with a Neo4j driver. For users that are unfamiliar with Cypher, we include several example queries in a Browser guide. In contrast to traditional REST APIs, our public Neo4j instance provides users with maximal flexibility to construct custom queries by exposing the underlying database.</p>
+<p>As data has grown more plentiful and diverse, so has the applicability of hetnets. Unfortunately, network science has been naturally fragmented by discipline resulting in relatively slow progress in integrating heterogeneous data. A 2014 analysis identified 78 studies using multilayer networks — a superset of hetnets with the potential for a time dimension. However, the studies relied on 26 different terms, 9 of which had multiple definitions <span class="citation" data-cites="RZFMnN9C QWTAHxFj">[<a href="#ref-RZFMnN9C">67</a>,<a href="#ref-QWTAHxFj">68</a>]</span>. Nonetheless, core infrastructure and algorithms for hetnets are emerging. One goal of our project has been to unite hetnet research across disciplines. We approached this goal by making Project Rephetio entirely available online and inviting community feedback throughout the process <span class="citation" data-cites="G26bEIcn">[<a href="#ref-G26bEIcn">69</a>]</span>.</p>
+<p>Integrating every resource into a single interconnected data structure allowed us to assess systematic mechanisms of drug efficacy. Using the max performing metapath to assess the pharmacological utility of a metaedge (Figure <a href="#fig:features">2</a>A), we can divide our relationships into tiers of informativeness. The top tier consists of the types of information traditionally considered by pharmacology: <em>Compound–treats–Disease</em>, <em>Pharmacologic Class–includes–Compound</em>, <em>Compound–resembles–Compound</em>, <em>Disease–resembles–Disease</em>, and <em>Compound–binds–Gene</em>. The upper-middle tier consists of types of information that have been the focus of substantial medical study, but have only recently started to play a bigger role in drug development, namely the metaedges <em>Disease–associates–Gene</em>, <em>Compound–causes–Side Effect</em>, <em>Disease–presents–Symptom</em>, <em>Disease–localizes–Anatomy</em>, and <em>Gene–interacts–Gene</em>.</p>
+<p>The lower-middle tier contains the transcriptomics metaedges such as <em>Compound–downregulates–Gene</em>, <em>Anatomy–expresses–Gene</em>, <em>Gene→regulates→Gene</em>, and <em>Disease–downregulates–Gene</em>. Much excitement surrounds these resources due to their high throughput and genome-wide scope, which offers a route to drug discovery that is less biased by existing knowledge. However, our findings suggest that these resources are only moderately informative of drug efficacy. Other lower-middle tier metaedges were the product of time-intensive biological experimentation, such as <em>Gene–participates–Pathway</em>, <em>Gene–participates–Molecular Function</em>, and <em>Gene–participates–Biological Process</em>. Unlike the top tier resources, this knowledge has historically been pursued for basic science rather than primarily medical applications. The weak yet appreciable performance of the <em>Gene–covaries–Gene</em> suggests the synergy between the fields of evolutionary genomics and disease biology. The lower tier included the <em>Gene–participates–Cellular Component</em> metaedge, which may reflect that the relevance of cellular location to pharmacology is highly case dependent and not amenable to systematic profiling.</p>
+<p>The performance of specific metapaths (Table <a href="#tbl:metapaths">3</a>) provides further insight. For example, significant emphasis has been put on the use of transcriptional data for drug repurposing <span class="citation" data-cites="z3bwpLel">[<a href="#ref-z3bwpLel">30</a>]</span>. One common approach has been to identify compounds with opposing transcriptional signatures to a disease <span class="citation" data-cites="mZjkE1xU 1HKxAhwf6">[<a href="#ref-1HKxAhwf6">18</a>,<a href="#ref-mZjkE1xU">70</a>]</span>. However, several systematic studies report underwhelming performance of this approach <span class="citation" data-cites="XjXzx5KH dr9ERRtb Q7tc9Lii">[<a href="#ref-dr9ERRtb">24</a>–<a href="#ref-Q7tc9Lii">26</a>]</span> — a finding supported by the low performance of the <em>CuGdD</em> and <em>CdGuD</em> metapaths in Project Rephetio. Nonetheless, other transcription-based methods showed some promise. Compounds with similar transcriptional signatures were prone to treating the same disease (<em>CuGuCtD</em> and <em>CdGdCtD</em> metapaths), while compounds with opposing transcriptional signatures were slightly averse to treating the same disease (<em>CuGdCtD</em> and <em>CdGuCtD</em> metapaths). In contrast, diseases with similar transcriptional profiles were not prone to treatment by the same compound (<em>CtDdGuD</em> and <em>CtDuGdD</em>).</p>
+<p>By comparably assessing the informativeness of different metaedges and metapaths, Project Rephetio aims to guide future research towards promising data types and analyses. Encouragingly, most data types were at least weakly informative and hence suitable for further study. Ideally, different data types would provide orthogonal information. However, our model for whether a compound treats a disease focused on 11 metapaths — a small portion of the hundreds of metapaths available. While parsimony aids interpretation, our model did not draw on the weakly-predictive high-throughput data types — which are intriguing for their novelty, scalability, and cost-effectiveness — as much as we had hypothesized.</p>
+<p>Instead our model selected types of information traditionally considered in pharmacology. However unlike a pharmacologist whose area of expertise may be limited to a few drug classes, our model was able to predict probabilities of treatment for all 209,168 compound–disease pairs. Furthermore, our model systematically learned the importance of each type of network connectivity. For any compound–disease pair, we now can immediately provide the top network paths supporting its therapeutic efficacy. A traditional pharmacologist may be able to produce a similar explanation, but likely not until spending substantial time researching the compound’s pharmacology, the disease’s pathophysiology, and the molecular relationships in between. Accordingly, we hope certain predictions will spur further research, such as trials to investigate the off-label use of acamprosate for epilepsy, which is supported by one animal model <span class="citation" data-cites="ySmQFDL6">[<a href="#ref-ySmQFDL6">71</a>]</span>.</p>
+<p>As demonstrated by the 15 ictogenic compounds in our top 100 epilepsy predictions, Project Rephetio’s predictions can include contraindications in addition to indications. Since many of Hetionet v1.0’s relationship types are general (e.g. the <em>Compound–binds–Gene</em> relationship type conflates antagonist with agonist effects), we expect some high scoring predictions to exacerbate rather than treat the disease. However, the predictions made by Hetionet v1.0 represent such substantial relative enrichment over the null that uncovering the correct directionality is a logical next step and worth undertaking. Going forward, advances in automated mining of the scientific literature could enable extraction of precise relationship types at omics scale <span class="citation" data-cites="zeAWTFKB di85pSaK">[<a href="#ref-zeAWTFKB">72</a>,<a href="#ref-di85pSaK">73</a>]</span>.</p>
+<p>Future research should focus on gleaning orthogonal information from data types that are so expansive that computational methods are the only option. Our <em>CuGuCtD</em> feature — measuring whether a compound upregulates the same genes as compounds which treat the disease — is a good example. This metapath was informative by itself (Δ AUROC = 4.4%) but was not selected by the model, despite its orthogonal origin (gene expression) to selected metapaths. Using a more extensive catalog of treatments as the gold standard would be one possible approach to increase the power of feature selection.</p>
+<p>Integrating more types of information into Hetionet should also be a future priority. The “network effect” phenomenon suggests that the addition of each new piece of information will enhance the value of Hetionet’s existing information. We envision a future where all biological knowledge is encoded into a single hetnet. Hetionet v1.0 was an early attempt, and we hope the strong performance of Project Rephetio in repurposing drugs foreshadows the many applications that will thrive from encoding biology in hetnets.</p>
+<h2 id="methods">Methods</h2>
+<p>Hetionet was built entirely from publicly available resources with the goal of integrating a broad diversity of information types of medical relevance, ranging in scale from molecular to organismal. Practical considerations such as data availability, licensing, reusability, documentation, throughput, and standardization informed our choice of resources. We abided by a simple litmus test for determining how to encode information in a hetnet: nodes represent nouns, relationships represent verbs <span class="citation" data-cites="17jtKw4YY v6CCM5Cc">[<a href="#ref-17jtKw4YY">74</a>,<a href="#ref-v6CCM5Cc">75</a>]</span>.</p>
+<p>Our method for relationship prediction creates a strong incentive to avoid redundancy, which increases the computational burden without improving performance. In a previous study to predict disease–gene associations using a hetnet of pathophysiology <span class="citation" data-cites="WkPlH1ds">[<a href="#ref-WkPlH1ds">22</a>]</span>, we found that different types of gene sets contributed highly redundant information. Therefore, in Hetionet v1.0 we reduced the number of gene set node types from 14 to 3 by omitting several gene set collections and aggregating all pathway nodes.</p>
+<h3 id="nodes">Nodes</h3>
+<p>Nodes encode entities. We extracted nodes from standard terminologies, which provide curated vocabularies to enable data integration and prevent concept duplication. The ease of mapping external vocabularies, adoption, and comprehensiveness were primary selection criteria. Hetionet v1.0 includes nodes from 5 ontologies — which provide hierarchy of entities for a specific domain — selected for their conformity to current best practices <span class="citation" data-cites="XEspNtr2">[<a href="#ref-XEspNtr2">76</a>]</span>.</p>
+<p>We selected 137 terms from the <a href="http://disease-ontology.org/">Disease Ontology</a> <span class="citation" data-cites="1GnETgp1H f99q1xsw">[<a href="#ref-1GnETgp1H">77</a>,<a href="#ref-f99q1xsw">78</a>]</span> (which we refer to as DO Slim <span class="citation" data-cites="203l6hC3 rV9FuvXN">[<a href="#ref-203l6hC3">79</a>,<a href="#ref-rV9FuvXN">80</a>]</span>) as our disease set. Our goal was to identify complex diseases that are distinct and specific enough to be clinically relevant yet general enough to be well annotated. To this end, we included diseases that have been studied by GWAS and cancer types from <code>TopNodes_DOcancerslim</code> <span class="citation" data-cites="bkUx1GRz">[<a href="#ref-bkUx1GRz">81</a>]</span>. We ensured that no DO Slim disease was a subtype of another DO Slim disease. Symptoms were extracted from <a href="http://www.ncbi.nlm.nih.gov/mesh">MeSH</a> by taking the 438 descendants of <em>Signs and Symptoms</em> <span class="citation" data-cites="L2B5V7XC nO29zy5i">[<a href="#ref-L2B5V7XC">82</a>,<a href="#ref-nO29zy5i">83</a>]</span>.</p>
+<p>Approved small molecule compounds with documented chemical structures were extracted from <a href="http://www.drugbank.ca/">DrugBank</a> version 4.2 <span class="citation" data-cites="6PR8LEXK LA0msc0M AoxkilGE">[<a href="#ref-6PR8LEXK">84</a>–<a href="#ref-AoxkilGE">86</a>]</span>. Unapproved compounds were excluded because our focus was repurposing. In addition, unapproved compounds tend to be less studied than approved compounds making them less attractive for our approach where robust network connectivity is critical. Finally, restricting to small molecules with known documented structures enabled us to map between compound vocabularies (see <a href="#mappings">Mappings</a>).</p>
+<p>Side effects were extracted from <a href="http://sideeffects.embl.de/">SIDER</a> version 4.1 <span class="citation" data-cites="1DRwksl3r dJiw2mmn bqoSmLv6">[<a href="#ref-1DRwksl3r">87</a>–<a href="#ref-bqoSmLv6">89</a>]</span>. SIDER codes side effects using <a href="https://www.nlm.nih.gov/research/umls/">UMLS</a> identifiers <span class="citation" data-cites="iNDjLbkQ">[<a href="#ref-iNDjLbkQ">90</a>]</span>, which we also adopted. Pharmacologic Classes were extracted from the DrugCentral <a href="https://github.com/olegursu/drugtarget" title="DrugCentral data: olegursu/drugtarget on GitHub">data repository</a> <span class="citation" data-cites="5Bk8rV02 896kQYbf">[<a href="#ref-5Bk8rV02">91</a>,<a href="#ref-896kQYbf">92</a>]</span>.</p>
+<p>Protein-coding human genes were extracted from <a href="http://www.ncbi.nlm.nih.gov/gene">Entrez Gene</a> <span class="citation" data-cites="u7vVtngU jFjpgUmP CeE6BNL6">[<a href="#ref-u7vVtngU">93</a>–<a href="#ref-CeE6BNL6">95</a>]</span>. Anatomical structures, which we refer to as anatomies, were extracted from <a href="http://uberon.org">Uberon</a> <span class="citation" data-cites="TOC8jpgh">[<a href="#ref-TOC8jpgh">96</a>]</span>. We selected a subset of 402 Uberon terms by excluding terms known not to exist in humans and terms that were overly broad or arcane <span class="citation" data-cites="o4Fn3BdF 1CvIurqPN">[<a href="#ref-o4Fn3BdF">97</a>,<a href="#ref-1CvIurqPN">98</a>]</span>.</p>
+<p>Pathways were extracted by combining human pathways from <a href="http://www.wikipathways.org/">WikiPathways</a> <span class="citation" data-cites="13dXhDrjJ 1HPlX2VWO">[<a href="#ref-13dXhDrjJ">99</a>,<a href="#ref-1HPlX2VWO">100</a>]</span>, <a href="http://www.reactome.org/">Reactome</a> <span class="citation" data-cites="VRAAqTPx">[<a href="#ref-VRAAqTPx">101</a>]</span>, and the <a href="http://pid.nci.nih.gov/">Pathway Interaction Database</a> <span class="citation" data-cites="hza2g9jG">[<a href="#ref-hza2g9jG">102</a>]</span>. The latter two resources were retrieved from <a href="http://www.pathwaycommons.org/pc2/">Pathway Commons</a> <span class="citation" data-cites="gHOGRSfH">[<a href="#ref-gHOGRSfH">103</a>]</span>, which compiles pathways from several providers. Duplicate pathways and pathways without multiple participating genes were removed <span class="citation" data-cites="15IhnC8cF HDkm1eac">[<a href="#ref-15IhnC8cF">104</a>,<a href="#ref-HDkm1eac">105</a>]</span>. Biological processes, cellular components, and molecular functions were extracted from the <a href="http://geneontology.org/">Gene Ontology</a> <span class="citation" data-cites="pqVRhFos">[<a href="#ref-pqVRhFos">106</a>]</span>. Only terms with 2–1000 annotated genes were included.</p>
+<h3 id="mappings">Mappings</h3>
+<p>Before adding relationships, all identifiers needed to be converted into the vocabularies matching that of our nodes. Oftentimes, our node vocabularies included external mappings. For example, the Disease Ontology includes mappings to MeSH, UMLS, and the ICD, several of which we submitted during the course of this study <span class="citation" data-cites="11BJxM8RZ">[<a href="#ref-11BJxM8RZ">107</a>]</span>. In a few cases, the only option was to map using gene symbols, a disfavored method given that it can lead to ambiguities.</p>
+<p>When mapping external disease concepts onto DO Slim, we used transitive closure. For example, the UMLS concept for primary progressive multiple sclerosis (<a href="http://linkedlifedata.com/resource/umls-concept/C0751964"><code>C0751964</code></a>) was mapped to the DO Slim term for multiple sclerosis (<a href="http://purl.obolibrary.org/obo/DOID_2377"><code>DOID:2377</code></a>).</p>
+<p>Chemical vocabularies presented the greatest mapping challenge <span class="citation" data-cites="LA0msc0M">[<a href="#ref-LA0msc0M">85</a>]</span>, since these are poorly standardized <span class="citation" data-cites="gP7oMjoR">[<a href="#ref-gP7oMjoR">108</a>]</span>. UniChem’s <span class="citation" data-cites="14OnuhY6K">[<a href="#ref-14OnuhY6K">109</a>]</span> Connectivity Search <span class="citation" data-cites="N3GeOrai">[<a href="#ref-N3GeOrai">110</a>]</span> was used to map compounds, which maps by atomic connectivity (based on First InChIKey Hash Blocks <span class="citation" data-cites="AP6h5CYA">[<a href="#ref-AP6h5CYA">111</a>]</span>) and ignores small molecular differences.</p>
+<h3 id="edges">Edges</h3>
+<p><em>Anatomy–downregulates–Gene</em> and <em>Anatomy–upregulates–Gene</em> edges <span class="citation" data-cites="ZQHbR2c0 5qw2oair CMnMXmRF">[<a href="#ref-ZQHbR2c0">112</a>–<a href="#ref-CMnMXmRF">114</a>]</span> were extracted from <a href="http://bgee.org/">Bgee</a> <span class="citation" data-cites="1G9we1aD8">[<a href="#ref-1G9we1aD8">115</a>]</span>, which computes differentially expressed genes by anatomy in post-juvenile adult humans. <em>Anatomy–expresses–Gene</em> edges were extracted from Bgee and <a href="http://tissues.jensenlab.org/">TISSUES</a> <span class="citation" data-cites="6QECA6Hm utu7TxwB 14Sym5V3B">[<a href="#ref-6QECA6Hm">116</a>–<a href="#ref-14Sym5V3B">118</a>]</span>.</p>
+<p><em>Compound–binds–Gene</em> edges were aggregated from <a href="https://bindingdb.org">BindingDB</a> <span class="citation" data-cites="EcldAPLA 4WZ9VZD7">[<a href="#ref-EcldAPLA">119</a>,<a href="#ref-4WZ9VZD7">120</a>]</span>, <a href="http://www.drugbank.ca/">DrugBank</a> <span class="citation" data-cites="RPxoiilN 6PR8LEXK">[<a href="#ref-6PR8LEXK">84</a>,<a href="#ref-RPxoiilN">121</a>]</span>, and <a href="http://drugcentral.org/">DrugCentral</a> <span class="citation" data-cites="5Bk8rV02">[<a href="#ref-5Bk8rV02">91</a>]</span>. Only binding relationships to single proteins with affinities of at least 1 μM (as determined by Kd, Kᵢ, or IC₅₀) were selected from the October 2015 release of BindingDB <span class="citation" data-cites="j7cpyM2e 3tDTWGId">[<a href="#ref-j7cpyM2e">122</a>,<a href="#ref-3tDTWGId">123</a>]</span>. Target, carrier, transporter, and enzyme interactions with single proteins (i.e. excluding protein groups) were extracted from DrugBank 4.2 <span class="citation" data-cites="1HGVhWYte AoxkilGE">[<a href="#ref-AoxkilGE">86</a>,<a href="#ref-1HGVhWYte">124</a>]</span>. In addition, all mapping DrugCentral target relationships were included <span class="citation" data-cites="896kQYbf">[<a href="#ref-896kQYbf">92</a>]</span>.</p>
+<p><em>Compound–treats–Disease</em> (disease-modifying indications) and <em>Compound–palliates–Disease</em> (symptomatic indications) edges are from PharmacotherapyDB as described in <a href="#intermediate-resources">Intermediate resources</a>. <em>Compound–causes–Side Effect</em> edges were obtained from <a href="http://sideeffects.embl.de/">SIDER</a> 4.1 <span class="citation" data-cites="1DRwksl3r dJiw2mmn bqoSmLv6">[<a href="#ref-1DRwksl3r">87</a>–<a href="#ref-bqoSmLv6">89</a>]</span>, which uses natural language processing to identify side effects in drug labels. <em>Compound–resembles–Compound</em> relationships <span class="citation" data-cites="vUGTtH9t AoxkilGE RksWV6V0">[<a href="#ref-AoxkilGE">86</a>,<a href="#ref-vUGTtH9t">125</a>,<a href="#ref-RksWV6V0">126</a>]</span> represent chemical similarity and correspond to a Dice coefficient ≥ 0.5 <span class="citation" data-cites="1AfGrsCPz">[<a href="#ref-1AfGrsCPz">127</a>]</span> between extended connectivity fingerprints <span class="citation" data-cites="QnZ7V9Rd Srfz2yJV">[<a href="#ref-QnZ7V9Rd">128</a>,<a href="#ref-Srfz2yJV">129</a>]</span>. <em>Compound–downregulates–Gene</em> and <em>Compound–upregulates–Gene</em> relationships were computed from LINCS L1000 as described in <a href="#intermediate-resources">Intermediate resources</a>.</p>
+<p><em>Disease–associates–Gene</em> edges were extracted from the GWAS Catalog <span class="citation" data-cites="Iq5Pnl3b">[<a href="#ref-Iq5Pnl3b">130</a>]</span>, DISEASES <span class="citation" data-cites="11kBoB0W8 unrqUImI">[<a href="#ref-11kBoB0W8">131</a>,<a href="#ref-unrqUImI">132</a>]</span>, DisGeNET <span class="citation" data-cites="6db5dHbM RBCqf70A">[<a href="#ref-6db5dHbM">133</a>,<a href="#ref-RBCqf70A">134</a>]</span>, and DOAF <span class="citation" data-cites="AQ7jBhId 1EmRGtMf5">[<a href="#ref-AQ7jBhId">135</a>,<a href="#ref-1EmRGtMf5">136</a>]</span>. The <a href="https://www.ebi.ac.uk/gwas/">GWAS Catalog</a> compiles disease–SNP associations from published GWAS <span class="citation" data-cites="16cIDAXhG">[<a href="#ref-16cIDAXhG">137</a>]</span>. We aggregated overlapping loci associated with each disease and identified the mode reported gene for each high confidence locus <span class="citation" data-cites="RyLgv2tZ 7EDqcRMD">[<a href="#ref-RyLgv2tZ">138</a>,<a href="#ref-7EDqcRMD">139</a>]</span>. <a href="http://diseases.jensenlab.org/Search">DISEASES</a> integrates evidence of association from text mining, curated catalogs, and experimental data <span class="citation" data-cites="5gG8hwv7">[<a href="#ref-5gG8hwv7">140</a>]</span>. Associations from DISEASES with integrated scores ≥ 2 were included after removing the contribution of DistiLD. <a href="http://www.disgenet.org">DisGeNET</a> integrates evidence from over 10 sources and reports a single score for each association <span class="citation" data-cites="aBPdeZSN">[<a href="#ref-aBPdeZSN">141</a>]</span>. Associations with scores ≥ 0.06 were included. DOAF mines Entrez Gene GeneRIFs (textual annotations of gene function) for disease mentions <span class="citation" data-cites="gLGJypYg">[<a href="#ref-gLGJypYg">142</a>]</span>. Associations with 3 or more supporting GeneRIFs were included. <em>Disease–downregulates–Gene</em> and <em>Disease–upregulates–Gene</em> relationships <span class="citation" data-cites="fTatgccc 164R9SolI">[<a href="#ref-fTatgccc">143</a>,<a href="#ref-164R9SolI">144</a>]</span> were computed using <a href="http://stargeo.org/">STARGEO</a> as described in <a href="#intermediate-resources">Intermediate resources</a>.</p>
+<p><em>Disease–localizes–Anatomy</em>, <em>Disease–presents–Symptom</em>, and <em>Disease–resembles–Disease</em> edges were calculated from MEDLINE co-occurrence <span class="citation" data-cites="L2B5V7XC ZXg5KPir">[<a href="#ref-L2B5V7XC">82</a>,<a href="#ref-ZXg5KPir">145</a>]</span>. MEDLINE is a subset of 21 million PubMed articles for which designated human curators have assigned topics. When retrieving articles for a given topic (MeSH term), we activated two non-default search options as specified below: <code>majr</code> for selecting only articles where the topic is major and <code>noexp</code> for suppressing explosion (returning articles linked to MeSH subterms). We identified 4,161,769 articles with two or more disease topics; 696,252 articles with both a disease topic (<code>majr</code>) and an anatomy topic (<code>noexp</code>) <span class="citation" data-cites="xPGUgS3q">[<a href="#ref-xPGUgS3q">146</a>]</span>; and 363,928 articles with both a disease topic (<code>majr</code>) and a symptom topic (<code>noexp</code>). We used a Fisher’s exact test <span class="citation" data-cites="TWAPY3zr">[<a href="#ref-TWAPY3zr">147</a>]</span> to identify pairs of terms that occurred together more than would be expected by chance in their respective corpus. We included co-occurring terms with <em>p</em> &lt; 0.005 in Hetionet v1.0.</p>
+<p><em>Gene–covaries–Gene</em> edges represent evolutionary rate covariation ≥ 0.75 <span class="citation" data-cites="p6mbx8kO k8MhA90p IZHE5ysl">[<a href="#ref-p6mbx8kO">148</a>–<a href="#ref-IZHE5ysl">150</a>]</span>. <em>Gene–interacts–Gene</em> edges <span class="citation" data-cites="z0vsZcm0 rTcQZ8h2">[<a href="#ref-z0vsZcm0">151</a>,<a href="#ref-rTcQZ8h2">152</a>]</span> represent when two genes produce physically-interacting proteins. We compiled these interactions from the Human Interactome Database <span class="citation" data-cites="lnDqu0oW 6kBEzeyD 18f2p3v36 LCyCrr7W">[<a href="#ref-lnDqu0oW">153</a>–<a href="#ref-LCyCrr7W">156</a>]</span>, the Incomplete Interactome <span class="citation" data-cites="2jkcXYxN">[<a href="#ref-2jkcXYxN">157</a>]</span>, and our previous study <span class="citation" data-cites="WkPlH1ds">[<a href="#ref-WkPlH1ds">22</a>]</span>. <em>Gene–participates–Biological Process</em>, <em>Gene–participates–Cellular Component</em>, and <em>Gene–participates–Molecular Function</em> edges are from Gene Ontology annotations <span class="citation" data-cites="AIFvkizu">[<a href="#ref-AIFvkizu">158</a>]</span>. As described in <a href="#intermediate-resources">Intermediate resources</a>, annotations were propagated <span class="citation" data-cites="i148MVII 1yPa6qxQ">[<a href="#ref-i148MVII">159</a>,<a href="#ref-1yPa6qxQ">160</a>]</span>.</p>
+<h3 id="intermediate-resources">Intermediate resources</h3>
+<p>In the process of creating Hetionet, we produced several datasets with broad applicability that extended beyond Project Rephetio. These resources are referred to as intermediate resources and described below.</p>
+<h4 id="transcriptional-signatures-of-disease-using-stargeo">Transcriptional signatures of disease using STARGEO</h4>
+<p><a href="http://stargeo.org/">STARGEO</a> is a nascent platform for annotating and meta-analyzing differential gene expression experiments. The STAR acronym stands for Search-Tag-Analyze Resources, while GEO refers to the Gene Expression Omnibus <span class="citation" data-cites="14VfbatMA tGvcfcsl">[<a href="#ref-14VfbatMA">161</a>,<a href="#ref-tGvcfcsl">162</a>]</span>. STARGEO is a layer on top of GEO that crowdsources sample annotation and automates meta-analysis.</p>
+<p>Using STARGEO, we computed differentially expressed genes between healthy and diseased samples for 49 diseases <span class="citation" data-cites="fTatgccc 164R9SolI">[<a href="#ref-fTatgccc">143</a>,<a href="#ref-164R9SolI">144</a>]</span>. First, we and others created case/control tags for 66 diseases. After combing through GEO series and tagging samples, 49 diseases had sufficient data for case-control meta-analysis: multiple series with at least 3 cases and 3 controls. For each disease, we performed a random effects meta-analysis on each gene to combine log2 fold-change across series. These analyses incorporated 27,019 unique samples from 460 series on 107 platforms.</p>
+<p>Differentially expressed genes (false discovery rate ≤ 0.05) were identified for each disease. The median number of upregulated genes per disease was 351 and the median number of downregulated genes was 340. Endogenous depression was the only of the 49 diseases without any significantly dysregulated genes.</p>
+<h4 id="transcriptional-signatures-of-perturbation-from-lincs-l1000">Transcriptional signatures of perturbation from LINCS L1000</h4>
+<p><a href="http://www.lincscloud.org/l1000/">LINCS L1000</a> profiled the transcriptional response to small molecule and genetic interference perturbations. To increase throughput, expression was only measured for 978 genes, which were selected for their ability to impute expression of the remaining genes. A single perturbation was often assayed under a variety of conditions including cell types, dosages, timepoints, and concentrations. Each condition generates a single signature of dysregulation <em>z</em>-scores. We further processed these signatures to fit into our approach <span class="citation" data-cites="1DJZvtwP1 DoFEugtF">[<a href="#ref-1DJZvtwP1">163</a>,<a href="#ref-DoFEugtF">164</a>]</span>.</p>
+<p>First we computed consensus signatures — which meta-analyze multiple signatures to condense them into one — for DrugBank small molecules, Entrez genes, and all L1000 perturbations <span class="citation" data-cites="1GWQXgksp fo7BhiM">[<a href="#ref-1GWQXgksp">165</a>,<a href="#ref-fo7BhiM">166</a>]</span>. First, we discarded non-gold (non-replicating or indistinct) signatures. Then we meta-analyzed <em>z</em>-scores using Stouffer’s method. Each signature was weighted by its average Spearman’s correlation to other signatures, with a 0.05 minimum, to de-emphasize discordant signatures. Our signatures include the 978 measured genes and the 6,489 imputed genes from the “best inferred gene subset”. To identify significantly dysregulated genes, we selected genes using a Bonferroni cutoff of <em>p</em> = 0.05 and limited the number of imputed genes to 1,000.</p>
+<p>The consensus signatures for genetic perturbations allowed us to assess various characteristics of the L1000 dataset. First, we looked at whether genetic interference dysregulated its target gene in the expected direction <span class="citation" data-cites="K463O8CE">[<a href="#ref-K463O8CE">167</a>]</span>. Looking at measured z-scores for target genes, we found that the knockdown perturbations were highly reliable, while the overexpression perturbations were only moderately reliable with 36% of overexpression perturbations downregulating their target. However, imputed z-scores for target genes barely exceeded chance at responding in the expected direction to interference. Hence, we concluded that the imputation quality of LINCS L1000 is poor. However, when restricting to significantly dyseregulated targets, 22 out of 29 imputed genes responded in the expected direction. This provides some evidence that the directional fidelity of imputation is higher for significantly dysregulated genes. Finally, we found that the transcriptional signatures of knocking down and overexpressing the same gene were positively correlated 65% of the time, suggesting the presence of a general stress response <span class="citation" data-cites="45bO056G">[<a href="#ref-45bO056G">168</a>]</span>.</p>
+<p>Based on these findings, we performed additional filtering of signifcantly dysregulated genes when building Hetionet v1.0. <em>Compound–down/up-regulates–Gene</em> relationships were restricted to the 125 most significant per compound-direction-status combination (status refers to measured versus imputed). For genetic interference perturbations, we restricted to the 50 most significant genes per gene-direction-status combination and merged the remaining edges into a single <em>Gene→regulates→Gene</em> relationship type containing both knockdown and overexpression perturbations.</p>
+<h4 id="pharmacotherapydb-physician-curated-indications">PharmacotherapyDB: physician curated indications</h4>
+<p>We created PharmacotherapyDB, an open catalog of drug therapies for disease <span class="citation" data-cites="5t7pfaPv uXsu0Orb 10KA5jTBQ">[<a href="#ref-5t7pfaPv">169</a>–<a href="#ref-10KA5jTBQ">171</a>]</span>. Version 1.0 contains 755 disease-modifying therapies and 390 symptomatic therapies between 97 diseases and 601 compounds.</p>
+<p>This resource was motivated by the need for a gold standard of medical indications to train and evaluate our approach. Initially, we identified four existing indication catalogs <span class="citation" data-cites="evXE89NK">[<a href="#ref-evXE89NK">172</a>]</span>: MEDI-HPS which mined indications from RxNorm, SIDER 2, MedlinePlus, and Wikipedia <span class="citation" data-cites="meQc13o1">[<a href="#ref-meQc13o1">173</a>]</span>; LabeledIn which extracted indications from drug labels via human curation <span class="citation" data-cites="1HvRcrCfe 19a21PCCa Cb3mhTB5">[<a href="#ref-1HvRcrCfe">174</a>–<a href="#ref-Cb3mhTB5">176</a>]</span>; EHRLink which identified medication–problem pairs that clinicians linked together in electronic health records <span class="citation" data-cites="QFWKZ9ms uoysFmL">[<a href="#ref-QFWKZ9ms">177</a>,<a href="#ref-uoysFmL">178</a>]</span>; and indications from PREDICT, which were compiled from UMLS relationships, drugs.com, and drug labels <span class="citation" data-cites="dr9ERRtb">[<a href="#ref-dr9ERRtb">24</a>]</span>. After mapping to DO Slim and DrugBank Slim, the four resources contained 1,388 distinct indications.</p>
+<p>However, we noticed that many indications were palliative and hence problematic as a gold standard of pharmacotherapy for our <em>in silico</em> approach. Therefore, we recruited two practicing physicians to curate the 1,388 preliminary indications <span class="citation" data-cites="XKk3nmKX">[<a href="#ref-XKk3nmKX">179</a>]</span>. After a pilot on 50 indications, we defined three classifications: <em>disease modifying</em> meaning a drug that therapeutically changes the underlying or downstream biology of the disease; <em>symptomatic</em> meaning a drug that treats a significant symptom of the disease; and <em>non-indication</em> meaning a drug that neither therapeutically changes the underlying or downstream biology nor treats a significant symptom of the disease. Both curators independently classified all 1,388 indications.</p>
+<p>The two curators disagreed on 444 calls (Cohen’s κ = 49.9%). We then recruited a third practicing physician, who reviewed all 1,388 calls and created a detailed explanation of his methodology <span class="citation" data-cites="XKk3nmKX">[<a href="#ref-XKk3nmKX">179</a>]</span>. We proceeded with the third curator’s calls as the consensus curation. The first two curators did have reservations with classifying steroids as disease modifying for autoimmune diseases. We ultimately considered that these indications met our definition of disease modifying, which is based on a pathophysiological rather than clinical standard. Accordingly, therapies we consider disease modifying may not be used to alter long-term disease course in the modern clinic due to a poor risk–benefit ratio.</p>
+<h4 id="user-friendly-gene-ontology-annotations">User-friendly Gene Ontology annotations</h4>
+<p>We created a browser (http://git.dhimmel.com/gene-ontology/) to provide straightforward access to Gene Ontology annotations <span class="citation" data-cites="1yPa6qxQ i148MVII">[<a href="#ref-i148MVII">159</a>,<a href="#ref-1yPa6qxQ">160</a>]</span>. Our service provides annotations between Gene Ontology terms and Entrez Genes. The user chooses propagated/direct annotation and all/experimental evidence. Annotations are currently available for 37 species and downloadable as user-friendly TSV files.</p>
+<h3 id="data-copyright-and-licensing">Data copyright and licensing</h3>
+<p>We committed to openly releasing our data and analyses from the origin of the project <span class="citation" data-cites="ZSF7znde">[<a href="#ref-ZSF7znde">180</a>]</span>. Our goals were to contribute to the advancement of science <span class="citation" data-cites="10SeGR4Cb 1A97a4UwU">[<a href="#ref-10SeGR4Cb">181</a>,<a href="#ref-1A97a4UwU">182</a>]</span>, maximize our impact <span class="citation" data-cites="HQfvK1OF g8J7Zkoz">[<a href="#ref-HQfvK1OF">183</a>,<a href="#ref-g8J7Zkoz">184</a>]</span>, and enable reproducibility <span class="citation" data-cites="gvyja7v1 fL5DrqXg 18Ddv0H9A">[<a href="#ref-gvyja7v1">185</a>–<a href="#ref-18Ddv0H9A">187</a>]</span>. These objectives required publicly distributing and openly licensing Hetionet and Project Rephetio data and analyses <span class="citation" data-cites="tTEEbq17 8hTZ1RWy">[<a href="#ref-tTEEbq17">188</a>,<a href="#ref-8hTZ1RWy">189</a>]</span>.</p>
+<p>Since we integrated only public resources, which were overwhelmingly funded by academic grants, we had assumed that our project and open sharing of our network would not be an issue. However, upon releasing a preliminary version of Hetionet <span class="citation" data-cites="3RePz9QS">[<a href="#ref-3RePz9QS">190</a>]</span>, a community reviewer informed us of legal barriers to integrating public data. In essence, both copyright (rights of exclusivity automatically granted to original works) and terms of use (rules that users must agree to in order to use a resource) place legally-binding restrictions on data reuse. In short, public data is not by default open data.</p>
+<p>Hetionet v1.0 integrates 29 resources, but two resources were removed prior to the v1.0 release. Of the total <a href="https://github.com/dhimmel/integrate/blob/725f4e4b4a737cfb15abe55ef36386c23e1c4f1f/licenses/README.md" title="Source license table on GitHub">31 resources</a> <span class="citation" data-cites="4G0GW8oe">[<a href="#ref-4G0GW8oe">191</a>]</span>, five were United States government works not subject to copyright, and twelve had licenses that met the <a href="http://opendefinition.org/od/2.1/en/">Open Definition</a> of knowledge version 2.1. Four resources allowed only non-commercial reuse. Most problematic were the remaining nine resources that had no license — which equates to all rights reserved by default and forbids reuse <span class="citation" data-cites="137tbemL9">[<a href="#ref-137tbemL9">192</a>]</span> — and one resource that explicitly forbid redistribution.</p>
+<p>Additional difficulty resulted from license incompatibles across resources, which was caused primarily by non-commercial and share-alike stipulations. Furthermore, it was often unclear who owned the data <span class="citation" data-cites="13gsIQnzn">[<a href="#ref-13gsIQnzn">193</a>]</span>. Therefore, we sought input from legal experts and chronicled our progress <span class="citation" data-cites="4G0GW8oe Iprbu5m8 gPtjkxTB mruqBx3u AlI8nuJy">[<a href="#ref-4G0GW8oe">191</a>,<a href="#ref-Iprbu5m8">194</a>–<a href="#ref-AlI8nuJy">197</a>]</span>.</p>
+<p>Ultimately, we did not find an ideal solution. We had to choose between absolute compliance and Hetionet: strictly adhering to copyright and licensing arrangements would have decimated the network. On the other hand, in the United States, mere facts are not subject to copyright, and fair use doctrine helps protect reuse that is transformative and educational. Hence, we choose a path forward which balanced legal, normative, ethical, and scientific considerations.</p>
+<p>If a resource was in the public domain, we licensed any derivatives as CC0 1.0. For resources licensed to allow reuse, redistribution, and modification, we transmitted their licenses as properties on the specific nodes and relationships in Hetionet v1.0. For all other resources — for example, resources without licenses or with licenses that forbid redistribution — we sent permission requests to their creators. The median time till first response to our permission requests was 16 days, with only 2 resources affirmatively granting us permission. We did not receive any responses asking us to remove a resource. However, we did voluntarily remove MSigDB <span class="citation" data-cites="sC5yzpXL">[<a href="#ref-sC5yzpXL">198</a>]</span>, since its license was highly problematic <span class="citation" data-cites="Iprbu5m8">[<a href="#ref-Iprbu5m8">194</a>]</span>. As a result of our experience, we recommend that publicly-funded data should be explicitly dedicated to the public domain whenever possible.</p>
+<h3 id="permuted-hetnets">Permuted Hetnets</h3>
+<p>From Hetionet, we derived five permuted hetnets <span class="citation" data-cites="GE6jhWnt">[<a href="#ref-GE6jhWnt">199</a>]</span>. The permutations preserve node degree but eliminate edge specificity by employing an algorithm called XSwap to randomly swap edges <span class="citation" data-cites="iKOIEzQ9">[<a href="#ref-iKOIEzQ9">200</a>]</span>. Permuted networks are useful for computing the baseline performance of meaningless edges while preserving node degree <span class="citation" data-cites="xmFxwmUd">[<a href="#ref-xmFxwmUd">201</a>]</span>.</p>
+<h3 id="neo4j">Neo4j</h3>
+<p>Graph database adoption in bioinformatics has thus far been limited <span class="citation" data-cites="nAw5a44I">[<a href="#ref-nAw5a44I">202</a>]</span>. We used the Neo4j graph database for storing and operating on Hetionet and noticed major benefits from tapping into this large open source ecosystem <span class="citation" data-cites="kNYoxBiQ">[<a href="#ref-kNYoxBiQ">203</a>]</span>. Persistent storage with immediate access and the Cypher query language — a sort of SQL for hetnets — were two of the biggest benefits. To facilitate our migration to Neo4j, we updated <a href="https://github.com/dhimmel/hetio" title="dhimmel/hetio on GitHub"><code>hetio</code></a> — our existing Python package for hetnets <span class="citation" data-cites="1GJM7558r">[<a href="#ref-1GJM7558r">204</a>]</span> — to export networks into Neo4j and DWPC queries to Cypher. In addition, we created an <a href="http://portal.graphgist.org/graph_gists/drug-repurposing-by-hetnet-relationship-prediction-a-new-hope" title="Neo4j GraphGist: Drug repurposing by hetnet relationship prediction">interactive GraphGist</a> for Project Rephetio, which introduces our approach and showcases its Cypher queries. Finally, we created a <a href="https://neo4j.het.io" title="Hetionet Neo4j Browser">public Neo4j instance</a> <span class="citation" data-cites="Y2J9lvD7">[<a href="#ref-Y2J9lvD7">205</a>]</span>, which leverages several modern technologies such Neo4j Browser guides, cloud hosting with HTTPS, and Docker deployment <span class="citation" data-cites="pw3EUXTf 7MR5St9Q">[<a href="#ref-pw3EUXTf">206</a>,<a href="#ref-7MR5St9Q">207</a>]</span>.</p>
+<h3 id="machine-learning-approach">Machine learning approach</h3>
+<p>We made several refinements to metapath-based hetnet edge prediction compared to previous studies <span class="citation" data-cites="WkPlH1ds iVgtFycM">[<a href="#ref-WkPlH1ds">22</a>,<a href="#ref-iVgtFycM">23</a>]</span>. First, we transformed DWPCs by mean scaling and then taking the inverse hyperbolic sine <span class="citation" data-cites="17y6sfGkX">[<a href="#ref-17y6sfGkX">208</a>]</span> to make them more amenable to modeling <span class="citation" data-cites="17mGFvxXu">[<a href="#ref-17mGFvxXu">209</a>]</span>. Second, we bifurcated the workflow into an all-features stage and an all-observations stage <span class="citation" data-cites="vvdoVrc6">[<a href="#ref-vvdoVrc6">40</a>]</span>. The all-features stage assesses feature performance and does not require computing features for all negatives. Here we selected a random subset of 3,020 (4 × 755) negatives. Little error was introduced by this optimization, since the predominant limitation to performance assessment was the small number of positives (755) rather than negatives. Based on the all-features performance assessment <span class="citation" data-cites="TZzteyU5">[<a href="#ref-TZzteyU5">210</a>]</span>, we selected 142 DWPCs to compute on all observations (all 209,168 compound–disease pairs). The feature selection was designed to remove uninformative features (according to permutation) and guard against edge-dropout contamination <span class="citation" data-cites="1FfvYWzyg">[<a href="#ref-1FfvYWzyg">211</a>]</span>. Third, we included 14 degree features, which assess the degree of a specific metaedge for either the source compound or target disease.</p>
+<h4 id="network-support-of-predictions">Network support of predictions</h4>
+<p>To improve the interpretability of the predictions, we developed a method for decomposing a prediction into its network support <span class="citation" data-cites="lHuXJe2C">[<a href="#ref-lHuXJe2C">212</a>]</span>. This information is deployed to our Neo4j Browser guides, allowing users to assess the biomedical evidence contributing to a given prediction. First, we used logistic regression terms to quantify the contribution of metapaths that positively support a prediction. Second, we decomposed a metapath’s contribution, according to its DWPC, into specific paths contributions. Finally, we aggregated paths based on their source (first) or target (last) edge to quantify the contribution of specific edges of the source compound or target disease <span class="citation" data-cites="1693YErZj">[<a href="#ref-1693YErZj">213</a>]</span>.</p>
+<p>Using the <a href="https://neo4j.het.io/browser/?cmd=play&amp;arg=https://neo4j.het.io/guides/rep/DB00659/DOID_1826.html" title="Hetionet Neo4j Browser with the network evidence that acamprosate treats epilepsy syndrome">acamprosate–epilepsy prediction</a> as an example, we first quantified metapath contributions: 40% of the prediction was supported by <em>CbGbCtD</em> paths, 36% by <em>CbGaD</em> paths, 11% by <em>CcSEcCtD</em> paths, 8% by <em>CbGpPWpGaD</em> paths, and 5% by <em>CbGeAlD</em> paths. Second, we calculated path contributions: <em>Acamprosate–binds–GRM5–associates–epilepsy syndrome</em> was the most supportive path, contributing 11% of the prediction. Finally, we aggregated path contributions to calculate that the source edge of <em>Acamprosate—binds—GRM5</em> contributed 23% of the prediction, while the target edge of <em>epilepsy syndrome–treats–Felbamate</em> contributed 12%.</p>
+<h4 id="prior-probability-of-treatment">Prior probability of treatment</h4>
+<p>The 755 treatments in Hetionet v1.0 are not evenly distributed between all compounds and diseases. For example, methotrexate treats 19 diseases and hypertension is treated by 68 compounds. We estimated a prior probability of treatment — based only on the treatment degree of the source compound and target disease — on 744,975 permutations of the bipartite treatment network <span class="citation" data-cites="19OyKPQ4M">[<a href="#ref-19OyKPQ4M">214</a>]</span>. Methotrexate received a 79.6% prior probability of treating hypertension, whereas a compound and disease that both had only one treatment received a prior of 0.12%.</p>
+<p>Across the 209,168 compound–disease pairs, the prior predicted the known treatments with AUROC = 97.9%. The strength of this association threatened to dominate our predictions. However, not modeling the prior can lead to omitted-variable bias and confounded proxy variables. To address the issue, we included the logit-transformed prior, without any regularization, as a term in the model. This restricted model fitting to the 29,799 observations with a nonzero prior — corresponding to the 387 compounds and 77 diseases with at least one treatment. To enable predictions for all 209,168 observations, we set the prior for each compound–disease pair to the overall prevalence of positives (0.36%).</p>
+<p>This method succeeded at accommodating the treatment degrees. The prior probabilities performed poorly on the validation sets with AUROC = 54.1% on DrugCentral indications and AUROC = 62.5% on clinical trials. This performance dropoff compared to training shows the danger of encoding treatment degree into predictions. The benefits of our solution are highlighted by the superior validation performance of our predictions compared to the prior (Figure <a href="#fig:performance">3</a>).</p>
+<h3 id="indication-sets">Indication sets</h3>
+<p>We evaluated our predictions on four sets of indications as shown in Figure <a href="#fig:performance">3</a>.</p>
+<ul>
+<li><strong>Disease Modifying</strong> — the 755 disease modifying treatments in PharmacotherapyDB v1.0. These indications are included in the hetnet as <em>treats</em> edges and used to train the logistic regression model. Due to edge dropout contamination and self-testing <span class="citation" data-cites="1FfvYWzyg UlYsCFw5">[<a href="#ref-1FfvYWzyg">211</a>,<a href="#ref-UlYsCFw5">215</a>]</span>, overfitting could potentially inflate performance on this set. Therefore, for the three remaining indication sets, we removed any observations that were positives in this set.</li>
+<li><strong>DrugCentral</strong> — We discovered the <a href="https://github.com/olegursu/drugtarget">DrugCentral database</a> after completing our physician curation for PharmacotherapyDB. This database contained 210 additional indications <span class="citation" data-cites="896kQYbf">[<a href="#ref-896kQYbf">92</a>]</span>. While we didn’t curate these indications, we observed a high proportion of disease modifying therapy.</li>
+<li><strong>Clinical Trial</strong> — We compiled indications that have been investigated by clinical trial from <a href="https://clinicaltrials.gov/">ClinicalTrials.gov</a> <span class="citation" data-cites="xqMdqzy9">[<a href="#ref-xqMdqzy9">216</a>]</span>. This set contains 5,594 indications. Since these indications were not manually curated and clinical trials often show a lack of efficacy, we expected lower performance on this set.</li>
+<li><strong>Symptomatic</strong> — 390 symptomatic indications from PharacotherapyDB. These edges are included in the hetnet as <em>palliates</em> edges.</li>
+</ul>
+<p>Only the Clinical Trial and DrugCentral indication sets were used for external validation, since the Disease Modifying and Symptomatic indications were included in the hetnet.</p>
+<h3 id="realtime-open-science-thinklab">Realtime open science &amp; Thinklab</h3>
+<p>We conducted our study using Thinklab — a platform for realtime open collaborative science — on which this study was the first project. We began the study by publicly proposing the idea and inviting discussion <span class="citation" data-cites="lMaNoR9y">[<a href="#ref-lMaNoR9y">217</a>]</span>. We continued by chronicling our progress via discussions. We used Thinklab as the frontend to coordinate and report our analyses and GitHub as the backend to host our code, data, and notebooks. On top of our Thinklab team consisting of core contributors, we welcomed community contribution and review. In areas where our expertise was lacking or advice would be helpful, we sought input from domain experts and encouraged them to respond on Thinklab where their comments would be CC BY licensed and their contribution rated and rewarded.</p>
+<p>In total, 40 non-team members commented across 86 discussions, which generated 607 comments and 190 notes (Figure <a href="#fig:contribution">6</a>). Thinklab content for this project totaled 143,056 words or 901,672 characters <span class="citation" data-cites="KUVxzxrS">[<a href="#ref-KUVxzxrS">218</a>]</span>. Using an estimated 7,000 words per academic publication as a benchmark, Project Rephetio generated written content comparable in volume to 20.4 publications prior to its completion. We noticed several other benefits from using Thinklab including forging a community of contributors <span class="citation" data-cites="17EdosXzD">[<a href="#ref-17EdosXzD">219</a>]</span>; receiving feedback during the early stages when feedback was most actionable <span class="citation" data-cites="1pWYlPj4">[<a href="#ref-1pWYlPj4">220</a>]</span>; disseminating our research without delay <span class="citation" data-cites="PZA0cOT1 Mg8fHpkH">[<a href="#ref-PZA0cOT1">221</a>,<a href="#ref-Mg8fHpkH">222</a>]</span>; opening avenues for external input <span class="citation" data-cites="12sPvUxqQ">[<a href="#ref-12sPvUxqQ">223</a>]</span>; facilitating problem-oriented teaching <span class="citation" data-cites="ZFI7ltQO 13h8FyJFD">[<a href="#ref-ZFI7ltQO">224</a>,<a href="#ref-13h8FyJFD">225</a>]</span>; and improving our documentation by maintaining a publication-grade digital lab notebook <span class="citation" data-cites="i8fF4cdh">[<a href="#ref-i8fF4cdh">226</a>]</span>.</p>
+<figure>
+<img src="https://github.com/dhimmel/thinklytics/raw/d2f6e815452e140058396dccc4e35fca72306285/viz/rephetio-contribution.png" alt="Figure 6: The growth the Project Rephetio corpus on Thinklab over time. This figure shows Project Rephetio contributions by user over time. Each band represented the cumulative contribution of a Thinklab user to discussions in the Rephetio project [218]. Users are ordered by date of first contribution. Users who contributed over 4,500 characters are named. The square root transformation of characters written per user accentuates the activity of new contributors, thereby emphasizing collaboration and diverse input." id="fig:contribution" /><figcaption>Figure 6: <strong>The growth the Project Rephetio corpus on Thinklab over time.</strong> This figure shows Project Rephetio contributions by user over time. Each band represented the cumulative contribution of a Thinklab user to <a href="http://thinklab.com/p/rephetio/discussion">discussions</a> in the Rephetio project <span class="citation" data-cites="KUVxzxrS">[<a href="#ref-KUVxzxrS">218</a>]</span>. Users are ordered by date of first contribution. Users who contributed over 4,500 characters are named. The square root transformation of characters written per user accentuates the activity of new contributors, thereby emphasizing collaboration and diverse input.</figcaption>
+</figure>
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>We are immensely grateful to our <a href="https://thinklab.com/p/rephetio/leaderboard" title="Rephetio Project Thinklab Leaderboard">Thinklab contributors</a> who joined us in our experiment of radically open science. The following non-team members provided contributions that received 5 or more Thinklab points: Lars Juhl Jensen, Frederic Bastian, Alexander Pico, Casey Greene, Benjamin Good, Craig Knox, Mike Gilson, Chris Mungall, Katie Fortney, Venkat Malladi, Tudor Oprea, MacKenzie Smith, Caty Chung, Allison McCoy, Alexey Strokach, Ritu Khare, Greg Way, Marina Sirota, Raghavendran Partha, Oleg Ursu, Jesse Spaulding, Gaya Nadarajan, Alex Ratner, Scooter Morris, Alessandro Didonna, Alex Pankov, Tong Shu Li, and Janet Piñero. Additionally, the founder of Thinklab, Jesse Spaulding, supported community contributions and developed the platform with Project Rephetio’s needs in mind. Finally, we would like to thank Neo Technology, whose staff provided excellent technical support.</p>
+<p>This material is based upon work supported by the National Science Foundation Graduate Research Fellowship under Grant No. 1144247 to DSH. SEB is supported by the Heidrich Family and Friends Foundation.</p>
+<h1 id="references" class="unnumbered page_break_before">References</h1>
+<div id="refs" class="references">
+<div id="ref-13c9OPizf">
+<p>1. DiMasi JA, Grabowski HG, Hansen RW. 2016 Innovation in the pharmaceutical industry: New estimates of R&amp;D costs. <em>Journal of Health Economics</em> <strong>47</strong>, 20–33. See <a href="https://doi.org/10.1016/j.jhealeco.2016.01.012" class="uri">https://doi.org/10.1016/j.jhealeco.2016.01.012</a>.</p>
+</div>
+<div id="ref-1G6kSMyT9">
+<p>2. Reichert JM. 2003 A guide to drug discovery: Trends in development and approval times for new therapeutics in the United States. <em>Nat Rev Drug Discov</em> <strong>2</strong>, 695–702. See <a href="https://doi.org/10.1038/nrd1178" class="uri">https://doi.org/10.1038/nrd1178</a>.</p>
+</div>
+<div id="ref-o8yROPbx">
+<p>3. Hay M, Thomas DW, Craighead JL, Economides C, Rosenthal J. 2014 Clinical development success rates for investigational drugs. <em>Nat Biotechnol</em> <strong>32</strong>, 40–51. See <a href="https://doi.org/10.1038/nbt.2786" class="uri">https://doi.org/10.1038/nbt.2786</a>.</p>
+</div>
+<div id="ref-LlRXV6lE">
+<p>4. Scannell JW, Blanckley A, Boldon H, Warrington B. 2012 Diagnosing the decline in pharmaceutical R&amp;D efficiency. <em>Nat Rev Drug Discov</em> <strong>11</strong>, 191–200. See <a href="https://doi.org/10.1038/nrd3681" class="uri">https://doi.org/10.1038/nrd3681</a>.</p>
+</div>
+<div id="ref-l64dSPrb">
+<p>5. Ashburn TT, Thor KB. 2004 Drug repositioning: identifying and developing new uses for existing drugs. <em>Nat Rev Drug Discov</em> <strong>3</strong>, 673–683. See <a href="https://doi.org/10.1038/nrd1468" class="uri">https://doi.org/10.1038/nrd1468</a>.</p>
+</div>
+<div id="ref-1DqOihfS7">
+<p>6. Wang G, Jung K, Winnenburg R, Shah NH. 2015 A method for systematic discovery of adverse drug events from clinical notes. <em>Journal of the American Medical Informatics Association</em> <strong>22</strong>, 1196–1204. See <a href="https://doi.org/10.1093/jamia/ocv102" class="uri">https://doi.org/10.1093/jamia/ocv102</a>.</p>
+</div>
+<div id="ref-qe6nlENB">
+<p>7. Xu H <em>et al.</em> 2014 Validating drug repurposing signals using electronic health records: a case study of metformin associated with reduced cancer mortality. <em>Journal of the American Medical Informatics Association</em> See <a href="https://doi.org/10.1136/amiajnl-2014-002649" class="uri">https://doi.org/10.1136/amiajnl-2014-002649</a>.</p>
+</div>
+<div id="ref-uEnvNfkN">
+<p>8. Brilliant MH <em>et al.</em> 2016 Mining Retrospective Data for Virtual Prospective Drug Repurposing: L-DOPA and Age-related Macular Degeneration. <em>The American Journal of Medicine</em> <strong>129</strong>, 292–298. See <a href="https://doi.org/10.1016/j.amjmed.2015.10.015" class="uri">https://doi.org/10.1016/j.amjmed.2015.10.015</a>.</p>
+</div>
+<div id="ref-PlU5rcL2">
+<p>9. Tatonetti NP, Ye PP, Daneshjou R, Altman RB. 2012 Data-Driven Prediction of Drug Effects and Interactions. <em>Science Translational Medicine</em> <strong>4</strong>, 125ra31–125ra31. See <a href="https://doi.org/10.1126/scitranslmed.3003377" class="uri">https://doi.org/10.1126/scitranslmed.3003377</a>.</p>
+</div>
+<div id="ref-NVnnNOCO">
+<p>10. Stephens M, Balding DJ. 2009 Bayesian statistical methods for genetic association studies. <em>Nat Rev Genet</em> <strong>10</strong>, 681–690. See <a href="https://doi.org/10.1038/nrg2615" class="uri">https://doi.org/10.1038/nrg2615</a>.</p>
+</div>
+<div id="ref-tWfbMFc3">
+<p>11. Sawcer S. 2008 The complex genetics of multiple sclerosis: pitfalls and prospects. <em>Brain</em> <strong>131</strong>, 3118–3131. See <a href="https://doi.org/10.1093/brain/awn081" class="uri">https://doi.org/10.1093/brain/awn081</a>.</p>
+</div>
+<div id="ref-jEoUmJ1q">
+<p>12. Roth BL, Sheffler DJ, Kroeze WK. 2004 Magic shotguns versus magic bullets: selectively non-selective drugs for mood disorders and schizophrenia. <em>Nat Rev Drug Discov</em> <strong>3</strong>, 353–359. See <a href="https://doi.org/10.1038/nrd1346" class="uri">https://doi.org/10.1038/nrd1346</a>.</p>
+</div>
+<div id="ref-CfyRUiAx">
+<p>13. Hopkins AL. 2008 Network pharmacology: the next paradigm in drug discovery. <em>Nat Chem Biol</em> <strong>4</strong>, 682–690. See <a href="https://doi.org/10.1038/nchembio.118" class="uri">https://doi.org/10.1038/nchembio.118</a>.</p>
+</div>
+<div id="ref-o9zBwdL2">
+<p>14. Hopkins AL. 2007 Network pharmacology. <em>Nat Biotechnol</em> <strong>25</strong>, 1110–1111. See <a href="https://doi.org/10.1038/nbt1007-1110" class="uri">https://doi.org/10.1038/nbt1007-1110</a>.</p>
+</div>
+<div id="ref-rlm4VbAG">
+<p>15. Swinney DC, Anthony J. 2011 How were new medicines discovered? <em>Nat Rev Drug Discov</em> <strong>10</strong>, 507–519. See <a href="https://doi.org/10.1038/nrd3480" class="uri">https://doi.org/10.1038/nrd3480</a>.</p>
+</div>
+<div id="ref-pDj3SSat">
+<p>16. Iskar M, Zeller G, Zhao X-M, van Noort V, Bork P. 2012 Drug discovery in the age of systems biology: the rise of computational approaches for data integration. <em>Current Opinion in Biotechnology</em> <strong>23</strong>, 609–616. See <a href="https://doi.org/10.1016/j.copbio.2011.11.010" class="uri">https://doi.org/10.1016/j.copbio.2011.11.010</a>.</p>
+</div>
+<div id="ref-asJHSSQt">
+<p>17. Lamb J. 2007 The Connectivity Map: a new tool for biomedical research. <em>Nat Rev Cancer</em> <strong>7</strong>, 54–60. See <a href="https://doi.org/10.1038/nrc2044" class="uri">https://doi.org/10.1038/nrc2044</a>.</p>
+</div>
+<div id="ref-1HKxAhwf6">
+<p>18. Qu XA, Rajpal DK. 2012 Applications of Connectivity Map in drug discovery and development. <em>Drug Discovery Today</em> <strong>17</strong>, 1289–1298. See <a href="https://doi.org/10.1016/j.drudis.2012.07.017" class="uri">https://doi.org/10.1016/j.drudis.2012.07.017</a>.</p>
+</div>
+<div id="ref-FeoOXk3G">
+<p>19. Hodos RA, Kidd BA, Shameer K, Readhead BP, Dudley JT. 2016 In silicomethods for drug repurposing and pharmacology. <em>WIREs Syst Biol Med</em> <strong>8</strong>, 186–210. See <a href="https://doi.org/10.1002/wsbm.1337" class="uri">https://doi.org/10.1002/wsbm.1337</a>.</p>
+</div>
+<div id="ref-1BhjJDilX">
+<p>20. Hurle MR, Yang L, Xie Q, Rajpal DK, Sanseau P, Agarwal P. 2013 Computational Drug Repositioning: From Data to Therapeutics. <em>Clin Pharmacol Ther</em> <strong>93</strong>, 335–341. See <a href="https://doi.org/10.1038/clpt.2013.1" class="uri">https://doi.org/10.1038/clpt.2013.1</a>.</p>
+</div>
+<div id="ref-uYu55hot">
+<p>21. Liu Z, Fang H, Reagan K, Xu X, Mendrick DL, Slikker W Jr, Tong W. 2013 In silico drug repositioning – what we need to know. <em>Drug Discovery Today</em> <strong>18</strong>, 110–115. See <a href="https://doi.org/10.1016/j.drudis.2012.08.005" class="uri">https://doi.org/10.1016/j.drudis.2012.08.005</a>.</p>
+</div>
+<div id="ref-WkPlH1ds">
+<p>22. Himmelstein DS, Baranzini SE. 2015 Heterogeneous Network Edge Prediction: A Data Integration Approach to Prioritize Disease-Associated Genes. <em>PLoS Comput Biol</em> <strong>11</strong>, e1004259. See <a href="https://doi.org/10.1371/journal.pcbi.1004259" class="uri">https://doi.org/10.1371/journal.pcbi.1004259</a>.</p>
+</div>
+<div id="ref-iVgtFycM">
+<p>23. Sun Y, Barber R, Gupta M, Aggarwal CC, Han J. 2011 Co-author Relationship Prediction in Heterogeneous Bibliographic Networks. In <em>2011 International Conference on Advances in Social Networks Analysis and Mining</em>, IEEE. See <a href="https://doi.org/10.1109/asonam.2011.112" class="uri">https://doi.org/10.1109/asonam.2011.112</a>.</p>
+</div>
+<div id="ref-dr9ERRtb">
+<p>24. Gottlieb A, Stein GY, Ruppin E, Sharan R. 2014 PREDICT: a method for inferring novel drug indications with application to personalized medicine. <em>Molecular Systems Biology</em> <strong>7</strong>, 496–496. See <a href="https://doi.org/10.1038/msb.2011.26" class="uri">https://doi.org/10.1038/msb.2011.26</a>.</p>
+</div>
+<div id="ref-XjXzx5KH">
+<p>25. Cheng J, Yang L, Kumar V, Agarwal P. 2014 Systematic evaluation of connectivity map for disease indications. <em>Genome Med</em> <strong>6</strong>. See <a href="https://doi.org/10.1186/s13073-014-0095-1" class="uri">https://doi.org/10.1186/s13073-014-0095-1</a>.</p>
+</div>
+<div id="ref-Q7tc9Lii">
+<p>26. Guney E, Menche J, Vidal M, Barábasi A-L. 2016 Network-based in silico drug efficacy screening. <em>Nat Comms</em> <strong>7</strong>, 10331. See <a href="https://doi.org/10.1038/ncomms10331" class="uri">https://doi.org/10.1038/ncomms10331</a>.</p>
+</div>
+<div id="ref-1e7BB8HY">
+<p>27. Li J, Lu Z. 2012 A new method for computational drug repositioning using drug pairwise similarity. In <em>2012 IEEE International Conference on Bioinformatics and Biomedicine</em>, IEEE. See <a href="https://doi.org/10.1109/bibm.2012.6392722" class="uri">https://doi.org/10.1109/bibm.2012.6392722</a>.</p>
+</div>
+<div id="ref-1GLO5AbWr">
+<p>28. Chiang AP, Butte AJ. 2009 Systematic Evaluation of Drug–Disease Relationships to Identify Leads for Novel Drug Uses. <em>Clin Pharmacol Ther</em> <strong>86</strong>, 507–510. See <a href="https://doi.org/10.1038/clpt.2009.103" class="uri">https://doi.org/10.1038/clpt.2009.103</a>.</p>
+</div>
+<div id="ref-Ot5bUkmI">
+<p>29. Lamb J. 2006 The Connectivity Map: Using Gene-Expression Signatures to Connect Small Molecules, Genes, and Disease. <em>Science</em> <strong>313</strong>, 1929–1935. See <a href="https://doi.org/10.1126/science.1132939" class="uri">https://doi.org/10.1126/science.1132939</a>.</p>
+</div>
+<div id="ref-z3bwpLel">
+<p>30. Iorio F, Rittman T, Ge H, Menden M, Saez-Rodriguez J. 2013 Transcriptional data: a new gateway to drug repositioning? <em>Drug Discovery Today</em> <strong>18</strong>, 350–357. See <a href="https://doi.org/10.1016/j.drudis.2012.07.014" class="uri">https://doi.org/10.1016/j.drudis.2012.07.014</a>.</p>
+</div>
+<div id="ref-REXpV7nA">
+<p>31. Nelson MR <em>et al.</em> 2015 The support of human genetic evidence for approved drug indications. <em>Nat Genet</em> <strong>47</strong>, 856–860. See <a href="https://doi.org/10.1038/ng.3314" class="uri">https://doi.org/10.1038/ng.3314</a>.</p>
+</div>
+<div id="ref-q0hDz8AL">
+<p>32. Sanseau P, Agarwal P, Barnes MR, Pastinen T, Richards JB, Cardon LR, Mooser V. 2012 Use of genome-wide association studies for drug repositioning. <em>Nat Biotechnol</em> <strong>30</strong>, 317–320. See <a href="https://doi.org/10.1038/nbt.2151" class="uri">https://doi.org/10.1038/nbt.2151</a>.</p>
+</div>
+<div id="ref-19OI9ou2t">
+<p>33. Campillos M, Kuhn M, Gavin A-C, Jensen LJ, Bork P. 2008 Drug Target Identification Using Side-Effect Similarity. <em>Science</em> <strong>321</strong>, 263–266. See <a href="https://doi.org/10.1126/science.1158140" class="uri">https://doi.org/10.1126/science.1158140</a>.</p>
+</div>
+<div id="ref-1GXwDMvjL">
+<p>34. Nugent T, Plachouras V, Leidner JL. 2016 Computational drug repositioning based on side-effects mined from social media. <em>PeerJ Computer Science</em> <strong>2</strong>, e46. See <a href="https://doi.org/10.7717/peerj-cs.46" class="uri">https://doi.org/10.7717/peerj-cs.46</a>.</p>
+</div>
+<div id="ref-XwZAW9xR">
+<p>35. Zhou X, Menche J, Barabási A-L, Sharma A. 2014 Human symptoms–disease network. <em>Nat Comms</em> <strong>5</strong>. See <a href="https://doi.org/10.1038/ncomms5212" class="uri">https://doi.org/10.1038/ncomms5212</a>.</p>
+</div>
+<div id="ref-U12IOyfj">
+<p>36. Pratanwanich N, Lió P. 2014 Pathway-based Bayesian inference of drug–disease interactions. <em>Mol. BioSyst.</em> <strong>10</strong>, 1538–1548. See <a href="https://doi.org/10.1039/c4mb00014e" class="uri">https://doi.org/10.1039/c4mb00014e</a>.</p>
+</div>
+<div id="ref-YbRIZhWW">
+<p>37. Himmelstein D. 2016 Exploring the power of Hetionet: a Cypher query depot. See <a href="https://doi.org/10.15363/thinklab.d220" class="uri">https://doi.org/10.15363/thinklab.d220</a>.</p>
+</div>
+<div id="ref-kVUF2wf3">
+<p>38. Himmelstein D. 2017 Dhimmel/Hetionet V1.0.0: Hetionet V1.0 In Json, Tsv, And Neo4J Formats. See <a href="https://doi.org/10.5281/zenodo.268568" class="uri">https://doi.org/10.5281/zenodo.268568</a>.</p>
+</div>
+<div id="ref-uHJFShcv">
+<p>39. Himmelstein D, Lizee A. 2016 Computing standardized logistic regression coefficients. See <a href="https://doi.org/10.15363/thinklab.d205" class="uri">https://doi.org/10.15363/thinklab.d205</a>.</p>
+</div>
+<div id="ref-vvdoVrc6">
+<p>40. Himmelstein D. 2016 Our hetnet edge prediction methodology: the modeling framework for Project Rephetio. See <a href="https://doi.org/10.15363/thinklab.d210" class="uri">https://doi.org/10.15363/thinklab.d210</a>.</p>
+</div>
+<div id="ref-YJJU5X2C">
+<p>41. Himmelstein D. 2017 Dhimmel/Learn V1.0: The Machine Learning Repository For Project Rephetio. See <a href="https://doi.org/10.5281/zenodo.268654" class="uri">https://doi.org/10.5281/zenodo.268654</a>.</p>
+</div>
+<div id="ref-HZpkiQh0">
+<p>42. Himmelstein D, Hessler C, Khankhanian P. 2016 Predictions of whether a compound treats a disease. See <a href="https://doi.org/10.15363/thinklab.d203" class="uri">https://doi.org/10.15363/thinklab.d203</a>.</p>
+</div>
+<div id="ref-RW3iefYj">
+<p>43. Harmey D, Griffin PR, Kenny PJ. 2012 Development of Novel Pharmacotherapeutics for Tobacco Dependence: Progress and Future Directions. <em>Nicotine &amp; Tobacco Research</em> <strong>14</strong>, 1300–1318. See <a href="https://doi.org/10.1093/ntr/nts201" class="uri">https://doi.org/10.1093/ntr/nts201</a>.</p>
+</div>
+<div id="ref-168N7Bjqa">
+<p>44. Mihalak KB. 2006 Varenicline Is a Partial Agonist at  4beta2 and a Full Agonist at  7 Neuronal Nicotinic Receptors. <em>Molecular Pharmacology</em> <strong>70</strong>, 801–805. See <a href="https://doi.org/10.1124/mol.106.025130" class="uri">https://doi.org/10.1124/mol.106.025130</a>.</p>
+</div>
+<div id="ref-GWiTuYEr">
+<p>45. Thorgeirsson TE <em>et al.</em> 2008 A variant associated with nicotine dependence, lung cancer and peripheral arterial disease. <em>Nature</em> <strong>452</strong>, 638–642. See <a href="https://doi.org/10.1038/nature06846" class="uri">https://doi.org/10.1038/nature06846</a>.</p>
+</div>
+<div id="ref-eW0L7JxP">
+<p>46. Boshier A, Wilton LV, Shakir SAW. 2003 Evaluation of the safety of bupropion (Zyban) for smoking cessation from experience gained in general practice use in England in 2000. <em>European Journal of Clinical Pharmacology</em> <strong>59</strong>, 767–773. See <a href="https://doi.org/10.1007/s00228-003-0693-0" class="uri">https://doi.org/10.1007/s00228-003-0693-0</a>.</p>
+</div>
+<div id="ref-N7Bg6WAk">
+<p>47. Hays JT, Ebbert JO, Sood A. 2008 Efficacy and Safety of Varenicline for Smoking Cessation. <em>The American Journal of Medicine</em> <strong>121</strong>, S32–S42. See <a href="https://doi.org/10.1016/j.amjmed.2008.01.017" class="uri">https://doi.org/10.1016/j.amjmed.2008.01.017</a>.</p>
+</div>
+<div id="ref-ankMHU1X">
+<p>48. Cahill K, Lindson-Hawley N, Thomas KH, Fanshawe TR, Lancaster T. 2016 Nicotine receptor partial agonists for smoking cessation. <em>Cochrane Database of Systematic Reviews</em>. See <a href="https://doi.org/10.1002/14651858.cd006103.pub7" class="uri">https://doi.org/10.1002/14651858.cd006103.pub7</a>.</p>
+</div>
+<div id="ref-BlcigD44">
+<p>49. West R, Zatonski W, Cedzynska M, Lewandowska D, Pazik J, Aveyard P, Stapleton J. 2011 Placebo-Controlled Trial of Cytisine for Smoking Cessation. <em>N Engl J Med</em> <strong>365</strong>, 1193–1200. See <a href="https://doi.org/10.1056/nejmoa1102035" class="uri">https://doi.org/10.1056/nejmoa1102035</a>.</p>
+</div>
+<div id="ref-RawQU2jb">
+<p>50. Walker N, Howe C, Glover M, McRobbie H, Barnes J, Nosa V, Parag V, Bassett B, Bullen C. 2014 Cytisine versus Nicotine for Smoking Cessation. <em>N Engl J Med</em> <strong>371</strong>, 2353–2362. See <a href="https://doi.org/10.1056/nejmoa1407764" class="uri">https://doi.org/10.1056/nejmoa1407764</a>.</p>
+</div>
+<div id="ref-POMP3U7G">
+<p>51. Ashare RL, Kimmey BA, Rupprecht LE, Bowers ME, Hayes MR, Schmidt HD. 2016 Repeated administration of an acetylcholinesterase inhibitor attenuates nicotine taking in rats and smoking behavior in human smokers. <em>Transl Psychiatry</em> <strong>6</strong>, e713. See <a href="https://doi.org/10.1038/tp.2015.209" class="uri">https://doi.org/10.1038/tp.2015.209</a>.</p>
+</div>
+<div id="ref-X7gFn4rX">
+<p>52. Khankhanian P, Himmelstein D. 2016 Prediction in epilepsy. See <a href="https://doi.org/10.15363/thinklab.d224" class="uri">https://doi.org/10.15363/thinklab.d224</a>.</p>
+</div>
+<div id="ref-11rtJxxFQ">
+<p>53. Himmelstein D, Khankhanian P, Pico A, Jensen LJ, Morris S. 2017 Visualizing the top epilepsy predictions in Cytoscape. See <a href="https://doi.org/10.15363/thinklab.d230" class="uri">https://doi.org/10.15363/thinklab.d230</a>.</p>
+</div>
+<div id="ref-QneW9LSU">
+<p>54. Mirsattari SM, Sharpe MD, Young GB. 2004 Treatment of Refractory Status Epilepticus With Inhalational Anesthetic Agents Isoflurane and Desflurane. <em>Arch Neurol</em> <strong>61</strong>. See <a href="https://doi.org/10.1001/archneur.61.8.1254" class="uri">https://doi.org/10.1001/archneur.61.8.1254</a>.</p>
+</div>
+<div id="ref-aIzBdEjd">
+<p>55. In press. Anatomical Therapeutic Chemical Classification System (WHO). <em>The SAGE Encyclopedia of Pharmacology and Society</em>. See <a href="https://doi.org/10.4135/9781483349985.n37" class="uri">https://doi.org/10.4135/9781483349985.n37</a>.</p>
+</div>
+<div id="ref-raqMZfVJ">
+<p>56. I. Johannessen S, Johannessen Landmark C. 2010 Antiepileptic Drug Interactions - Principles and Clinical Implications. <em>CN</em> <strong>8</strong>, 254–267. See <a href="https://doi.org/10.2174/157015910792246254" class="uri">https://doi.org/10.2174/157015910792246254</a>.</p>
+</div>
+<div id="ref-18HUpN1mo">
+<p>57. Rogawski MA, Löscher W. 2004 The neurobiology of antiepileptic drugs. <em>Nat Rev Neurosci</em> <strong>5</strong>, 553–564. See <a href="https://doi.org/10.1038/nrn1430" class="uri">https://doi.org/10.1038/nrn1430</a>.</p>
+</div>
+<div id="ref-SVg4FFYB">
+<p>58. Johannessen Landmark C, Henning O, Johannessen SI. 2016 Proconvulsant effects of antidepressants — What is the current evidence? <em>Epilepsy &amp; Behavior</em> <strong>61</strong>, 287–291. See <a href="https://doi.org/10.1016/j.yebeh.2016.01.029" class="uri">https://doi.org/10.1016/j.yebeh.2016.01.029</a>.</p>
+</div>
+<div id="ref-qVZAsQFH">
+<p>59. Himmelstein D. 2017 Why we predicted ictogenic tricyclic compounds treat epilepsy? See <a href="https://doi.org/10.15363/thinklab.d231" class="uri">https://doi.org/10.15363/thinklab.d231</a>.</p>
+</div>
+<div id="ref-R4OlZJil">
+<p>60. Dailey JW, Naritoku DK. 1996 Antidepressants and seizures: Clinical anecdotes overshadow neuroscience. <em>Biochemical Pharmacology</em> <strong>52</strong>, 1323–1329. See <a href="https://doi.org/10.1016/s0006-2952(96)00509-6" class="uri">https://doi.org/10.1016/s0006-2952(96)00509-6</a>.</p>
+</div>
+<div id="ref-kETnt13q">
+<p>61. Zadikoff C, Munhoz RP, Asante AN, Politzer N, Wennberg R, Carlen P, Lang A. 2007 Movement disorders in patients taking anticonvulsants. <em>Journal of Neurology, Neurosurgery &amp; Psychiatry</em> <strong>78</strong>, 147–151. See <a href="https://doi.org/10.1136/jnnp.2006.100222" class="uri">https://doi.org/10.1136/jnnp.2006.100222</a>.</p>
+</div>
+<div id="ref-ZOq8ox9u">
+<p>62. Wu D, Thijs RD. 2015 Anticonvulsant-induced downbeat nystagmus in epilepsy. <em>Epilepsy &amp; Behavior Case Reports</em> <strong>4</strong>, 74–75. See <a href="https://doi.org/10.1016/j.ebcr.2015.07.003" class="uri">https://doi.org/10.1016/j.ebcr.2015.07.003</a>.</p>
+</div>
+<div id="ref-Pp1J37KJ">
+<p>63. ROFF HILTON EJ, HOSKING SL, BETTS T. 2004 The effect of antiepileptic drugs on visual performance. <em>Seizure</em> <strong>13</strong>, 113–128. See <a href="https://doi.org/10.1016/s1059-1311(03)00082-7" class="uri">https://doi.org/10.1016/s1059-1311(03)00082-7</a>.</p>
+</div>
+<div id="ref-dXrsMPtN">
+<p>64. Placidi F, Scalise A, Marciani MG, Romigi A, Diomedi M, Gigli GL. 2000 Effect of antiepileptic drugs on sleep. <em>Clinical Neurophysiology</em> <strong>111</strong>, S115–S119. See <a href="https://doi.org/10.1016/s1388-2457(00)00411-9" class="uri">https://doi.org/10.1016/s1388-2457(00)00411-9</a>.</p>
+</div>
+<div id="ref-15swlTeWU">
+<p>65. Jahromi SR, Togha M, Fesharaki SH, Najafi M, Moghadam NB, Kheradmand JA, Kazemi H, Gorji A. 2011 Gastrointestinal adverse effects of antiepileptic drugs in intractable epileptic patients. <em>Seizure</em> <strong>20</strong>, 343–346. See <a href="https://doi.org/10.1016/j.seizure.2010.12.011" class="uri">https://doi.org/10.1016/j.seizure.2010.12.011</a>.</p>
+</div>
+<div id="ref-gIhNaGUg">
+<p>66. Gligorijević V, Pržulj N. 2015 Methods for biological data integration: perspectives and challenges. <em>J. R. Soc. Interface</em> <strong>12</strong>, 20150571. See <a href="https://doi.org/10.1098/rsif.2015.0571" class="uri">https://doi.org/10.1098/rsif.2015.0571</a>.</p>
+</div>
+<div id="ref-RZFMnN9C">
+<p>67. Kivela M, Arenas A, Barthelemy M, Gleeson JP, Moreno Y, Porter MA. 2014 Multilayer networks. <em>Journal of Complex Networks</em> <strong>2</strong>, 203–271. See <a href="https://doi.org/10.1093/comnet/cnu016" class="uri">https://doi.org/10.1093/comnet/cnu016</a>.</p>
+</div>
+<div id="ref-QWTAHxFj">
+<p>68. Himmelstein D, Greene C, Baranzini S. 2015 Renaming ‘heterogeneous networks’ to a more concise and catchy term. See <a href="https://doi.org/10.15363/thinklab.d104" class="uri">https://doi.org/10.15363/thinklab.d104</a>.</p>
+</div>
+<div id="ref-G26bEIcn">
+<p>69. Himmelstein D, Lizee A, Hessler C, Brueggeman L, Chen S, Hadley D, Green A, Khankhanian P, Baranzini S. 2015 Rephetio: Repurposing drugs on a hetnet [project]. See <a href="https://doi.org/10.15363/thinklab.4" class="uri">https://doi.org/10.15363/thinklab.4</a>.</p>
+</div>
+<div id="ref-mZjkE1xU">
+<p>70. Sirota M, Dudley JT, Kim J, Chiang AP, Morgan AA, Sweet-Cordero A, Sage J, Butte AJ. 2011 Discovery and Preclinical Validation of Drug Indications Using Compendia of Public Gene Expression Data. <em>Science Translational Medicine</em> <strong>3</strong>, 96ra77–96ra77. See <a href="https://doi.org/10.1126/scitranslmed.3001318" class="uri">https://doi.org/10.1126/scitranslmed.3001318</a>.</p>
+</div>
+<div id="ref-ySmQFDL6">
+<p>71. Farook JM, Krazem A, Lewis B, Morrell DJ, Littleton JM, Barron S. 2008 Acamprosate attenuates the handling induced convulsions during alcohol withdrawal in Swiss Webster mice. <em>Physiology &amp; Behavior</em> <strong>95</strong>, 267–270. See <a href="https://doi.org/10.1016/j.physbeh.2008.05.020" class="uri">https://doi.org/10.1016/j.physbeh.2008.05.020</a>.</p>
+</div>
+<div id="ref-zeAWTFKB">
+<p>72. Ehrenberg HR, Shin J, Ratner AJ, Fries JA, Ré C. 2016 Data programming with DDLite. In <em>Proceedings of the Workshop on Human-In-the-Loop Data Analytics - HILDA ’16</em>, ACM Press. See <a href="https://doi.org/10.1145/2939502.2939515" class="uri">https://doi.org/10.1145/2939502.2939515</a>.</p>
+</div>
+<div id="ref-di85pSaK">
+<p>73. Himmelstein D, Good B, Khankhanian P, Ratner A. 2016 Brainstorming future directions for Hetionet. See <a href="https://doi.org/10.15363/thinklab.d227" class="uri">https://doi.org/10.15363/thinklab.d227</a>.</p>
+</div>
+<div id="ref-17jtKw4YY">
+<p>74. Chen PP-S. 1997 English, Chinese and ER diagrams. <em>Data &amp; Knowledge Engineering</em> <strong>23</strong>, 5–16. See <a href="https://doi.org/10.1016/s0169-023x(97)00017-7" class="uri">https://doi.org/10.1016/s0169-023x(97)00017-7</a>.</p>
+</div>
+<div id="ref-v6CCM5Cc">
+<p>75. Himmelstein D, Jensen LJ, Khankhanian P. 2016 Data nomenclature: naming and abbreviating our network types. See <a href="https://doi.org/10.15363/thinklab.d162" class="uri">https://doi.org/10.15363/thinklab.d162</a>.</p>
+</div>
+<div id="ref-XEspNtr2">
+<p>76. Malone J, Stevens R, Jupp S, Hancocks T, Parkinson H, Brooksbank C. 2016 Ten Simple Rules for Selecting a Bio-ontology. <em>PLoS Comput Biol</em> <strong>12</strong>, e1004743. See <a href="https://doi.org/10.1371/journal.pcbi.1004743" class="uri">https://doi.org/10.1371/journal.pcbi.1004743</a>.</p>
+</div>
+<div id="ref-1GnETgp1H">
+<p>77. Schriml LM, Arze C, Nadendla S, Chang Y-WW, Mazaitis M, Felix V, Feng G, Kibbe WA. 2011 Disease Ontology: a backbone for disease semantic integration. <em>Nucleic Acids Research</em> <strong>40</strong>, D940–D946. See <a href="https://doi.org/10.1093/nar/gkr972" class="uri">https://doi.org/10.1093/nar/gkr972</a>.</p>
+</div>
+<div id="ref-f99q1xsw">
+<p>78. Kibbe WA <em>et al.</em> 2014 Disease Ontology 2015 update: an expanded and updated database of human diseases for linking biomedical knowledge through disease data. <em>Nucleic Acids Research</em> <strong>43</strong>, D1071–D1078. See <a href="https://doi.org/10.1093/nar/gku1011" class="uri">https://doi.org/10.1093/nar/gku1011</a>.</p>
+</div>
+<div id="ref-203l6hC3">
+<p>79. Himmelstein D, Li TS. 2015 Unifying disease vocabularies. See <a href="https://doi.org/10.15363/thinklab.d44" class="uri">https://doi.org/10.15363/thinklab.d44</a>.</p>
+</div>
+<div id="ref-rV9FuvXN">
+<p>80. Himmelstein DS. 2016 User-Friendly Extensions To The Disease Ontology V1.0. See <a href="https://doi.org/10.5281/zenodo.45584" class="uri">https://doi.org/10.5281/zenodo.45584</a>.</p>
+</div>
+<div id="ref-bkUx1GRz">
+<p>81. Wu T-J <em>et al.</em> 2015 Generating a focused view of disease ontology cancer terms for pan-cancer data integration and analysis. <em>Database</em> <strong>2015</strong>, bav032–bav032. See <a href="https://doi.org/10.1093/database/bav032" class="uri">https://doi.org/10.1093/database/bav032</a>.</p>
+</div>
+<div id="ref-L2B5V7XC">
+<p>82. Himmelstein D, Pankov A. 2015 Mining knowledge from MEDLINE articles and their indexed MeSH terms. See <a href="https://doi.org/10.15363/thinklab.d67" class="uri">https://doi.org/10.15363/thinklab.d67</a>.</p>
+</div>
+<div id="ref-nO29zy5i">
+<p>83. Himmelstein DS. 2016 User-Friendly Extensions To Mesh V1.0. See <a href="https://doi.org/10.5281/zenodo.45586" class="uri">https://doi.org/10.5281/zenodo.45586</a>.</p>
+</div>
+<div id="ref-6PR8LEXK">
+<p>84. Law V <em>et al.</em> 2013 DrugBank 4.0: shedding new light on drug metabolism. <em>Nucl. Acids Res.</em> <strong>42</strong>, D1091–D1097. See <a href="https://doi.org/10.1093/nar/gkt1068" class="uri">https://doi.org/10.1093/nar/gkt1068</a>.</p>
+</div>
+<div id="ref-LA0msc0M">
+<p>85. Himmelstein D. 2015 Unifying drug vocabularies. See <a href="https://doi.org/10.15363/thinklab.d40" class="uri">https://doi.org/10.15363/thinklab.d40</a>.</p>
+</div>
+<div id="ref-AoxkilGE">
+<p>86. Himmelstein DS. 2016 User-Friendly Extensions Of The Drugbank Database V1.0. See <a href="https://doi.org/10.5281/zenodo.45579" class="uri">https://doi.org/10.5281/zenodo.45579</a>.</p>
+</div>
+<div id="ref-1DRwksl3r">
+<p>87. Kuhn M, Letunic I, Jensen LJ, Bork P. 2015 The SIDER database of drugs and side effects. <em>Nucleic Acids Res</em> <strong>44</strong>, D1075–D1079. See <a href="https://doi.org/10.1093/nar/gkv1075" class="uri">https://doi.org/10.1093/nar/gkv1075</a>.</p>
+</div>
+<div id="ref-dJiw2mmn">
+<p>88. Himmelstein D. 2015 Extracting side effects from SIDER 4. See <a href="https://doi.org/10.15363/thinklab.d97" class="uri">https://doi.org/10.15363/thinklab.d97</a>.</p>
+</div>
+<div id="ref-bqoSmLv6">
+<p>89. Himmelstein DS. 2016 Extracting Tidy And User-Friendly Tsvs From Sider 4.1. See <a href="https://doi.org/10.5281/zenodo.45521" class="uri">https://doi.org/10.5281/zenodo.45521</a>.</p>
+</div>
+<div id="ref-iNDjLbkQ">
+<p>90. Bodenreider O. 2004 The Unified Medical Language System (UMLS): integrating biomedical terminology. <em>Nucleic Acids Research</em> <strong>32</strong>, 267D–270. See <a href="https://doi.org/10.1093/nar/gkh061" class="uri">https://doi.org/10.1093/nar/gkh061</a>.</p>
+</div>
+<div id="ref-5Bk8rV02">
+<p>91. Ursu O, Holmes J, Knockel J, Bologa CG, Yang JJ, Mathias SL, Nelson SJ, Oprea TI. 2016 DrugCentral: online drug compendium. <em>Nucleic Acids Res</em> <strong>45</strong>, D932–D939. See <a href="https://doi.org/10.1093/nar/gkw993" class="uri">https://doi.org/10.1093/nar/gkw993</a>.</p>
+</div>
+<div id="ref-896kQYbf">
+<p>92. Himmelstein D, Ursu O, Gilson M, Khankhanian P, Oprea T. 2016 Incorporating DrugCentral data in our network. See <a href="https://doi.org/10.15363/thinklab.d186" class="uri">https://doi.org/10.15363/thinklab.d186</a>.</p>
+</div>
+<div id="ref-u7vVtngU">
+<p>93. Maglott D, Ostell J, Pruitt KD, Tatusova T. 2010 Entrez Gene: gene-centered information at NCBI. <em>Nucleic Acids Research</em> <strong>39</strong>, D52–D57. See <a href="https://doi.org/10.1093/nar/gkq1237" class="uri">https://doi.org/10.1093/nar/gkq1237</a>.</p>
+</div>
+<div id="ref-jFjpgUmP">
+<p>94. Himmelstein D, Greene C, Pico A. 2015 Using Entrez Gene as our gene vocabulary. See <a href="https://doi.org/10.15363/thinklab.d34" class="uri">https://doi.org/10.15363/thinklab.d34</a>.</p>
+</div>
+<div id="ref-CeE6BNL6">
+<p>95. Himmelstein DS. 2016 Processed Entrez Gene Datasets For Humans V1.0. See <a href="https://doi.org/10.5281/zenodo.45524" class="uri">https://doi.org/10.5281/zenodo.45524</a>.</p>
+</div>
+<div id="ref-TOC8jpgh">
+<p>96. Mungall CJ, Torniai C, Gkoutos GV, Lewis SE, Haendel MA. 2012 Uberon, an integrative multi-species anatomy ontology. <em>Genome Biol</em> <strong>13</strong>, R5. See <a href="https://doi.org/10.1186/gb-2012-13-1-r5" class="uri">https://doi.org/10.1186/gb-2012-13-1-r5</a>.</p>
+</div>
+<div id="ref-o4Fn3BdF">
+<p>97. Malladi V, Himmelstein D, Mungall C. 2015 Tissue Node. See <a href="https://doi.org/10.15363/thinklab.d41" class="uri">https://doi.org/10.15363/thinklab.d41</a>.</p>
+</div>
+<div id="ref-1CvIurqPN">
+<p>98. Himmelstein DS. 2016 User-Friendly Anatomical Structures Data From The Uberon Ontology V1.0. See <a href="https://doi.org/10.5281/zenodo.45527" class="uri">https://doi.org/10.5281/zenodo.45527</a>.</p>
+</div>
+<div id="ref-13dXhDrjJ">
+<p>99. Kutmon M <em>et al.</em> 2015 WikiPathways: capturing the full diversity of pathway knowledge. <em>Nucleic Acids Res</em> <strong>44</strong>, D488–D494. See <a href="https://doi.org/10.1093/nar/gkv1024" class="uri">https://doi.org/10.1093/nar/gkv1024</a>.</p>
+</div>
+<div id="ref-1HPlX2VWO">
+<p>100. Pico AR, Kelder T, van Iersel MP, Hanspers K, Conklin BR, Evelo C. 2008 WikiPathways: Pathway Editing for the People. <em>PLoS Biol</em> <strong>6</strong>, e184. See <a href="https://doi.org/10.1371/journal.pbio.0060184" class="uri">https://doi.org/10.1371/journal.pbio.0060184</a>.</p>
+</div>
+<div id="ref-VRAAqTPx">
+<p>101. Fabregat A <em>et al.</em> 2015 The Reactome pathway Knowledgebase. <em>Nucleic Acids Res</em> <strong>44</strong>, D481–D487. See <a href="https://doi.org/10.1093/nar/gkv1351" class="uri">https://doi.org/10.1093/nar/gkv1351</a>.</p>
+</div>
+<div id="ref-hza2g9jG">
+<p>102. Schaefer CF, Anthony K, Krupa S, Buchoff J, Day M, Hannay T, Buetow KH. 2008 PID: the Pathway Interaction Database. <em>Nucleic Acids Research</em> <strong>37</strong>, D674–D679. See <a href="https://doi.org/10.1093/nar/gkn653" class="uri">https://doi.org/10.1093/nar/gkn653</a>.</p>
+</div>
+<div id="ref-gHOGRSfH">
+<p>103. Cerami EG, Gross BE, Demir E, Rodchenkov I, Babur O, Anwar N, Schultz N, Bader GD, Sander C. 2010 Pathway Commons, a web resource for biological pathway data. <em>Nucleic Acids Research</em> <strong>39</strong>, D685–D690. See <a href="https://doi.org/10.1093/nar/gkq1039" class="uri">https://doi.org/10.1093/nar/gkq1039</a>.</p>
+</div>
+<div id="ref-15IhnC8cF">
+<p>104. Pico A, Himmelstein D. 2015 Adding pathway resources to your network. See <a href="https://doi.org/10.15363/thinklab.d72" class="uri">https://doi.org/10.15363/thinklab.d72</a>.</p>
+</div>
+<div id="ref-HDkm1eac">
+<p>105. Himmelstein DS, Pico AR. 2016 Dhimmel/Pathways V2.0: Compiling Human Pathway Gene Sets. See <a href="https://doi.org/10.5281/zenodo.48810" class="uri">https://doi.org/10.5281/zenodo.48810</a>.</p>
+</div>
+<div id="ref-pqVRhFos">
+<p>106. Ashburner M <em>et al.</em> 2000 Gene Ontology: tool for the unification of biology. <em>Nat Genet</em> <strong>25</strong>, 25–29. See <a href="https://doi.org/10.1038/75556" class="uri">https://doi.org/10.1038/75556</a>.</p>
+</div>
+<div id="ref-11BJxM8RZ">
+<p>107. Himmelstein D. 2015 Disease Ontology feature requests. See <a href="https://doi.org/10.15363/thinklab.d68" class="uri">https://doi.org/10.15363/thinklab.d68</a>.</p>
+</div>
+<div id="ref-gP7oMjoR">
+<p>108. Hersey A, Chambers J, Bellis L, Patrícia Bento A, Gaulton A, Overington JP. 2015 Chemical databases: curation or integration by user-defined equivalence? <em>Drug Discovery Today: Technologies</em> <strong>14</strong>, 17–24. See <a href="https://doi.org/10.1016/j.ddtec.2015.01.005" class="uri">https://doi.org/10.1016/j.ddtec.2015.01.005</a>.</p>
+</div>
+<div id="ref-14OnuhY6K">
+<p>109. Chambers J <em>et al.</em> 2013 UniChem: a unified chemical structure cross-referencing and identifier tracking system. <em>Journal of Cheminformatics</em> <strong>5</strong>, 3. See <a href="https://doi.org/10.1186/1758-2946-5-3" class="uri">https://doi.org/10.1186/1758-2946-5-3</a>.</p>
+</div>
+<div id="ref-N3GeOrai">
+<p>110. Chambers J, Davies M, Gaulton A, Papadatos G, Hersey A, Overington JP. 2014 UniChem: extension of InChI-based compound mapping to salt, connectivity and stereochemistry layers. <em>J Cheminform</em> <strong>6</strong>. See <a href="https://doi.org/10.1186/s13321-014-0043-5" class="uri">https://doi.org/10.1186/s13321-014-0043-5</a>.</p>
+</div>
+<div id="ref-AP6h5CYA">
+<p>111. Heller S, McNaught A, Stein S, Tchekhovskoi D, Pletnev I. 2013 InChI - the worldwide chemical structure identifier standard. <em>Journal of Cheminformatics</em> <strong>5</strong>, 7. See <a href="https://doi.org/10.1186/1758-2946-5-7" class="uri">https://doi.org/10.1186/1758-2946-5-7</a>.</p>
+</div>
+<div id="ref-ZQHbR2c0">
+<p>112. Himmelstein D, Bastian F, Baranzini S. 2016 Dhimmel/Bgee V1.0: Anatomy-Specific Gene Expression In Humans From Bgee. See <a href="https://doi.org/10.5281/zenodo.47157" class="uri">https://doi.org/10.5281/zenodo.47157</a>.</p>
+</div>
+<div id="ref-5qw2oair">
+<p>113. Himmelstein D, Bastian F. 2015 Processing Bgee for tissue-specific gene presence and over/under-expression. See <a href="https://doi.org/10.15363/thinklab.d124" class="uri">https://doi.org/10.15363/thinklab.d124</a>.</p>
+</div>
+<div id="ref-CMnMXmRF">
+<p>114. Himmelstein D, Bastian F. 2015 Tissue-specific gene expression resources. See <a href="https://doi.org/10.15363/thinklab.d81" class="uri">https://doi.org/10.15363/thinklab.d81</a>.</p>
+</div>
+<div id="ref-1G9we1aD8">
+<p>115. Bastian F, Parmentier G, Roux J, Moretti S, Laudet V, Robinson-Rechavi M. In press. Bgee: Integrating and Comparing Heterogeneous Transcriptome Data Among Species. In <em>Lecture Notes in Computer Science</em>, pp. 124–131. Springer Berlin Heidelberg. See <a href="https://doi.org/10.1007/978-3-540-69828-9_12" class="uri">https://doi.org/10.1007/978-3-540-69828-9_12</a>.</p>
+</div>
+<div id="ref-6QECA6Hm">
+<p>116. Santos A, Tsafou K, Stolte C, Pletscher-Frankild S, O’Donoghue SI, Jensen LJ. 2015 Comprehensive comparison of large-scale tissue expression datasets. <em>PeerJ</em> <strong>3</strong>, e1054. See <a href="https://doi.org/10.7717/peerj.1054" class="uri">https://doi.org/10.7717/peerj.1054</a>.</p>
+</div>
+<div id="ref-utu7TxwB">
+<p>117. Himmelstein D, Jensen LJ. 2015 Gene–Tissue Relationships From The Tissues Database. See <a href="https://doi.org/10.5281/zenodo.27244" class="uri">https://doi.org/10.5281/zenodo.27244</a>.</p>
+</div>
+<div id="ref-14Sym5V3B">
+<p>118. Himmelstein D, Jensen LJ. 2015 The TISSUES resource for the tissue-specificity of genes. See <a href="https://doi.org/10.15363/thinklab.d91" class="uri">https://doi.org/10.15363/thinklab.d91</a>.</p>
+</div>
+<div id="ref-EcldAPLA">
+<p>119. Chen X, Liu M, Gilson M. 2001 BindingDB: A Web-Accessible Molecular Recognition Database. <em>CCHTS</em> <strong>4</strong>, 719–725. See <a href="https://doi.org/10.2174/1386207013330670" class="uri">https://doi.org/10.2174/1386207013330670</a>.</p>
+</div>
+<div id="ref-4WZ9VZD7">
+<p>120. Gilson MK, Liu T, Baitaluk M, Nicola G, Hwang L, Chong J. 2015 BindingDB in 2015: A public database for medicinal chemistry, computational chemistry and systems pharmacology. <em>Nucleic Acids Res</em> <strong>44</strong>, D1045–D1053. See <a href="https://doi.org/10.1093/nar/gkv1072" class="uri">https://doi.org/10.1093/nar/gkv1072</a>.</p>
+</div>
+<div id="ref-RPxoiilN">
+<p>121. Wishart DS. 2006 DrugBank: a comprehensive resource for in silico drug discovery and exploration. <em>Nucleic Acids Research</em> <strong>34</strong>, D668–D672. See <a href="https://doi.org/10.1093/nar/gkj067" class="uri">https://doi.org/10.1093/nar/gkj067</a>.</p>
+</div>
+<div id="ref-j7cpyM2e">
+<p>122. Himmelstein D, Gilson M. 2015 Integrating drug target information from BindingDB. See <a href="https://doi.org/10.15363/thinklab.d53" class="uri">https://doi.org/10.15363/thinklab.d53</a>.</p>
+</div>
+<div id="ref-3tDTWGId">
+<p>123. Himmelstein D, Gilson M, Baranzini S. 2015 Processing The October 2015 Bindingdb. See <a href="https://doi.org/10.5281/zenodo.33987" class="uri">https://doi.org/10.5281/zenodo.33987</a>.</p>
+</div>
+<div id="ref-1HGVhWYte">
+<p>124. Himmelstein D, Chen S. 2015 Protein (target, carrier, transporter, and enzyme) interactions in DrugBank. See <a href="https://doi.org/10.15363/thinklab.d65" class="uri">https://doi.org/10.15363/thinklab.d65</a>.</p>
+</div>
+<div id="ref-vUGTtH9t">
+<p>125. Himmelstein D, Chen S. 2015 Calculating molecular similarities between DrugBank compounds. See <a href="https://doi.org/10.15363/thinklab.d70" class="uri">https://doi.org/10.15363/thinklab.d70</a>.</p>
+</div>
+<div id="ref-RksWV6V0">
+<p>126. Himmelstein D, Brueggeman L, Baranzini S. 2015 Pairwise molecular similarities between DrugBank compounds. See <a href="https://doi.org/10.6084/m9.figshare.1418386" class="uri">https://doi.org/10.6084/m9.figshare.1418386</a>.</p>
+</div>
+<div id="ref-1AfGrsCPz">
+<p>127. Dice LR. 1945 Measures of the Amount of Ecologic Association Between Species. <em>Ecology</em> <strong>26</strong>, 297–302. See <a href="https://doi.org/10.2307/1932409" class="uri">https://doi.org/10.2307/1932409</a>.</p>
+</div>
+<div id="ref-QnZ7V9Rd">
+<p>128. Rogers D, Hahn M. 2010 Extended-Connectivity Fingerprints. <em>J. Chem. Inf. Model.</em> <strong>50</strong>, 742–754. See <a href="https://doi.org/10.1021/ci100050t" class="uri">https://doi.org/10.1021/ci100050t</a>.</p>
+</div>
+<div id="ref-Srfz2yJV">
+<p>129. Morgan HL. 1965 The Generation of a Unique Machine Description for Chemical Structures-A Technique Developed at Chemical Abstracts Service. <em>J. Chem. Doc.</em> <strong>5</strong>, 107–113. See <a href="https://doi.org/10.1021/c160017a018" class="uri">https://doi.org/10.1021/c160017a018</a>.</p>
+</div>
+<div id="ref-Iq5Pnl3b">
+<p>130. Himmelstein DS, Baranzini SE. 2016 Dhimmel/Gwas-Catalog V1.0: Extracting Gene–Disease Associations From The Gwas Catalog. See <a href="https://doi.org/10.5281/zenodo.48428" class="uri">https://doi.org/10.5281/zenodo.48428</a>.</p>
+</div>
+<div id="ref-11kBoB0W8">
+<p>131. Himmelstein D, Jensen LJ. 2015 Processing the DISEASES resource for disease–gene relationships. See <a href="https://doi.org/10.15363/thinklab.d106" class="uri">https://doi.org/10.15363/thinklab.d106</a>.</p>
+</div>
+<div id="ref-unrqUImI">
+<p>132. Himmelstein DS, Jensen LJ. 2016 Dhimmel/Diseases V1.0: Processing The Diseases Database Of Gene–Disease Associations. See <a href="https://doi.org/10.5281/zenodo.48425" class="uri">https://doi.org/10.5281/zenodo.48425</a>.</p>
+</div>
+<div id="ref-6db5dHbM">
+<p>133. Himmelstein D, piñero janet. 2015 Processing DisGeNET for disease-gene relationships. See <a href="https://doi.org/10.15363/thinklab.d105" class="uri">https://doi.org/10.15363/thinklab.d105</a>.</p>
+</div>
+<div id="ref-RBCqf70A">
+<p>134. Himmelstein DS, Piñero J. 2016 Dhimmel/Disgenet V1.0: Processing The Disgenet Database Of Gene–Disease Associations. See <a href="https://doi.org/10.5281/zenodo.48426" class="uri">https://doi.org/10.5281/zenodo.48426</a>.</p>
+</div>
+<div id="ref-AQ7jBhId">
+<p>135. Himmelstein D. 2015 Functional disease annotations for genes using DOAF. See <a href="https://doi.org/10.15363/thinklab.d94" class="uri">https://doi.org/10.15363/thinklab.d94</a>.</p>
+</div>
+<div id="ref-1EmRGtMf5">
+<p>136. Himmelstein DS. 2016 Dhimmel/Doaf V1.0: Processing The Doaf Database Of Gene–Disease Associations. See <a href="https://doi.org/10.5281/zenodo.48427" class="uri">https://doi.org/10.5281/zenodo.48427</a>.</p>
+</div>
+<div id="ref-16cIDAXhG">
+<p>137. MacArthur J <em>et al.</em> 2016 The new NHGRI-EBI Catalog of published genome-wide association studies (GWAS Catalog). <em>Nucleic Acids Res</em> <strong>45</strong>, D896–D901. See <a href="https://doi.org/10.1093/nar/gkw1133" class="uri">https://doi.org/10.1093/nar/gkw1133</a>.</p>
+</div>
+<div id="ref-RyLgv2tZ">
+<p>138. Himmelstein D. 2015 Extracting disease-gene associations from the GWAS Catalog. See <a href="https://doi.org/10.15363/thinklab.d80" class="uri">https://doi.org/10.15363/thinklab.d80</a>.</p>
+</div>
+<div id="ref-7EDqcRMD">
+<p>139. Himmelstein D, Sirota M, Way G. 2015 Calculating genomic windows for GWAS lead SNPs. See <a href="https://doi.org/10.15363/thinklab.d71" class="uri">https://doi.org/10.15363/thinklab.d71</a>.</p>
+</div>
+<div id="ref-5gG8hwv7">
+<p>140. Pletscher-Frankild S, Pallejà A, Tsafou K, Binder JX, Jensen LJ. 2015 DISEASES: Text mining and data integration of disease–gene associations. <em>Methods</em> <strong>74</strong>, 83–89. See <a href="https://doi.org/10.1016/j.ymeth.2014.11.020" class="uri">https://doi.org/10.1016/j.ymeth.2014.11.020</a>.</p>
+</div>
+<div id="ref-aBPdeZSN">
+<p>141. Pinero J, Queralt-Rosinach N, Bravo A, Deu-Pons J, Bauer-Mehren A, Baron M, Sanz F, Furlong LI. 2015 DisGeNET: a discovery platform for the dynamical exploration of human diseases and their genes. <em>Database</em> <strong>2015</strong>, bav028–bav028. See <a href="https://doi.org/10.1093/database/bav028" class="uri">https://doi.org/10.1093/database/bav028</a>.</p>
+</div>
+<div id="ref-gLGJypYg">
+<p>142. Xu W, Wang H, Cheng W, Fu D, Xia T, Kibbe WA, Lin SM. 2012 A Framework for Annotating Human Genome in Disease Context. <em>PLoS ONE</em> <strong>7</strong>, e49686. See <a href="https://doi.org/10.1371/journal.pone.0049686" class="uri">https://doi.org/10.1371/journal.pone.0049686</a>.</p>
+</div>
+<div id="ref-fTatgccc">
+<p>143. Himmelstein D, Bastian F, Hadley D, Greene C. 2015 STARGEO: expression signatures for disease using crowdsourced GEO annotation. See <a href="https://doi.org/10.15363/thinklab.d96" class="uri">https://doi.org/10.15363/thinklab.d96</a>.</p>
+</div>
+<div id="ref-164R9SolI">
+<p>144. Himmelstein D, Hadley D, Schepanovski A. 2016 Dhimmel/Stargeo V1.0: Differentially Expressed Genes For 48 Diseases From Stargeo. See <a href="https://doi.org/10.5281/zenodo.46866" class="uri">https://doi.org/10.5281/zenodo.46866</a>.</p>
+</div>
+<div id="ref-ZXg5KPir">
+<p>145. Himmelstein DS. 2016 Dhimmel/Medline V1.0: Disease, Symptom, And Anatomy Cooccurence In Medline. See <a href="https://doi.org/10.5281/zenodo.48445" class="uri">https://doi.org/10.5281/zenodo.48445</a>.</p>
+</div>
+<div id="ref-xPGUgS3q">
+<p>146. Himmelstein D. 2015 Disease similarity from MEDLINE topic cooccurrence. See <a href="https://doi.org/10.15363/thinklab.d93" class="uri">https://doi.org/10.15363/thinklab.d93</a>.</p>
+</div>
+<div id="ref-TWAPY3zr">
+<p>147. Fisher RA. 1922 On the Interpretation of χ 2 from Contingency Tables, and the Calculation of P. <em>Journal of the Royal Statistical Society</em> <strong>85</strong>, 87. See <a href="https://doi.org/10.2307/2340521" class="uri">https://doi.org/10.2307/2340521</a>.</p>
+</div>
+<div id="ref-p6mbx8kO">
+<p>148. Priedigkeit N, Wolfe N, Clark NL. 2015 Evolutionary Signatures amongst Disease Genes Permit Novel Methods for Gene Prioritization and Construction of Informative Gene-Based Networks. <em>PLoS Genet</em> <strong>11</strong>, e1004967. See <a href="https://doi.org/10.1371/journal.pgen.1004967" class="uri">https://doi.org/10.1371/journal.pgen.1004967</a>.</p>
+</div>
+<div id="ref-k8MhA90p">
+<p>149. Himmelstein D, Partha R. 2015 Selecting informative ERC (evolutionary rate covariation) values between genes. See <a href="https://doi.org/10.15363/thinklab.d57" class="uri">https://doi.org/10.15363/thinklab.d57</a>.</p>
+</div>
+<div id="ref-IZHE5ysl">
+<p>150. Himmelstein DS. 2016 Dhimmel/Erc V1.0: Processing Human Evolutionary Rate Covaration Data. See <a href="https://doi.org/10.5281/zenodo.48444" class="uri">https://doi.org/10.5281/zenodo.48444</a>.</p>
+</div>
+<div id="ref-z0vsZcm0">
+<p>151. Himmelstein D, Hadley D, Strokach A. 2015 Creating a catalog of protein interactions. See <a href="https://doi.org/10.15363/thinklab.d85" class="uri">https://doi.org/10.15363/thinklab.d85</a>.</p>
+</div>
+<div id="ref-rTcQZ8h2">
+<p>152. Himmelstein DS, Baranzini SE. 2016 Dhimmel/Ppi V1.0: Compiling A Human Protein Interaction Catalog. See <a href="https://doi.org/10.5281/zenodo.48443" class="uri">https://doi.org/10.5281/zenodo.48443</a>.</p>
+</div>
+<div id="ref-lnDqu0oW">
+<p>153. Rual J-F <em>et al.</em> 2005 Towards a proteome-scale map of the human protein–protein interaction network. <em>Nature</em> <strong>437</strong>, 1173–1178. See <a href="https://doi.org/10.1038/nature04209" class="uri">https://doi.org/10.1038/nature04209</a>.</p>
+</div>
+<div id="ref-6kBEzeyD">
+<p>154. Venkatesan K <em>et al.</em> 2008 An empirical framework for binary interactome mapping. <em>Nat Meth</em> <strong>6</strong>, 83–90. See <a href="https://doi.org/10.1038/nmeth.1280" class="uri">https://doi.org/10.1038/nmeth.1280</a>.</p>
+</div>
+<div id="ref-18f2p3v36">
+<p>155. Yu H <em>et al.</em> 2011 Next-generation sequencing to generate interactome datasets. <em>Nat Meth</em> <strong>8</strong>, 478–480. See <a href="https://doi.org/10.1038/nmeth.1597" class="uri">https://doi.org/10.1038/nmeth.1597</a>.</p>
+</div>
+<div id="ref-LCyCrr7W">
+<p>156. Rolland T <em>et al.</em> 2014 A Proteome-Scale Map of the Human Interactome Network. <em>Cell</em> <strong>159</strong>, 1212–1226. See <a href="https://doi.org/10.1016/j.cell.2014.10.050" class="uri">https://doi.org/10.1016/j.cell.2014.10.050</a>.</p>
+</div>
+<div id="ref-2jkcXYxN">
+<p>157. Menche J, Sharma A, Kitsak M, Ghiassian SD, Vidal M, Loscalzo J, Barabasi A-L. 2015 Uncovering disease-disease relationships through the incomplete interactome. <em>Science</em> <strong>347</strong>, 1257601–1257601. See <a href="https://doi.org/10.1126/science.1257601" class="uri">https://doi.org/10.1126/science.1257601</a>.</p>
+</div>
+<div id="ref-AIFvkizu">
+<p>158. Huntley RP, Sawford T, Mutowo-Meullenet P, Shypitsyna A, Bonilla C, Martin MJ, O’Donovan C. 2014 The GOA database: Gene Ontology annotation updates for 2015. <em>Nucleic Acids Research</em> <strong>43</strong>, D1057–D1063. See <a href="https://doi.org/10.1093/nar/gku1113" class="uri">https://doi.org/10.1093/nar/gku1113</a>.</p>
+</div>
+<div id="ref-i148MVII">
+<p>159. Himmelstein D, Greene C, Malladi V, Bastian F. 2015 Compiling Gene Ontology annotations into an easy-to-use format. See <a href="https://doi.org/10.15363/thinklab.d39" class="uri">https://doi.org/10.15363/thinklab.d39</a>.</p>
+</div>
+<div id="ref-1yPa6qxQ">
+<p>160. Himmelstein D, Greene C, Malladi V, Bastian F, Baranzini S. 2015 Gene-Ontology: Initial Zenodo Release. See <a href="https://doi.org/10.5281/zenodo.21711" class="uri">https://doi.org/10.5281/zenodo.21711</a>.</p>
+</div>
+<div id="ref-14VfbatMA">
+<p>161. Edgar R. 2002 Gene Expression Omnibus: NCBI gene expression and hybridization array data repository. <em>Nucleic Acids Research</em> <strong>30</strong>, 207–210. See <a href="https://doi.org/10.1093/nar/30.1.207" class="uri">https://doi.org/10.1093/nar/30.1.207</a>.</p>
+</div>
+<div id="ref-tGvcfcsl">
+<p>162. Barrett T <em>et al.</em> 2012 NCBI GEO: archive for functional genomics data sets–update. <em>Nucleic Acids Research</em> <strong>41</strong>, D991–D995. See <a href="https://doi.org/10.1093/nar/gks1193" class="uri">https://doi.org/10.1093/nar/gks1193</a>.</p>
+</div>
+<div id="ref-1DJZvtwP1">
+<p>163. Himmelstein D, Brueggeman L, Baranzini S. 2016 Dhimmel/Lincs V2.0: Refined Consensus Signatures From Lincs L1000. See <a href="https://doi.org/10.5281/zenodo.47223" class="uri">https://doi.org/10.5281/zenodo.47223</a>.</p>
+</div>
+<div id="ref-DoFEugtF">
+<p>164. Himmelstein D, Brueggeman L, Baranzini S. 2016 l1000.db: SQLite database of LINCS L1000 metadata. See <a href="https://doi.org/10.6084/m9.figshare.3085837.v1" class="uri">https://doi.org/10.6084/m9.figshare.3085837.v1</a>.</p>
+</div>
+<div id="ref-1GWQXgksp">
+<p>165. Himmelstein D, Chung C. 2015 Computing consensus transcriptional profiles for LINCS L1000 perturbations. See <a href="https://doi.org/10.15363/thinklab.d43" class="uri">https://doi.org/10.15363/thinklab.d43</a>.</p>
+</div>
+<div id="ref-fo7BhiM">
+<p>166. Himmelstein D, Brueggeman L, Baranzini S. 2016 Consensus signatures for LINCS L1000 perturbations. See <a href="https://doi.org/10.6084/m9.figshare.3085426.v1" class="uri">https://doi.org/10.6084/m9.figshare.3085426.v1</a>.</p>
+</div>
+<div id="ref-K463O8CE">
+<p>167. Himmelstein D. 2016 Assessing the imputation quality of gene expression in LINCS L1000. See <a href="https://doi.org/10.15363/thinklab.d185" class="uri">https://doi.org/10.15363/thinklab.d185</a>.</p>
+</div>
+<div id="ref-45bO056G">
+<p>168. Himmelstein D, Greene C, Jensen LJ. 2016 Positive correlations between knockdown and overexpression profiles from LINCS L1000. See <a href="https://doi.org/10.15363/thinklab.d171" class="uri">https://doi.org/10.15363/thinklab.d171</a>.</p>
+</div>
+<div id="ref-5t7pfaPv">
+<p>169. Himmelstein D. 2016 Announcing PharmacotherapyDB: the Open Catalog of Drug Therapies for Disease. See <a href="https://doi.org/10.15363/thinklab.d182" class="uri">https://doi.org/10.15363/thinklab.d182</a>.</p>
+</div>
+<div id="ref-uXsu0Orb">
+<p>170. Himmelstein D, Pouya Khankhanian, Hessler CS, Green AJ, Baranzini S. 2016 PharmacotherapyDB 1.0: the open catalog of drug therapies for disease. See <a href="https://doi.org/10.6084/m9.figshare.3103054" class="uri">https://doi.org/10.6084/m9.figshare.3103054</a>.</p>
+</div>
+<div id="ref-10KA5jTBQ">
+<p>171. Himmelstein DS, Pouya Khankhanian, Hessler CS, Green AJ, Baranzini SE. 2016 Dhimmel/Indications V1.0. Pharmacotherapydb: The Open Catalog Of Drug Therapies For Disease. See <a href="https://doi.org/10.5281/zenodo.47664" class="uri">https://doi.org/10.5281/zenodo.47664</a>.</p>
+</div>
+<div id="ref-evXE89NK">
+<p>172. Himmelstein D, Good B, Oprea T, McCoy A, Lizee A. 2015 How should we construct a catalog of drug indications? See <a href="https://doi.org/10.15363/thinklab.d21" class="uri">https://doi.org/10.15363/thinklab.d21</a>.</p>
+</div>
+<div id="ref-meQc13o1">
+<p>173. Wei W-Q, Cronin RM, Xu H, Lasko TA, Bastarache L, Denny JC. 2013 Development and evaluation of an ensemble resource linking medications to their indications. <em>J Am Med Inform Assoc</em> <strong>20</strong>, 954–961. See <a href="https://doi.org/10.1136/amiajnl-2012-001431" class="uri">https://doi.org/10.1136/amiajnl-2012-001431</a>.</p>
+</div>
+<div id="ref-1HvRcrCfe">
+<p>174. Khare R, Li J, Lu Z. 2014 LabeledIn: Cataloging labeled indications for human drugs. <em>Journal of Biomedical Informatics</em> <strong>52</strong>, 448–456. See <a href="https://doi.org/10.1016/j.jbi.2014.08.004" class="uri">https://doi.org/10.1016/j.jbi.2014.08.004</a>.</p>
+</div>
+<div id="ref-19a21PCCa">
+<p>175. Khare R, Burger JD, Aberdeen JS, Tresner-Kirsch DW, Corrales TJ, Hirchman L, Lu Z. 2015 Scaling drug indication curation through crowdsourcing. <em>Database</em> <strong>2015</strong>, bav016–bav016. See <a href="https://doi.org/10.1093/database/bav016" class="uri">https://doi.org/10.1093/database/bav016</a>.</p>
+</div>
+<div id="ref-Cb3mhTB5">
+<p>176. Himmelstein D, Khare R. 2015 Processing LabeledIn to extract indications. See <a href="https://doi.org/10.15363/thinklab.d46" class="uri">https://doi.org/10.15363/thinklab.d46</a>.</p>
+</div>
+<div id="ref-QFWKZ9ms">
+<p>177. McCoy AB, Wright A, Laxmisan A, Ottosen MJ, McCoy JA, Butten D, Sittig DF. 2012 Development and evaluation of a crowdsourcing methodology for knowledge base construction: identifying relationships between clinical problems and medications. <em>J Am Med Inform Assoc</em> <strong>19</strong>, 713–718. See <a href="https://doi.org/10.1136/amiajnl-2012-000852" class="uri">https://doi.org/10.1136/amiajnl-2012-000852</a>.</p>
+</div>
+<div id="ref-uoysFmL">
+<p>178. Himmelstein D. 2015 Extracting indications from the ehrlink resource. See <a href="https://doi.org/10.15363/thinklab.d62" class="uri">https://doi.org/10.15363/thinklab.d62</a>.</p>
+</div>
+<div id="ref-XKk3nmKX">
+<p>179. Himmelstein D, Khankhanian P, Hessler C. 2015 Expert curation of our indication catalog for disease-modifying treatments. See <a href="https://doi.org/10.15363/thinklab.d95" class="uri">https://doi.org/10.15363/thinklab.d95</a>.</p>
+</div>
+<div id="ref-ZSF7znde">
+<p>180. Spaulding J, Himmelstein D, Greene C, Good B. 2015 Enabling reproducibility and reuse. See <a href="https://doi.org/10.15363/thinklab.d23" class="uri">https://doi.org/10.15363/thinklab.d23</a>.</p>
+</div>
+<div id="ref-10SeGR4Cb">
+<p>181. Hrynaszkiewicz I. 2011 The need and drive for open data in biomedical publishing. <em>Serials: The Journal for the Serials Community</em> <strong>24</strong>, 31–37. See <a href="https://doi.org/10.1629/2431" class="uri">https://doi.org/10.1629/2431</a>.</p>
+</div>
+<div id="ref-1A97a4UwU">
+<p>182. Molloy JC. 2011 The Open Knowledge Foundation: Open Data Means Better Science. <em>PLoS Biol</em> <strong>9</strong>, e1001195. See <a href="https://doi.org/10.1371/journal.pbio.1001195" class="uri">https://doi.org/10.1371/journal.pbio.1001195</a>.</p>
+</div>
+<div id="ref-HQfvK1OF">
+<p>183. McKiernan EC <em>et al.</em> 2016 How open science helps researchers succeed. <em>eLife</em> <strong>5</strong>. See <a href="https://doi.org/10.7554/elife.16800" class="uri">https://doi.org/10.7554/elife.16800</a>.</p>
+</div>
+<div id="ref-g8J7Zkoz">
+<p>184. Piwowar HA, Vision TJ. 2013 Data reuse and the open data citation advantage. <em>PeerJ</em> <strong>1</strong>, e175. See <a href="https://doi.org/10.7717/peerj.175" class="uri">https://doi.org/10.7717/peerj.175</a>.</p>
+</div>
+<div id="ref-gvyja7v1">
+<p>185. Stodden V, McNutt M, Bailey DH, Deelman E, Gil Y, Hanson B, Heroux MA, Ioannidis JPA, Taufer M. 2016 Enhancing reproducibility for computational methods. <em>Science</em> <strong>354</strong>, 1240–1241. See <a href="https://doi.org/10.1126/science.aah6168" class="uri">https://doi.org/10.1126/science.aah6168</a>.</p>
+</div>
+<div id="ref-fL5DrqXg">
+<p>186. Stodden V, Miguez S. 2014 Best Practices for Computational Science: Software Infrastructure and Environments for Reproducible and Extensible Research. <em>Journal of Open Research Software</em> <strong>2</strong>. See <a href="https://doi.org/10.5334/jors.ay" class="uri">https://doi.org/10.5334/jors.ay</a>.</p>
+</div>
+<div id="ref-18Ddv0H9A">
+<p>187. Baggerly K. 2010 Disclose all data in publications. <em>Nature</em> <strong>467</strong>, 401–401. See <a href="https://doi.org/10.1038/467401b" class="uri">https://doi.org/10.1038/467401b</a>.</p>
+</div>
+<div id="ref-tTEEbq17">
+<p>188. Hrynaszkiewicz I, Cockerill MJ. 2012 Open by default: a proposed copyright license and waiver agreement for open access research and data in peer-reviewed journals. <em>BMC Research Notes</em> <strong>5</strong>, 494. See <a href="https://doi.org/10.1186/1756-0500-5-494" class="uri">https://doi.org/10.1186/1756-0500-5-494</a>.</p>
+</div>
+<div id="ref-8hTZ1RWy">
+<p>189. Hagedorn G, Mietchen D, Morris R, Agosti D, Penev L, Berendsohn W, Hobern D. 2011 Creative Commons licenses and the non-commercial condition: Implications for the re-use of biodiversity information. <em>ZK</em> <strong>150</strong>, 127–149. See <a href="https://doi.org/10.3897/zookeys.150.2189" class="uri">https://doi.org/10.3897/zookeys.150.2189</a>.</p>
+</div>
+<div id="ref-3RePz9QS">
+<p>190. Himmelstein D, Jensen LJ. 2015 One network to rule them all. See <a href="https://doi.org/10.15363/thinklab.d102" class="uri">https://doi.org/10.15363/thinklab.d102</a>.</p>
+</div>
+<div id="ref-4G0GW8oe">
+<p>191. Himmelstein D, Jensen LJ, Smith M, Fortney K, Chung C. 2015 Integrating resources with disparate licensing into an open network. See <a href="https://doi.org/10.15363/thinklab.d107" class="uri">https://doi.org/10.15363/thinklab.d107</a>.</p>
+</div>
+<div id="ref-137tbemL9">
+<p>192. Oxenham S. 2016 Legal confusion threatens to slow data science. <em>Nature</em> <strong>536</strong>, 16–17. See <a href="https://doi.org/10.1038/536016a" class="uri">https://doi.org/10.1038/536016a</a>.</p>
+</div>
+<div id="ref-13gsIQnzn">
+<p>193. Elliott R. 2005 Who owns scientific data? The impact of intellectual property rights on the scientific publication chain. <em>Learned Publishing</em> <strong>18</strong>, 91–94. See <a href="https://doi.org/10.1087/0953151053584984" class="uri">https://doi.org/10.1087/0953151053584984</a>.</p>
+</div>
+<div id="ref-Iprbu5m8">
+<p>194. Himmelstein D. 2015 MSigDB licensing. See <a href="https://doi.org/10.15363/thinklab.d108" class="uri">https://doi.org/10.15363/thinklab.d108</a>.</p>
+</div>
+<div id="ref-gPtjkxTB">
+<p>195. Himmelstein D. 2015 Incomplete Interactome licensing. See <a href="https://doi.org/10.15363/thinklab.d111" class="uri">https://doi.org/10.15363/thinklab.d111</a>.</p>
+</div>
+<div id="ref-mruqBx3u">
+<p>196. Himmelstein D. 2015 LINCS L1000 licensing. See <a href="https://doi.org/10.15363/thinklab.d110" class="uri">https://doi.org/10.15363/thinklab.d110</a>.</p>
+</div>
+<div id="ref-AlI8nuJy">
+<p>197. Himmelstein D, Fortney K, Knox C, Southan C. 2016 Sounding the alarm on DrugBank’s new license and terms of use. See <a href="https://doi.org/10.15363/thinklab.d213" class="uri">https://doi.org/10.15363/thinklab.d213</a>.</p>
+</div>
+<div id="ref-sC5yzpXL">
+<p>198. Liberzon A, Subramanian A, Pinchback R, Thorvaldsdottir H, Tamayo P, Mesirov JP. 2011 Molecular signatures database (MSigDB) 3.0. <em>Bioinformatics</em> <strong>27</strong>, 1739–1740. See <a href="https://doi.org/10.1093/bioinformatics/btr260" class="uri">https://doi.org/10.1093/bioinformatics/btr260</a>.</p>
+</div>
+<div id="ref-GE6jhWnt">
+<p>199. Himmelstein D. 2016 Assessing the effectiveness of our hetnet permutations. See <a href="https://doi.org/10.15363/thinklab.d178" class="uri">https://doi.org/10.15363/thinklab.d178</a>.</p>
+</div>
+<div id="ref-iKOIEzQ9">
+<p>200. Hanhijärvi S, Garriga GC, Puolamäki K. 2009 Randomization Techniques for Graphs. In <em>Proceedings of the 2009 SIAM International Conference on Data Mining</em>, pp. 780–791. Society for Industrial and Applied Mathematics. See <a href="https://doi.org/10.1137/1.9781611972795.67" class="uri">https://doi.org/10.1137/1.9781611972795.67</a>.</p>
+</div>
+<div id="ref-xmFxwmUd">
+<p>201. Himmelstein D. 2015 Permuting hetnets and implementing randomized edge swaps in cypher. See <a href="https://doi.org/10.15363/thinklab.d136" class="uri">https://doi.org/10.15363/thinklab.d136</a>.</p>
+</div>
+<div id="ref-nAw5a44I">
+<p>202. Have CT, Jensen LJ. 2013 Are graph databases ready for bioinformatics? <em>Bioinformatics</em> <strong>29</strong>, 3107–3108. See <a href="https://doi.org/10.1093/bioinformatics/btt549" class="uri">https://doi.org/10.1093/bioinformatics/btt549</a>.</p>
+</div>
+<div id="ref-kNYoxBiQ">
+<p>203. Himmelstein D. 2015 Using the neo4j graph database for hetnets. See <a href="https://doi.org/10.15363/thinklab.d112" class="uri">https://doi.org/10.15363/thinklab.d112</a>.</p>
+</div>
+<div id="ref-1GJM7558r">
+<p>204. Himmelstein D. 2016 dhimmel/hetio v0.2.0: Neo4j export, Cypher query creation, hetnet stats, and other enhancements. See <a href="https://doi.org/10.5281/zenodo.61571" class="uri">https://doi.org/10.5281/zenodo.61571</a>.</p>
+</div>
+<div id="ref-Y2J9lvD7">
+<p>205. Himmelstein D. 2016 Hosting Hetionet in the cloud: creating a public Neo4j instance. See <a href="https://doi.org/10.15363/thinklab.d216" class="uri">https://doi.org/10.15363/thinklab.d216</a>.</p>
+</div>
+<div id="ref-pw3EUXTf">
+<p>206. Belmann P, Dröge J, Bremges A, McHardy AC, Sczyrba A, Barton MD. 2015 Bioboxes: standardised containers for interchangeable bioinformatics software. <em>GigaSci</em> <strong>4</strong>. See <a href="https://doi.org/10.1186/s13742-015-0087-0" class="uri">https://doi.org/10.1186/s13742-015-0087-0</a>.</p>
+</div>
+<div id="ref-7MR5St9Q">
+<p>207. Beaulieu-Jones BK, Greene CS. 2016 Reproducible Computational Workflows with Continuous Analysis. See <a href="https://doi.org/10.1101/056473" class="uri">https://doi.org/10.1101/056473</a>.</p>
+</div>
+<div id="ref-17y6sfGkX">
+<p>208. Burbidge JB, Magee L, Robb AL. 1988 Alternative Transformations to Handle Extreme Values of the Dependent Variable. <em>Journal of the American Statistical Association</em> <strong>83</strong>, 123–127. See <a href="https://doi.org/10.2307/2288929" class="uri">https://doi.org/10.2307/2288929</a>.</p>
+</div>
+<div id="ref-17mGFvxXu">
+<p>209. Himmelstein D, Khankhanian P, Lizee A. 2016 Transforming DWPCs for hetnet edge prediction. See <a href="https://doi.org/10.15363/thinklab.d193" class="uri">https://doi.org/10.15363/thinklab.d193</a>.</p>
+</div>
+<div id="ref-TZzteyU5">
+<p>210. Himmelstein D. 2015 Assessing the informativeness of features. See <a href="https://doi.org/10.15363/thinklab.d115" class="uri">https://doi.org/10.15363/thinklab.d115</a>.</p>
+</div>
+<div id="ref-1FfvYWzyg">
+<p>211. Himmelstein D. 2016 Edge dropout contamination in hetnet edge prediction. See <a href="https://doi.org/10.15363/thinklab.d215" class="uri">https://doi.org/10.15363/thinklab.d215</a>.</p>
+</div>
+<div id="ref-lHuXJe2C">
+<p>212. Himmelstein D. 2016 Decomposing predictions into their network support. See <a href="https://doi.org/10.15363/thinklab.d229" class="uri">https://doi.org/10.15363/thinklab.d229</a>.</p>
+</div>
+<div id="ref-1693YErZj">
+<p>213. Himmelstein D. 2016 Decomposing the DWPC to assess intermediate node or edge contributions. See <a href="https://doi.org/10.15363/thinklab.d228" class="uri">https://doi.org/10.15363/thinklab.d228</a>.</p>
+</div>
+<div id="ref-19OyKPQ4M">
+<p>214. Lizee A, Himmelstein D. 2016 Network Edge Prediction: Estimating the prior. See <a href="https://doi.org/10.15363/thinklab.d201" class="uri">https://doi.org/10.15363/thinklab.d201</a>.</p>
+</div>
+<div id="ref-UlYsCFw5">
+<p>215. Lizee A, Himmelstein D. 2016 Network Edge Prediction: how to deal with self-testing. See <a href="https://doi.org/10.15363/thinklab.d194" class="uri">https://doi.org/10.15363/thinklab.d194</a>.</p>
+</div>
+<div id="ref-xqMdqzy9">
+<p>216. Himmelstein D. 2016 Cataloging drug–disease therapies in the ClinicalTrials.gov database. See <a href="https://doi.org/10.15363/thinklab.d212" class="uri">https://doi.org/10.15363/thinklab.d212</a>.</p>
+</div>
+<div id="ref-lMaNoR9y">
+<p>217. Himmelstein D, Lizee A, Hessler C, Brueggeman L, Chen S, Hadley D, Green A, Khankhanian P, Baranzini S. 2015 Rephetio: Repurposing drugs on a hetnet [proposal]. See <a href="https://doi.org/10.15363/thinklab.a5" class="uri">https://doi.org/10.15363/thinklab.a5</a>.</p>
+</div>
+<div id="ref-KUVxzxrS">
+<p>218. Himmelstein D, Lizee A. 2016 Measuring user contribution and content creation. See <a href="https://doi.org/10.15363/thinklab.d200" class="uri">https://doi.org/10.15363/thinklab.d200</a>.</p>
+</div>
+<div id="ref-17EdosXzD">
+<p>219. Patil C, Siegel V. 2009 This revolution will be digitized: online tools for radical collaboration. <em>Disease Models &amp; Mechanisms</em> <strong>2</strong>, 201–205. See <a href="https://doi.org/10.1242/dmm.003285" class="uri">https://doi.org/10.1242/dmm.003285</a>.</p>
+</div>
+<div id="ref-1pWYlPj4">
+<p>220. Mietchen D, Mounce R, Penev L. 2015 Publishing the research process. <em>RIO</em> <strong>1</strong>, e7547. See <a href="https://doi.org/10.3897/rio.1.e7547" class="uri">https://doi.org/10.3897/rio.1.e7547</a>.</p>
+</div>
+<div id="ref-PZA0cOT1">
+<p>221. Powell K. 2016 Does it take too long to publish research? <em>Nature</em> <strong>530</strong>, 148–151. See <a href="https://doi.org/10.1038/530148a" class="uri">https://doi.org/10.1038/530148a</a>.</p>
+</div>
+<div id="ref-Mg8fHpkH">
+<p>222. Vale RD. 2015 Accelerating scientific publication in biology. <em>Proc Natl Acad Sci USA</em> <strong>112</strong>, 13439–13446. See <a href="https://doi.org/10.1073/pnas.1511912112" class="uri">https://doi.org/10.1073/pnas.1511912112</a>.</p>
+</div>
+<div id="ref-12sPvUxqQ">
+<p>223. Allison DB, Brown AW, George BJ, Kaiser KA. 2016 Reproducibility: A tragedy of errors. <em>Nature</em> <strong>530</strong>, 27–29. See <a href="https://doi.org/10.1038/530027a" class="uri">https://doi.org/10.1038/530027a</a>.</p>
+</div>
+<div id="ref-ZFI7ltQO">
+<p>224. Himmelstein D <em>et al.</em> 2016 Workshop to analyze LINCS data for the Systems Pharmacology course at UCSF. See <a href="https://doi.org/10.15363/thinklab.d181" class="uri">https://doi.org/10.15363/thinklab.d181</a>.</p>
+</div>
+<div id="ref-13h8FyJFD">
+<p>225. Waldrop MM. 2015 Why we are teaching science wrong, and how to make it right. <em>Nature</em> <strong>523</strong>, 272–274. See <a href="https://doi.org/10.1038/523272a" class="uri">https://doi.org/10.1038/523272a</a>.</p>
+</div>
+<div id="ref-i8fF4cdh">
+<p>226. Giles J. 2012 Going paperless: The digital lab. <em>Nature</em> <strong>481</strong>, 430–431. See <a href="https://doi.org/10.1038/481430a" class="uri">https://doi.org/10.1038/481430a</a>.</p>
+</div>
+</div>
+<script>
+// AnchorJS minified version below.
+// Source https://github.com/bryanbraun/anchorjs/blob/064abdd0987f305933ec4982af6d0c1cf2fd0814/anchor.js
+
+/**
+ * AnchorJS - v4.0.0 - 2017-06-02
+ * https://github.com/bryanbraun/anchorjs
+ * Copyright (c) 2017 Bryan Braun; Licensed MIT
+ */
+!function(A,e){"use strict";"function"==typeof define&&define.amd?define([],e):"object"==typeof module&&module.exports?module.exports=e():(A.AnchorJS=e(),A.anchors=new A.AnchorJS)}(this,function(){"use strict";function A(A){function e(A){A.icon=A.hasOwnProperty("icon")?A.icon:"",A.visible=A.hasOwnProperty("visible")?A.visible:"hover",A.placement=A.hasOwnProperty("placement")?A.placement:"right",A.class=A.hasOwnProperty("class")?A.class:"",A.truncate=A.hasOwnProperty("truncate")?Math.floor(A.truncate):64}function t(A){var e;if("string"==typeof A||A instanceof String)e=[].slice.call(document.querySelectorAll(A));else{if(!(Array.isArray(A)||A instanceof NodeList))throw new Error("The selector provided to AnchorJS was invalid.");e=[].slice.call(A)}return e}function n(){if(null===document.head.querySelector("style.anchorjs")){var A,e=document.createElement("style");e.className="anchorjs",e.appendChild(document.createTextNode("")),void 0===(A=document.head.querySelector('[rel="stylesheet"], style'))?document.head.appendChild(e):document.head.insertBefore(e,A),e.sheet.insertRule(" .anchorjs-link {   opacity: 0;   text-decoration: none;   -webkit-font-smoothing: antialiased;   -moz-osx-font-smoothing: grayscale; }",e.sheet.cssRules.length),e.sheet.insertRule(" *:hover > .anchorjs-link, .anchorjs-link:focus  {   opacity: 1; }",e.sheet.cssRules.length),e.sheet.insertRule(" [data-anchorjs-icon]::after {   content: attr(data-anchorjs-icon); }",e.sheet.cssRules.length),e.sheet.insertRule(' @font-face {   font-family: "anchorjs-icons";   src: url(data:n/a;base64,AAEAAAALAIAAAwAwT1MvMg8yG2cAAAE4AAAAYGNtYXDp3gC3AAABpAAAAExnYXNwAAAAEAAAA9wAAAAIZ2x5ZlQCcfwAAAH4AAABCGhlYWQHFvHyAAAAvAAAADZoaGVhBnACFwAAAPQAAAAkaG10eASAADEAAAGYAAAADGxvY2EACACEAAAB8AAAAAhtYXhwAAYAVwAAARgAAAAgbmFtZQGOH9cAAAMAAAAAunBvc3QAAwAAAAADvAAAACAAAQAAAAEAAHzE2p9fDzz1AAkEAAAAAADRecUWAAAAANQA6R8AAAAAAoACwAAAAAgAAgAAAAAAAAABAAADwP/AAAACgAAA/9MCrQABAAAAAAAAAAAAAAAAAAAAAwABAAAAAwBVAAIAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAMCQAGQAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAg//0DwP/AAEADwABAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAAIAAAACgAAxAAAAAwAAAAMAAAAcAAEAAwAAABwAAwABAAAAHAAEADAAAAAIAAgAAgAAACDpy//9//8AAAAg6cv//f///+EWNwADAAEAAAAAAAAAAAAAAAAACACEAAEAAAAAAAAAAAAAAAAxAAACAAQARAKAAsAAKwBUAAABIiYnJjQ3NzY2MzIWFxYUBwcGIicmNDc3NjQnJiYjIgYHBwYUFxYUBwYGIwciJicmNDc3NjIXFhQHBwYUFxYWMzI2Nzc2NCcmNDc2MhcWFAcHBgYjARQGDAUtLXoWOR8fORYtLTgKGwoKCjgaGg0gEhIgDXoaGgkJBQwHdR85Fi0tOAobCgoKOBoaDSASEiANehoaCQkKGwotLXoWOR8BMwUFLYEuehYXFxYugC44CQkKGwo4GkoaDQ0NDXoaShoKGwoFBe8XFi6ALjgJCQobCjgaShoNDQ0NehpKGgobCgoKLYEuehYXAAAADACWAAEAAAAAAAEACAAAAAEAAAAAAAIAAwAIAAEAAAAAAAMACAAAAAEAAAAAAAQACAAAAAEAAAAAAAUAAQALAAEAAAAAAAYACAAAAAMAAQQJAAEAEAAMAAMAAQQJAAIABgAcAAMAAQQJAAMAEAAMAAMAAQQJAAQAEAAMAAMAAQQJAAUAAgAiAAMAAQQJAAYAEAAMYW5jaG9yanM0MDBAAGEAbgBjAGgAbwByAGoAcwA0ADAAMABAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAH//wAP) format("truetype"); }',e.sheet.cssRules.length)}}this.options=A||{},this.elements=[],e(this.options),this.isTouchDevice=function(){return!!("ontouchstart"in window||window.DocumentTouch&&document instanceof DocumentTouch)},this.add=function(A){var i,o,s,c,r,a,h,l,u,d,f,g,p=[];if(e(this.options),"touch"===(g=this.options.visible)&&(g=this.isTouchDevice()?"always":"hover"),A||(A="h2, h3, h4, h5, h6"),0===(i=t(A)).length)return this;for(n(),o=document.querySelectorAll("[id]"),s=[].map.call(o,function(A){return A.id}),r=0;r<i.length;r++)if(this.hasAnchorJSLink(i[r]))p.push(r);else{if(i[r].hasAttribute("id"))c=i[r].getAttribute("id");else if(i[r].hasAttribute("data-anchor-id"))c=i[r].getAttribute("data-anchor-id");else{u=l=this.urlify(i[r].textContent),h=0;do{void 0!==a&&(u=l+"-"+h),a=s.indexOf(u),h+=1}while(-1!==a);a=void 0,s.push(u),i[r].setAttribute("id",u),c=u}d=c.replace(/-/g," "),(f=document.createElement("a")).className="anchorjs-link "+this.options.class,f.href="#"+c,f.setAttribute("aria-label","Anchor link for: "+d),f.setAttribute("data-anchorjs-icon",this.options.icon),"always"===g&&(f.style.opacity="1"),""===this.options.icon&&(f.style.font="1em/1 anchorjs-icons","left"===this.options.placement&&(f.style.lineHeight="inherit")),"left"===this.options.placement?(f.style.position="absolute",f.style.marginLeft="-1em",f.style.paddingRight="0.5em",i[r].insertBefore(f,i[r].firstChild)):(f.style.paddingLeft="0.375em",i[r].appendChild(f))}for(r=0;r<p.length;r++)i.splice(p[r]-r,1);return this.elements=this.elements.concat(i),this},this.remove=function(A){for(var e,n,i=t(A),o=0;o<i.length;o++)(n=i[o].querySelector(".anchorjs-link"))&&(-1!==(e=this.elements.indexOf(i[o]))&&this.elements.splice(e,1),i[o].removeChild(n));return this},this.removeAll=function(){this.remove(this.elements)},this.urlify=function(A){var t=/[& +$,:;=?@"#{}|^~[`%!'<>\]\.\/\(\)\*\\]/g;return this.options.truncate||e(this.options),A.trim().replace(/\'/gi,"").replace(t,"-").replace(/-{2,}/g,"-").substring(0,this.options.truncate).replace(/^-+|-+$/gm,"").toLowerCase()},this.hasAnchorJSLink=function(A){var e=A.firstChild&&(" "+A.firstChild.className+" ").indexOf(" anchorjs-link ")>-1,t=A.lastChild&&(" "+A.lastChild.className+" ").indexOf(" anchorjs-link ")>-1;return e||t||!1}}return A});
+
+// Enable links for selected headers
+var anchors = new AnchorJS();
+anchors.add("h2, h3, h4")
+</script>
+</body>
+</html>
