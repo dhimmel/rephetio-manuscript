@@ -1,26 +1,33 @@
 name: manubot
 channels:
-  - anaconda
   - conda-forge
 dependencies:
-  - anaconda::jinja2=2.9.6
-  - anaconda::pandas=0.20.3
-  - anaconda::python=3.6.2
-  - anaconda::pyyaml=3.12
-  - anaconda::requests=2.14.2
-  - bioconda::wkhtmltopdf=0.12.3
-  - conda-forge::pandoc=1.19.2
+  - conda-forge::cairo=1.14.12
+  - conda-forge::cairocffi=0.8.0
+  - conda-forge::cffi=1.11.5
+  - conda-forge::ghp-import=0.5.5
+  - conda-forge::jinja2=2.10
+  - conda-forge::jsonschema=2.6.0
+  - conda-forge::pandas=0.24.0
+  - conda-forge::pandoc=2.6
+  - conda-forge::pango=1.40.14
+  - conda-forge::psutil=5.5.1
+  - conda-forge::python=3.6.7
+  - conda-forge::pyyaml=3.13
+  - conda-forge::requests=2.21.0
   - conda-forge::watchdog=0.8.3
   - pip:
     - errorhandler==2.0.1
-    - ghp-import==0.5.5
-    - git+https://github.com/greenelab/manubot@367f0b5c8046e5ce2f1e5a0ef555ec29a4aefd59
-    - opentimestamps-client==0.5.0
-    - opentimestamps==0.1.0
-    - pandoc-eqnos==0.16
-    - pandoc-fignos==0.20
-    - pandoc-tablenos==0.16
-    - pybase62==0.3.2
+    - git+https://github.com/manubot/manubot@4505db3fd8a9dc1ba26c36f3fea9accbf02d47d8
+    - jsonref==0.2
+    - opentimestamps-client==0.6.0
+    - opentimestamps==0.3.0
+    - pandoc-eqnos==1.3.0
+    - pandoc-fignos==1.3.0
+    - pandoc-tablenos==1.3.0
+    - pandoc-xnos==1.1.1
+    - pybase62==0.4.0
     - pysha3==1.0.2
-    - python-bitcoinlib==0.8.0
+    - python-bitcoinlib==0.9.0
     - requests-cache==0.4.13
+    - weasyprint==0.42.3

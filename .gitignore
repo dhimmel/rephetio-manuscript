@@ -2,11 +2,11 @@
 output/*
 !output/README.md
 
-webpage/*.ots
+# directory is not removed.
+/images
 
 # Manubot cache directory
 ci/cache
-
 # Python
 __pycache__/
 *.pyc
@@ -17,3 +17,15 @@ __pycache__/
 # Misc temporary files
 *.bak
 
+## Linux
+*~
+.Trash-*
+
+## macOS
+.DS_Store
+._*
+.Trashes
+
+## Windows
+Thumbs.db
+[Dd]esktop.ini
