@@ -25,14 +25,14 @@ title: Systematic integration of biomedical knowledge prioritizes drugs for repu
 
 
 
-_This manuscript was published in eLife on February 9, 2018. The DOI-citable version is available at <https://doi.org/10.7554/eLife.32822>_.
+This manuscript was published in _eLife_ on February 9, 2018. The DOI-citable version is available at <https://doi.org/10.7554/eLife.32822>.
 
 
 <small><em>
 This manuscript
-([permalink](https://dhimmel.github.io/rephetio-manuscript/v/a0e543515317e6eedbc7b1e7ed17af1bcf8cd644/))
+([permalink](https://dhimmel.github.io/rephetio-manuscript/v/a38db2dc169830322253212189380197b3eeeffd/))
 was automatically generated
-from [dhimmel/rephetio-manuscript@a0e5435](https://github.com/dhimmel/rephetio-manuscript/tree/a0e543515317e6eedbc7b1e7ed17af1bcf8cd644)
+from [dhimmel/rephetio-manuscript@a38db2d](https://github.com/dhimmel/rephetio-manuscript/tree/a38db2dc169830322253212189380197b3eeeffd)
 on March 14, 2019.
 </em></small>
 
@@ -129,7 +129,7 @@ First, we constructed Hetionet ([neo4j.het.io](https://neo4j.het.io "Neo4j Hetio
 Hetionet v1.0 consists of 47,031 nodes of 11 types and 2,250,197 relationships of 24 types.
 Data was integrated from 29 public resources to connect compounds, diseases, genes, anatomies, pathways, biological processes, molecular functions, cellular components, pharmacologic classes, side effects, and symptoms.
 Next, we identified network patterns that distinguish treatments from non-treatments.
-Then we predicted the probability of treatment for 209,168 compound–disease pairs ([het.io/repurpose](http://het.io/repurpose/ "Project Rephetio Prediction Browser")).
+Then we predicted the probability of treatment for 209,168 compound–disease pairs ([het.io/repurpose](https://het.io/repurpose/ "Project Rephetio Prediction Browser")).
 Our predictions validated on two external sets of treatment and provided pharmacological insights on epilepsy, suggesting they will help prioritize drug repurposing candidates.
 This study was entirely open and received realtime feedback from 40 community members.
 
