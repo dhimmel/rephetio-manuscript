@@ -19,19 +19,20 @@ keywords:
 - networks
 - machine learning
 - data science
+lang: en-US
 title: Systematic integration of biomedical knowledge prioritizes drugs for repurposing
 ...
 
 
 
-
+_This manuscript was published in eLife on February 9, 2018. The DOI-citable version is available at <https://doi.org/10.7554/eLife.32822>_.
 
 
 <small><em>
 This manuscript
-([permalink](https://dhimmel.github.io/rephetio-manuscript/v/1ddd48dabdb669a3c09b1a3dfdfee455f642b5a9/))
+([permalink](https://dhimmel.github.io/rephetio-manuscript/v/a0e543515317e6eedbc7b1e7ed17af1bcf8cd644/))
 was automatically generated
-from [dhimmel/rephetio-manuscript@1ddd48d](https://github.com/dhimmel/rephetio-manuscript/tree/1ddd48dabdb669a3c09b1a3dfdfee455f642b5a9)
+from [dhimmel/rephetio-manuscript@a0e5435](https://github.com/dhimmel/rephetio-manuscript/tree/a0e543515317e6eedbc7b1e7ed17af1bcf8cd644)
 on March 14, 2019.
 </em></small>
 
@@ -92,7 +93,7 @@ on March 14, 2019.
     · ![Twitter icon](images/twitter.svg){.inline_icon}
     [iDrDex](https://twitter.com/iDrDex)<br>
   <small>
-     Institute for Computational Health Sciences, Department of Pediatrics; University of California, San Francisco
+     Institute for Computational Health Sciences, Department of Pediatrics; University of California, San Francisco
   </small>
 
 + **Ari Green**<br>

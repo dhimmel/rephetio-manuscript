@@ -73,10 +73,12 @@
       "orcid": "0000-0003-0990-4674",
       "twitter": "iDrDex",
       "affiliations": [
-        "Institute\u00a0for\u00a0Computational\u00a0Health\u00a0Sciences,\u00a0Department\u00a0of\u00a0Pediatrics;\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco"
+        "Institute\u00a0for\u00a0Computational\u00a0Health\u00a0Sciences,\u00a0Department\u00a0of\u00a0Pediatrics",
+        "University\u00a0of\u00a0California,\u00a0San\u00a0Francisco"
       ],
       "affiliation_numbers": [
-        7
+        7,
+        8
       ]
     },
     {
@@ -98,7 +100,7 @@
       ],
       "affiliation_numbers": [
         3,
-        8
+        9
       ]
     },
     {
@@ -140,25 +142,29 @@
       "affiliation_number": 6
     },
     {
-      "affiliation": "Institute\u00a0for\u00a0Computational\u00a0Health\u00a0Sciences,\u00a0Department\u00a0of\u00a0Pediatrics;\u00a0University\u00a0of\u00a0California,\u00a0San\u00a0Francisco",
+      "affiliation": "Institute\u00a0for\u00a0Computational\u00a0Health\u00a0Sciences,\u00a0Department\u00a0of\u00a0Pediatrics",
       "affiliation_number": 7
     },
     {
-      "affiliation": "Center\u00a0for\u00a0Neuroengineering\u00a0and\u00a0Therapeutics,\u00a0University\u00a0of\u00a0Pennsylvania",
+      "affiliation": "University\u00a0of\u00a0California,\u00a0San\u00a0Francisco",
       "affiliation_number": 8
+    },
+    {
+      "affiliation": "Center\u00a0for\u00a0Neuroengineering\u00a0and\u00a0Therapeutics,\u00a0University\u00a0of\u00a0Pennsylvania",
+      "affiliation_number": 9
     }
   ],
   "ci_source": {
     "repo_slug": "dhimmel/rephetio-manuscript",
     "repo_owner": "dhimmel",
     "repo_name": "rephetio-manuscript",
-    "commit": "1ddd48dabdb669a3c09b1a3dfdfee455f642b5a9"
+    "commit": "a0e543515317e6eedbc7b1e7ed17af1bcf8cd644"
   },
   "manuscript_stats": {
     "reference_counts": {
       "doi": 241,
       "total": 241
     },
-    "word_count": 12117
+    "word_count": 12105
   }
 }
