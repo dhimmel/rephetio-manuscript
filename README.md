@@ -6,14 +6,6 @@
 [![PDF Manuscript](https://img.shields.io/badge/manuscript-PDF-blue.svg)](https://dhimmel.github.io/rephetio-manuscript/manuscript.pdf)
 [![Build Status](https://travis-ci.org/dhimmel/rephetio-manuscript.svg?branch=master)](https://travis-ci.org/dhimmel/rephetio-manuscript)
 
-## Manuscript description
-
-<!-- usage note: edit this section. -->
-<!--
-This repository is a template manuscript (a.k.a. rootstock).
-Actual manuscript instances will clone this repository (see [`SETUP.md`](SETUP.md)) and replace this paragraph with a description of their manuscript.
--->
-
 This repository contains the manuscript for Project Rephetio, an open project to repurpose drugs.
 The formal title of this study is **Systematic integration of biomedical knowledge prioritizes drugs for repurposing**.
 The manuscript is also available on [Thinklab](https://doi.org/10.15363/thinklab.a7) (as a project report), [bioRxiv](https://doi.org/10.1101/087619) (as a preprint), and [eLife](https://doi.org/10.7554/eLife.26726) (as a research article).
@@ -29,15 +21,11 @@ _eLife_ (2017-09-22) DOI: `10.7554/eLife.26726`
 
 Manubot is a system for writing scholarly manuscripts via GitHub.
 Manubot automates citations and references, versions manuscripts using git, and enables collaborative writing via GitHub.
-The [Manubot Rootstock repository](https://git.io/vQSvo) is a general purpose template for creating new Manubot instances, as detailed in [`SETUP.md`](SETUP.md).
-See [`USAGE.md`](USAGE.md) for documentation how to write a manuscript.
-
 ### Repository directories & files
 
 The directories are as follows:
 
 + [`content`](content) contains the manuscript source, which includes markdown files as well as inputs for citations and references.
-  See [`USAGE.md`](USAGE.md) for more information.
 + [`output`](output) contains the outputs (generated files) from the manubot including the resulting manuscripts.
   You should not edit these files manually, because they will get overwritten.
 + [`webpage`](webpage) is a directory meant to be rendered as a static webpage for viewing the HTML manuscript.
@@ -51,19 +39,28 @@ To run the Manubot locally, install the [conda](https://conda.io) environment as
 Then, you can build the manuscript on POSIX systems by running the following commands.
 
 ```sh
-# Activate the manubot conda environment
-source activate manubot
+# Activate the manubot conda environment (assumes conda version >= 4.4)
+conda activate manubot
 
-# Build the manuscript
+# Build the manuscript, saving outputs to the output directory
 sh build/build.sh
 
-# Or monitor the content directory, and automatically rebuild the manuscript
-# when a change is detected.
-sh build/autobuild.sh
+# At this point, the HTML & PDF outputs will have been created. The remaining
+# commands are for serving the webpage to view the HTML manuscript locally.
+
+# Configure the webpage directory
+python build/webpage.py
 
 # View the manuscript locally at http://localhost:8000/
 cd webpage
 python -m http.server
+```
+
+Sometimes it's helpful to monitor the content directory and automatically rebuild the manuscript when a change is detected.
+The following command, while running, will trigger both the `build.sh` and `webpage.py` scripts upon content changes:
+
+```sh
+sh build/autobuild.sh
 ```
 
 ### Continuous Integration
@@ -92,7 +89,7 @@ We encourage users to openly license their manuscripts, which is the default as 
 [![License: CC BY 4.0](https://img.shields.io/badge/License%20All-CC%20BY%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by/4.0/)
 [![License: CC0 1.0](https://img.shields.io/badge/License%20Parts-CC0%201.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 
-This entirety of this repository is licensed under a CC BY 4.0 License ([`LICENSE.md`](LICENSE.md)), which allows reuse with attribution.
+Except when noted otherwise, the entirety of this repository is licensed under a CC BY 4.0 License ([`LICENSE.md`](LICENSE.md)), which allows reuse with attribution.
 Please attribute by linking to https://github.com/dhimmel/rephetio-manuscript.
 
 Since CC BY is not ideal for code and data, certain repository components are also released under the CC0 1.0 public domain dedication ([`LICENSE-CC0.md`](LICENSE-CC0.md)).
