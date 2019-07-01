@@ -11,9 +11,12 @@ The formal title of this study is **Systematic integration of biomedical knowled
 The manuscript is also available on [Thinklab](https://doi.org/10.15363/thinklab.a7) (as a project report), [bioRxiv](https://doi.org/10.1101/087619) (as a preprint), and [eLife](https://doi.org/10.7554/eLife.26726) (as a research article).
 The manuscript can be cited as:
 
-> [**Systematic integration of biomedical knowledge prioritizes drugs for repurposing**](https://doi.org/10.7554/eLife.26726)<br>
-Daniel S Himmelstein, Antoine Lizee, Christine Hessler, Leo Brueggeman, Sabrina L Chen, Dexter Hadley, Ari Green, Pouya Khankhanian, Sergio E Baranzini<br>
-_eLife_ (2017-09-22) DOI: `10.7554/eLife.26726`
+> **Systematic integration of biomedical knowledge prioritizes drugs for repurposing**<br>
+Daniel Scott Himmelstein, Antoine Lizee, Christine Hessler, Leo Brueggeman, Sabrina L Chen, Dexter Hadley, Ari Green, Pouya Khankhanian, Sergio E Baranzini<br>
+*eLife* (2017-09-22) <https://doi.org/cdfk><br>
+DOI: [10.7554/elife.26726](https://doi.org/10.7554/elife.26726) · PMID: [28936969](https://www.ncbi.nlm.nih.gov/pubmed/28936969) · PMCID: [PMC5640425](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5640425)
+
+The fully-formatted author response to peer review from _eLife_ is available in [`content/response-to-reviewers.md`](content/response-to-reviewers.md).
 
 ## Manubot
 
