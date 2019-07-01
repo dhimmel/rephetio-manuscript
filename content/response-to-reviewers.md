@@ -12,11 +12,11 @@ pandoc --wrap=preserve --to=commonmark-raw_html --output=response-to-reviewers.m
 
 We thank the reviewers for their insightful and helpful comments. Based on the points raised, we have revised the manuscript. Since the manuscript is already of considerable length and *eLife* [publishes](https://elifesciences.org/inside-elife/2d940d80/decision-letters-and-author-responses-are-now-published-for-all-elife-papers) the Author Response alongside the final version, we opted to address some comments here rather than via manuscript additions. Nonetheless, in all cases, we have strived to thoroughly address each comment. We trust this approach will be acceptable for the Editor.
 
-In the document below, referees comments are highlighted in red, and our response is in black font.
+In the document below, referees comments are formatted as block quotes that begin with `[review]`.
 
-There are a few points that require careful attention:
-
-Justifications for the cutoffs used to define edges. Edges have different level of reliability ranging very differently depending on the considered domain (ex. gene expression level). It is not clear how this has been taken into account/normalised. How edge reliability has been made comparable across resources and data types? Additionally, the authors have used different discretization threshold for different information domains. It is not clear how these thresholds have been determined and how/if they could potentially impact the predictive ability of the presented approach. This should be explained and each choice on this regard numerically justified.
+> `[review]` There are a few points that require careful attention:
+>
+> Justifications for the cutoffs used to define edges. Edges have different level of reliability ranging very differently depending on the considered domain (ex. gene expression level). It is not clear how this has been taken into account/normalised. How edge reliability has been made comparable across resources and data types? Additionally, the authors have used different discretization threshold for different information domains. It is not clear how these thresholds have been determined and how/if they could potentially impact the predictive ability of the presented approach. This should be explained and each choice on this regard numerically justified.
 
 We appreciate this reviewer’s viewpoint on the potentially different thresholds for each edge type and have made our best efforts to chose them rigorously. However, our approach does not require that each type of edge is equally reliable. For example, let’s assume 90% of *Gene-associates-Disease* edges are true whereas only 70% of *Compound-upregulates-Gene* edges are true. Such a disparity would potentially affect the performance of a specific metaedge, but since we use a supervised machine learning approach, the impact on predictions of a given edge type is dependent on its reliability.
 
@@ -52,7 +52,7 @@ We investigated the frequency of different call qualities ([notebook Cell 14](ht
 
 As the above examples illustrate, edge inclusion thresholds were chosen based on extensive empirical assessment, data exploration, and advice from resource creators and other experts. Finally, for many relationships, we include the confidence scores as an edge property, so Hetionet users can perform additional filtering according to their needs.
 
-The test sets used to validate the predictive ability of the Rephetio approach look strongly unbalanced toward negative cases (in 3 cases out of 4 the number of negatives is 3 orders of magnitude larger than the positives). It is necessary to assess the impact performance evaluation comparing with balanced sets of negatives and positives.
+> `[review]` The test sets used to validate the predictive ability of the Rephetio approach look strongly unbalanced toward negative cases (in 3 cases out of 4 the number of negatives is 3 orders of magnitude larger than the positives). It is necessary to assess the impact performance evaluation comparing with balanced sets of negatives and positives.
 
 We rely on AUROC as our primary measure of classifier performance since it is prevalence agnostic. Hence, Figure 3A and 3B are unaffected by the imbalance of positives and negatives. We acknowledge that both precision and recall are affected by the imbalance (Figure 3C), however this is an important aspect of their utility. In the context of genomic predictions, [Myers et al 2006](https://doi.org/10.1186/1471-2164-7-187) go into more detail on this point, stating:
 
@@ -60,19 +60,19 @@ We rely on AUROC as our primary measure of classifier performance since it is pr
 
 In our case, we included the full set of negatives in our various gold standards (validation sets), since we aimed to capture the unbalanced nature of drug efficacy. The point we are trying to highlight is that a random compound-disease pair has a low probability of being a treatment, and that’s an important aspect of the problem domain that should be reflected in our evaluation.
 
-Other comments below are related with areas that require better explanations, clarification and editing:
-
-\- It was a bit confusing to map the nodes mentioned in the introduction and results to the methods. For example, anatomy is not mentioned in the nodes section of the methods. Making this more consistent might help the reader.
+> `[review]` Other comments below are related with areas that require better explanations, clarification and editing:
+>
+> \- It was a bit confusing to map the nodes mentioned in the introduction and results to the methods. For example, anatomy is not mentioned in the nodes section of the methods. Making this more consistent might help the reader.
 
 The Nodes section of Methods does document each node type. To help readers locate node descriptions, we have now bolded the first mention for each metanode in this section.
 
 We did notice the Edges section of Methods did not explicitly mention *Gene→regulates→Gene*, *Gene–participates–Pathway*, and *Pharmacologic Class–includes–Compound* edges, and has now been corrected. We thank the reviewer for catching this oversight.
 
-\- It might be useful to expand some of your text on graph databases since they are very new and not many people know what they are or why they are useful.
+> `[review]` \- It might be useful to expand some of your text on graph databases since they are very new and not many people know what they are or why they are useful.
 
 We have now updated the Neo4j section of the methods to “Graph databases & Neo4j”. This revised section contains a paragraph describing the utility of graph databases, especially in the historical context of relational databases. This section also provides a location for us to reference many of the exciting biomedical applications of Neo4j that have occurred concurrently with Project Rephetio.
 
-\- Edges of Hetionet are directed/undirected or a mixture of both. This inherently affects the definition of a path.
+> `[review]` \- Edges of Hetionet are directed/undirected or a mixture of both. This inherently affects the definition of a path.
 
 We added a Methods section entitled Directionality, which aims to demonstrate how this is handled by Project Rephetio. This section distinguishes directionality from orientation, by exhibiting how undirected metaedges/edges can be traversed in an oriented manner (e.g. that *HADH–associates–obesity* and *obesity–associates–HADH* are the same undirected edge but in inverse orientations). In addition, we provide additional notes below.
 
@@ -80,13 +80,13 @@ Directionality is defined at the metaedge level. With the exception of *Gene→r
 
 Hetio accounts for directionality, as needed, when traversing metapaths or paths. For example, the metapaths *CbGr\>GaD* and *CbG\<rGaD* are distinct. In the former, the first gene regulates the second gene. In the latter, the second gene regulates the first gene. However, since *Gene–interacts–Gene* edges are undirected, there is only one *CbGiGaD* metapath. When our network traversal infrastructure encounters a directed metaedge, only edges conforming to the specified direction are traversed. In the case of undirected metaedges, all of the corresponding edges are traversed, since there is no concept of directionality.
 
-\- The analysis of pathways of at most length 4 should be justified. What is the average length of a path between any node-pairs? and how loops are managed on this regard?
+> `[review]` \- The analysis of pathways of at most length 4 should be justified. What is the average length of a path between any node-pairs? and how loops are managed on this regard?
 
 The limitation of metapaths at length 4 was a primarily computational decision. As seen in Figure 1C, the number of possible metapaths grows combinatorially with increasing length. For Compound–Disease metapaths on Hetionet v1.0, [there are](https://github.com/dhimmel/integrate/blob/b53b835dbac09101c2036328b3fc72644fcb71bc/viz/auto/data/metapath-counts.tsv#L127) 13 metapaths of length 2, 121 metapaths of length 3, and 1072 metapaths of length 4. Not only are longer metapaths more abundant, but computing each DWPC value for a longer metapath is [more runtime intensive](https://doi.org/10.15363/thinklab.d187) when using network traversal algorithms. The matrix multiplication methods [currently under development](https://github.com/greenelab/hetmech) will allow us to efficiently compute path counts and DWPCs for longer metapaths. However, we anticipate that the informativeness of DWPCs will diminish with excessively long metapaths.
 
 Duplicate metanodes in a metapath are permitted. In other words, the metapaths we analyzed correspond to all *walks* on the metagraph from Compound to Disease with length 2–4. When calculating path counts and degree-weighted path counts, duplicate nodes are excluded.
 
-\- The selection of the cases (e.g. methapaths figure 3) should make clear how many good cases are there by for example providing a table with the best performing ones.
+> `[review]` \- The selection of the cases (e.g. methapaths figure 3) should make clear how many good cases are there by for example providing a table with the best performing ones.
 
 Unfortunately, we are not sure what the reviewer means by “cases” in his/her comment. We thus interpreted this comment to mean either:
 
@@ -96,57 +96,57 @@ Unfortunately, we are not sure what the reviewer means by “cases” in his/her
 
 Regarding the first interpretation, the manuscript states: “Of the 3,980 predictions with a probability exceeding 1%, 586 corresponded to known disease-modifying indications, leaving 3,394 repurposing candidates.” Regarding the second interpretation, the manuscript states: “Overall, 709 of the 1,206 metapaths exhibited a statistically significant Δ AUROC at a false discovery rate cutoff of 5%.” For more information, we also refer readers to the interactive tables for [predictions](http://het.io/repurpose/) and [metapaths](http://het.io/repurpose/metapaths.html) online.
 
-\- The labels in figure 2 are annoyingly all abbreviated. To improve readability I would suggest explicitly indicates the meta edge type.
+> `[review]` \- The labels in figure 2 are annoyingly all abbreviated. To improve readability I would suggest explicitly indicates the meta edge type.
 
 We updated Figure 2A to use full metaedge names ([commit](https://github.com/dhimmel/learn/commit/8409edeb58dd4c35e406559ee31b8381d877f10b)). Regrettably, we still use abbreviations for metapaths in Figure 2B as their full names were too long.
 
-\- Even if referencing their relevant previous publication the “degree-weighted path count” should be briefly explained. Particularly, how this algorithm penalizes the paths involving high degree nodes?
+> `[review]` \- Even if referencing their relevant previous publication the “degree-weighted path count” should be briefly explained. Particularly, how this algorithm penalizes the paths involving high degree nodes?
 
 We have now added a paragraph in Methods, under Machine learning approach, that describes the DWPC metric in detail.
 
-\- The multiple sclerosis example mentioned on page 7: are the results shown anywhere? I believe the 4 nodes mentioned gene, disease, BP and anatomy? What exactly are the 5 types of interactions (guess: GpBP, DaG, DdG, DuG, AuG)? I understand that the authors have to contend with only a few examples to demonstrate the functionalities of their tools but still, it would help the reader to visualize this example if these details were presented.
+> `[review]` \- The multiple sclerosis example mentioned on page 7: are the results shown anywhere? I believe the 4 nodes mentioned gene, disease, BP and anatomy? What exactly are the 5 types of interactions (guess: GpBP, DaG, DdG, DuG, AuG)? I understand that the authors have to contend with only a few examples to demonstrate the functionalities of their tools but still, it would help the reader to visualize this example if these details were presented.
 
 In response to this suggestion, we now include the Cypher code for the enhanced multiple sclerosis query within the manuscript. From the query, one can observe that the 4 node types are Disease, Gene, Biological Process, and Anatomy. Similarly the 5 relationship types are ASSOCIATES\_DaG, INTERACTS\_GiG, PARTICIPATES\_GpBP, LOCALIZES\_DlA, and UPREGULATES\_AuG. Note that we [adopted](https://think-lab.github.io/d/162/#8) a slightly different nomenclature for Neo4j [node labels](https://github.com/dhimmel/hetionet/blob/ac8b4c3e713c5eb1e1fa68546499034773452e84/hetnet/neo4j/types.tsv) and [relationships types](https://github.com/dhimmel/hetionet/blob/ac8b4c3e713c5eb1e1fa68546499034773452e84/hetnet/neo4j/labels.tsv), as per Cypher style conventions and to help [disambiguate](https://think-lab.github.io/d/112/#6) metaedges.
 
-\- Related to the above: It would help the reader to show the four lines of Cypher code in the MS example to demonstrate the ease of use claimed by the authors. Or alternatively, to refer the reader to the part of the website where the syntax is introduced. Without this, the sentence “Furthermore, the portion of the query to identify paths meeting the above specification required only four lines of Cypher code” is left up in the air a little bit.
+> `[review]` \- Related to the above: It would help the reader to show the four lines of Cypher code in the MS example to demonstrate the ease of use claimed by the authors. Or alternatively, to refer the reader to the part of the website where the syntax is introduced. Without this, the sentence “Furthermore, the portion of the query to identify paths meeting the above specification required only four lines of Cypher code” is left up in the air a little bit.
 
 Thanks for this suggestion, which we have now incorporated this example into the manuscript.
 
-\- On page 8, could the authors elaborate on the DWPC delta AUROC? The concept has been introduced in a previous publication, but it would be helpful to recap the definition so as to induce more biological insight in the reader.
+> `[review]` \- On page 8, could the authors elaborate on the DWPC delta AUROC? The concept has been introduced in a previous publication, but it would be helpful to recap the definition so as to induce more biological insight in the reader.
 
 We have now added the following description: “A positive Δ AUROC indicates that paths of the given type tended to occur more frequently between treatments than non-treatments, after accounting for different levels of connectivity (node degrees) in the hetnet. In general terms, Δ AUROC assesses whether paths of a given type were informative of drug efficacy."
 
-\- In Figure 2A, it took me a while to figure out that the dot sizes are not continuous but instead there are only two dot sizes with small dots corresponding to non-significant (FDR\>0.05) and larger dots corresponding to significant (FDR\<0.05) metapaths. It would help to put a small legend clarifying this.
+> `[review]` \- In Figure 2A, it took me a while to figure out that the dot sizes are not continuous but instead there are only two dot sizes with small dots corresponding to non-significant (FDR\>0.05) and larger dots corresponding to significant (FDR\<0.05) metapaths. It would help to put a small legend clarifying this.
 
 We added a legend for dot size ([commit](https://github.com/dhimmel/learn/commit/ef5f7a6b76b6a01499d65b95e3d7ca93ac5aba57)), in addition to the sentence in the figure caption.
 
-\- The selected metapaths in Table 3. We see that good (all of the 11 positive covariates of the following section) as well as poor predictors are both shown. According to what criteria were they selected? Is it just a random selection intended to show the range of parameters and what they signify? If so, this should be noted.
+> `[review]` \- The selected metapaths in Table 3. We see that good (all of the 11 positive covariates of the following section) as well as poor predictors are both shown. According to what criteria were they selected? Is it just a random selection intended to show the range of parameters and what they signify? If so, this should be noted.
 
 Table 3 shows the metapaths that received a non-negligible positive coefficient in the logistic regression model as well as metapaths that are discussed as interesting findings. The full metapath table is [available online](http://het.io/repurpose/metapaths.html). We have now clarified the caption.
 
-\- “29,044 non-treatments": If non-treatments are any disease-compound pairs that are not the 755 known treatments, then the number should be much higher. It would be helpful if the authors refer the reader to the Methods section “Prior probability of treatment” here.
+> `[review]` \- “29,044 non-treatments": If non-treatments are any disease-compound pairs that are not the 755 known treatments, then the number should be much higher. It would be helpful if the authors refer the reader to the Methods section “Prior probability of treatment” here.
 
 The 29,044 negatives used for training were all non-treatments between compounds and diseases that had at least one treatment. In other words, 29,044 negatives = 387 compounds × 77 diseases − 755 treatments. We now note in the Results section that “179,369 non-treatments were omitted as negative training observations because they had a prior probability of treatment equal to zero."
 
-\- The permutation test has to be more clearly explained and potentially combined or compared with some previously published approaches (BiRewire for example).
+> `[review]` \- The permutation test has to be more clearly explained and potentially combined or compared with some previously published approaches (BiRewire for example).
 
 We appreciate the reviewers’ recommendation to look into BiRewire, which we were previously unaware of. Both BiRewire and our implementation apply the same underlying algorithm, which we refer to as XSwap as per [Hanhijärvi et al 2009](https://doi.org/10.1137/1.9781611972795.67). In both approaches, edge swaps (or “switching-steps") are successively applied to randomize edges while preserving node degree. A Markov chain approach begins each round of permutation from the last. For more information, see our [detailed comparison online](http://thinklab.org/discussion/assessing-the-effectiveness-of-our-hetnet-permutations/178#3). In addition, the manuscript now describes the permutation methodology in greater detail.
 
-\- The baseline performances of their network the authors assembled 5 randomized versions of it. This number seems to be very small and this section requires clarification.
+> `[review]` \- The baseline performances of their network the authors assembled 5 randomized versions of it. This number seems to be very small and this section requires clarification.
 
 The primary purpose of the permuted hetnets was to compute the Δ AUROC of metapaths. This calculation takes the difference between the AUROC of a metapath and the average AUROC of the metapath on the 5 permuted hetnets. Given the large number of positives and negatives evaluated by the ROC curve, the AUROC values are highly stable. Therefore, 5 permutations was sufficient to calculate Δ AUROCs. In addition, we argue that the benefit to a much larger number of permutations would be small, since the noise inherent to the sole AUROC from the single unpermuted hetnet remains constant. We’ve updated the Permuted Hetnets section of the Methods to justify our choice.
 
-\- Did the Thinklab contributors - pre-reviewing the paper - consent to having their names appear in a publication?
+> `[review]` \- Did the Thinklab contributors - pre-reviewing the paper - consent to having their names appear in a publication?
 
 Consent was not sought since *Thinklab* contributions were made publicly. Thinklab contributor names are listed in the acknowledgements and displayed in Figure 6. This is not considered as an endorsement of the study by the named individuals, but rather as a reflection of the publicly-available scientific record behind the study.
 
-\- The analysis described in the first result section (Systematic mechanisms of efficacy) leads to the authors’ conclusion that the frequency of the information types in the metapaths for selected existing drug-disease pairs is higher for those traditionally considered by pharmacology and it is particularly low for metaedges involving gene expression and transcriptional data. In the eye of the authors this should tune down the recent excitement surrounding this type of data. This argument looks a bit circular. The authors have used a set of established drug-disease possibly involving many approved drugs. Drug discovery pipelines have been typically guided so far by knowledge of disease mechanisms, chemical structures of drug candidates and targets. Should \[it\] not be obvious that for approved drugs what lead to their development is reflected by the enriched metaedges found by the authors?
+> `[review]` \- The analysis described in the first result section (Systematic mechanisms of efficacy) leads to the authors’ conclusion that the frequency of the information types in the metapaths for selected existing drug-disease pairs is higher for those traditionally considered by pharmacology and it is particularly low for metaedges involving gene expression and transcriptional data. In the eye of the authors this should tune down the recent excitement surrounding this type of data. This argument looks a bit circular. The authors have used a set of established drug-disease possibly involving many approved drugs. Drug discovery pipelines have been typically guided so far by knowledge of disease mechanisms, chemical structures of drug candidates and targets. Should \[it\] not be obvious that for approved drugs what lead to their development is reflected by the enriched metaedges found by the authors?
 
 We acknowledge that our gold standard of treatments is biased towards traditional pharmacology and existing knowledge. However, we assume that known treatments are enriched for drug efficacy compared to random non-treatments (compound–disease pairs without known efficacy). Further, we hypothesize that high-throughput information types, if predictive of drug efficacy, would apply equally well to known and unknown treatments. Therefore, we would expect that metapaths based on high-throughput data sources (e.g. transcriptional edges) still prioritize known treatments if truly informative. Nonetheless, we agree that knowledge biases could favor the performance of metapaths based on traditional pharmacology. Accordingly we added the following sentences to the discussion:
 
 > One caveat is that omics-scale experimental data will likely play a larger role in developing the next generation of pharmacotherapies. Hence, were performance reevaluated on treatments discovered in the forthcoming decades, the predictive ability of these data types may rise.
 
-\- Additionally, most of the recent excitement around the use of transcriptional data for drug repurposing comes from the development of signature matching tools exploiting drug-drug similarities and drug-disease anti-similarity at the level of transcriptional signatures (respectively elicited by the drugs under consideration upon treatment of in vitro models, and from contrasting diseased vs normal state). Would this be worthy the inclusion of other two type of edges (transcriptional signature similarity/anti-similarity at the whole signature level)? This possibility should be at least discussed.
+> `[review]` \- Additionally, most of the recent excitement around the use of transcriptional data for drug repurposing comes from the development of signature matching tools exploiting drug-drug similarities and drug-disease anti-similarity at the level of transcriptional signatures (respectively elicited by the drugs under consideration upon treatment of in vitro models, and from contrasting diseased vs normal state). Would this be worthy the inclusion of other two type of edges (transcriptional signature similarity/anti-similarity at the whole signature level)? This possibility should be at least discussed.
 
 Regarding transcription-based methods for repurposing, our findings provide little support for “drug-disease anti-similarity” approaches, but do provide stronger support “drug-drug similarity” approaches. The “drug-disease anti-similarity” approach is evaluated by the *CuGdD* and *CdGuD* metapaths, whose respective Δ AUROCs were 1.1% and 1.7% (Table 3). The “drug-drug similarity” approach is evaluated by the *CuGuCtD* and *CdGdCtD* metapaths, whose respective Δ AUROCs were 4.4% and 3.8%. We do think that our current discussion section accurately portrays these findings.
 
@@ -156,7 +156,7 @@ Whether to collapse transcriptional signatures into similarity relationships lik
 
 Going forward, similar design decisions will be relevant. For example, [morphological profiling](https://doi.org/10.1038/nprot.2016.105) can assess how a compound affects cell morphology (e.g. “size, shape, texture, intensity"). Since the morphological features are machine-generated and rather obscure in meaning, it likely makes the most sense to create *Compound-morphologically-resembles-Compound* relationships type. Of course, as more research [becomes available](https://doi.org/10.7554/eLife.24060.001) on the utility of morphological features, the decision on how to encode these features in a hetnet can rely more heavily on the findings of prior work.
 
-Finally, Heterogeneous network presented in this study unambiguously refers to “aggregated” networks consisting of the sum of multiple types of nodes and edges. While heterogeneous networks present perhaps the most viable way of integrating multiple and diverse types of biomedical data and are therefore very valuable to gaining integrated biological insights through machine learning approaches, it is important to distinguish them from multilayer networks, whose theory and mathematical framework has been established in the reviews mentioned. The current diversity of nomenclature in the field stems from the fact that, at least for now, these slightly different types of multilayer networks have to distinguished for their mathematical treatment. On the other hand, no such mathematical framework exists for generic heterogeneous networks such as HetNet, but rather, an exhaustive survey of node/edge combinations (metapaths) is needed, such as the one presented in this paper. The authors should note the fundamental difference between multilayer and aggregated network approaches when making this comparison.
+> `[review]` Finally, Heterogeneous network presented in this study unambiguously refers to “aggregated” networks consisting of the sum of multiple types of nodes and edges. While heterogeneous networks present perhaps the most viable way of integrating multiple and diverse types of biomedical data and are therefore very valuable to gaining integrated biological insights through machine learning approaches, it is important to distinguish them from multilayer networks, whose theory and mathematical framework has been established in the reviews mentioned. The current diversity of nomenclature in the field stems from the fact that, at least for now, these slightly different types of multilayer networks have to distinguished for their mathematical treatment. On the other hand, no such mathematical framework exists for generic heterogeneous networks such as HetNet, but rather, an exhaustive survey of node/edge combinations (metapaths) is needed, such as the one presented in this paper. The authors should note the fundamental difference between multilayer and aggregated network approaches when making this comparison.
 
 We appreciate the reviewer’s insights on the nuances of different graph conceptualizations. We agree that the term “aggregated” is helpful for explaining hetnets, and updated an introduction sentence with the bold text:
 
