@@ -80,6 +80,7 @@
       ]
     },
     "URL": "https://doi.org/f8rnz8",
+    "PMCID": "PMC6464943",
     "PMID": "27158893",
     "id": "ankMHU1X"
   },
@@ -176,7 +177,7 @@
     "id": "1G9we1aD8"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "10",
     "DOI": "10.1007/s00228-003-0693-0",
     "type": "article-journal",
@@ -1385,7 +1386,7 @@
     "id": "QnZ7V9Rd"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "7314",
     "DOI": "10.1038/467401b",
     "type": "article-journal",
@@ -1415,7 +1416,7 @@
     "id": "18Ddv0H9A"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "7382",
     "DOI": "10.1038/481430a",
     "type": "article-journal",
@@ -1430,12 +1431,12 @@
       }
     ],
     "container-title": "Nature",
+    "language": "en",
     "issued": {
       "date-parts": [
         [
           2012,
-          1,
-          25
+          1
         ]
       ]
     },
@@ -1445,7 +1446,7 @@
     "id": "i8fF4cdh"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "7560",
     "DOI": "10.1038/523272a",
     "type": "article-journal",
@@ -1460,12 +1461,12 @@
       }
     ],
     "container-title": "Nature",
+    "language": "en",
     "issued": {
       "date-parts": [
         [
           2015,
-          7,
-          15
+          7
         ]
       ]
     },
@@ -1475,7 +1476,7 @@
     "id": "13h8FyJFD"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "7588",
     "DOI": "10.1038/530027a",
     "type": "article-journal",
@@ -1502,12 +1503,12 @@
       }
     ],
     "container-title": "Nature",
+    "language": "en",
     "issued": {
       "date-parts": [
         [
           2016,
-          2,
-          3
+          2
         ]
       ]
     },
@@ -1518,7 +1519,7 @@
     "id": "12sPvUxqQ"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "7589",
     "DOI": "10.1038/530148a",
     "type": "article-journal",
@@ -1533,12 +1534,12 @@
       }
     ],
     "container-title": "Nature",
+    "language": "en",
     "issued": {
       "date-parts": [
         [
           2016,
-          2,
-          10
+          2
         ]
       ]
     },
@@ -1548,7 +1549,7 @@
     "id": "PZA0cOT1"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "7614",
     "DOI": "10.1038/536016a",
     "type": "article-journal",
@@ -1563,12 +1564,12 @@
       }
     ],
     "container-title": "Nature",
+    "language": "en",
     "issued": {
       "date-parts": [
         [
           2016,
-          8,
-          3
+          8
         ]
       ]
     },
@@ -1669,6 +1670,7 @@
       }
     ],
     "container-title": "Nature Genetics",
+    "language": "en",
     "issued": {
       "date-parts": [
         [
@@ -1684,7 +1686,7 @@
     "id": "pqVRhFos"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "5",
     "DOI": "10.1038/clpt.2009.103",
     "type": "article-journal",
@@ -1813,7 +1815,7 @@
     "id": "dr9ERRtb"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "7062",
     "DOI": "10.1038/nature04209",
     "type": "article-journal",
@@ -1992,7 +1994,7 @@
     "id": "lnDqu0oW"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "7187",
     "DOI": "10.1038/nature06846",
     "type": "article-journal",
@@ -2444,7 +2446,7 @@
     "id": "CfyRUiAx"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "1",
     "DOI": "10.1038/ncomms10331",
     "type": "article-journal",
@@ -2487,7 +2489,7 @@
     "id": "Q7tc9Lii"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "1",
     "DOI": "10.1038/ncomms5212",
     "type": "article-journal",
@@ -2779,6 +2781,7 @@
       }
     ],
     "container-title": "Nature Methods",
+    "language": "en",
     "issued": {
       "date-parts": [
         [
@@ -2789,7 +2792,7 @@
       ]
     },
     "URL": "https://doi.org/cn6p3m",
-    "container-title-short": "Nat Meth",
+    "container-title-short": "Nat Methods",
     "PMCID": "PMC2872561",
     "PMID": "19060904",
     "id": "6kBEzeyD"
@@ -3062,7 +3065,7 @@
     "id": "rlm4VbAG"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "3",
     "DOI": "10.1038/nrd3681",
     "type": "article-journal",
@@ -3104,7 +3107,7 @@
     "id": "LlRXV6lE"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "10",
     "DOI": "10.1038/nrg2615",
     "type": "article-journal",
@@ -3274,10 +3277,10 @@
     "id": "rc4BI37X"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
+    "issue": "1",
     "DOI": "10.1038/sdata.2017.29",
     "type": "article-journal",
-    "page": "170029",
     "source": "Crossref",
     "title": "A standard database for drug repositioning",
     "volume": "4",
@@ -3292,6 +3295,7 @@
       }
     ],
     "container-title": "Scientific Data",
+    "language": "en",
     "issued": {
       "date-parts": [
         [
@@ -3302,13 +3306,13 @@
       ]
     },
     "URL": "https://doi.org/gbr42s",
-    "container-title-short": "Sci. Data",
+    "container-title-short": "Sci Data",
     "PMCID": "PMC5349249",
     "PMID": "28291243",
     "id": "fM8KVdIE"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "1",
     "DOI": "10.1038/tp.2015.209",
     "type": "article-journal",
@@ -4196,6 +4200,8 @@
       ]
     },
     "URL": "https://doi.org/fttpkn",
+    "PMCID": "PMC99122",
+    "PMID": "11752295",
     "id": "14VfbatMA"
   },
   {
@@ -6364,7 +6370,7 @@
     "id": "tTEEbq17"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "1",
     "DOI": "10.1186/1758-2946-5-3",
     "type": "article-journal",
@@ -6431,7 +6437,7 @@
     "id": "14OnuhY6K"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "1",
     "DOI": "10.1186/1758-2946-5-7",
     "type": "article-journal",
@@ -6617,7 +6623,7 @@
     "id": "XjXzx5KH"
   },
   {
-    "publisher": "Springer Nature",
+    "publisher": "Springer Science and Business Media LLC",
     "issue": "1",
     "DOI": "10.1186/s13321-014-0043-5",
     "type": "article-journal",
@@ -9491,7 +9497,8 @@
     "DOI": "10.5281/zenodo.21711",
     "publisher": "Zenodo",
     "title": "Gene-Ontology: Initial Zenodo Release",
-    "URL": "https://doi.org/f3mqvj"
+    "URL": "https://doi.org/f3mqvj",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -9523,7 +9530,8 @@
     "DOI": "10.5281/zenodo.268568",
     "publisher": "Zenodo",
     "title": "Dhimmel/Hetionet V1.0.0: Hetionet V1.0 In Json, Tsv, And Neo4J Formats",
-    "URL": "https://doi.org/gbr42n"
+    "URL": "https://doi.org/gbr42n",
+    "version": "v1.0.0"
   },
   {
     "type": "article",
@@ -9554,7 +9562,8 @@
     "DOI": "10.5281/zenodo.268654",
     "publisher": "Zenodo",
     "title": "Dhimmel/Learn V1.0: The Machine Learning Repository For Project Rephetio",
-    "URL": "https://doi.org/gbr42p"
+    "URL": "https://doi.org/gbr42p",
+    "version": "v1.0.0"
   },
   {
     "type": "article",
@@ -9586,7 +9595,8 @@
     "DOI": "10.5281/zenodo.27244",
     "publisher": "Zenodo",
     "title": "Gene–Tissue Relationships From The Tissues Database",
-    "URL": "https://doi.org/f3mqv8"
+    "URL": "https://doi.org/f3mqv8",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -9622,7 +9632,8 @@
     "DOI": "10.5281/zenodo.33987",
     "publisher": "Zenodo",
     "title": "Processing The October 2015 Bindingdb",
-    "URL": "https://doi.org/f3mqvp"
+    "URL": "https://doi.org/f3mqvp",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -9653,7 +9664,8 @@
     "DOI": "10.5281/zenodo.45521",
     "publisher": "Zenodo",
     "title": "Extracting Tidy And User-Friendly Tsvs From Sider 4.1",
-    "URL": "https://doi.org/f3mqwd"
+    "URL": "https://doi.org/f3mqwd",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -9681,7 +9693,8 @@
     "DOI": "10.5281/zenodo.45524",
     "publisher": "Zenodo",
     "title": "Processed Entrez Gene Datasets For Humans V1.0",
-    "URL": "https://doi.org/f3mqvz"
+    "URL": "https://doi.org/f3mqvz",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -9712,7 +9725,8 @@
     "DOI": "10.5281/zenodo.45527",
     "publisher": "Zenodo",
     "title": "User-Friendly Anatomical Structures Data From The Uberon Ontology V1.0",
-    "URL": "https://doi.org/f3mqtt"
+    "URL": "https://doi.org/f3mqtt",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -9742,7 +9756,8 @@
     "DOI": "10.5281/zenodo.45579",
     "publisher": "Zenodo",
     "title": "User-Friendly Extensions Of The Drugbank Database V1.0",
-    "URL": "https://doi.org/f3mqwk"
+    "URL": "https://doi.org/f3mqwk",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -9774,7 +9789,8 @@
     "DOI": "10.5281/zenodo.45584",
     "publisher": "Zenodo",
     "title": "User-Friendly Extensions To The Disease Ontology V1.0",
-    "URL": "https://doi.org/f3mqvc"
+    "URL": "https://doi.org/f3mqvc",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -9804,7 +9820,8 @@
     "DOI": "10.5281/zenodo.45586",
     "publisher": "Zenodo",
     "title": "User-Friendly Extensions To Mesh V1.0",
-    "URL": "https://doi.org/f3mqvt"
+    "URL": "https://doi.org/f3mqvt",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -9842,7 +9859,8 @@
     "DOI": "10.5281/zenodo.46866",
     "publisher": "Zenodo",
     "title": "Dhimmel/Stargeo V1.0: Differentially Expressed Genes For 48 Diseases From Stargeo",
-    "URL": "https://doi.org/f3mqvg"
+    "URL": "https://doi.org/f3mqvg",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -9881,7 +9899,8 @@
     "DOI": "10.5281/zenodo.47157",
     "publisher": "Zenodo",
     "title": "Dhimmel/Bgee V1.0: Anatomy-Specific Gene Expression In Humans From Bgee",
-    "URL": "https://doi.org/f3mqv2"
+    "URL": "https://doi.org/f3mqv2",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -9921,7 +9940,8 @@
     "DOI": "10.5281/zenodo.47223",
     "publisher": "Zenodo",
     "title": "Dhimmel/Lincs V2.0: Refined Consensus Signatures From Lincs L1000",
-    "URL": "https://doi.org/f3mqvr"
+    "URL": "https://doi.org/f3mqvr",
+    "version": "v2.0"
   },
   {
     "type": "article",
@@ -9968,7 +9988,8 @@
     "DOI": "10.5281/zenodo.47664",
     "publisher": "Zenodo",
     "title": "Dhimmel/Indications V1.0. Pharmacotherapydb: The Open Catalog Of Drug Therapies For Disease",
-    "URL": "https://doi.org/f3mqwb"
+    "URL": "https://doi.org/f3mqwb",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -10001,7 +10022,8 @@
     "DOI": "10.5281/zenodo.48425",
     "publisher": "Zenodo",
     "title": "Dhimmel/Diseases V1.0: Processing The Diseases Database Of Gene–Disease Associations",
-    "URL": "https://doi.org/f3mqv7"
+    "URL": "https://doi.org/f3mqv7",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -10035,7 +10057,8 @@
     "DOI": "10.5281/zenodo.48426",
     "publisher": "Zenodo",
     "title": "Dhimmel/Disgenet V1.0: Processing The Disgenet Database Of Gene–Disease Associations",
-    "URL": "https://doi.org/f3mqwt"
+    "URL": "https://doi.org/f3mqwt",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -10066,7 +10089,8 @@
     "DOI": "10.5281/zenodo.48427",
     "publisher": "Zenodo",
     "title": "Dhimmel/Doaf V1.0: Processing The Doaf Database Of Gene–Disease Associations",
-    "URL": "https://doi.org/f3mqwx"
+    "URL": "https://doi.org/f3mqwx",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -10102,7 +10126,8 @@
     "DOI": "10.5281/zenodo.48428",
     "publisher": "Zenodo",
     "title": "Dhimmel/Gwas-Catalog V1.0: Extracting Gene–Disease Associations From The Gwas Catalog",
-    "URL": "https://doi.org/f3mqws"
+    "URL": "https://doi.org/f3mqws",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -10136,7 +10161,8 @@
     "DOI": "10.5281/zenodo.48443",
     "publisher": "Zenodo",
     "title": "Dhimmel/Ppi V1.0: Compiling A Human Protein Interaction Catalog",
-    "URL": "https://doi.org/f3mqtw"
+    "URL": "https://doi.org/f3mqtw",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -10166,7 +10192,8 @@
     "DOI": "10.5281/zenodo.48444",
     "publisher": "Zenodo",
     "title": "Dhimmel/Erc V1.0: Processing Human Evolutionary Rate Covaration Data",
-    "URL": "https://doi.org/f3mqwm"
+    "URL": "https://doi.org/f3mqwm",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -10193,7 +10220,8 @@
     "DOI": "10.5281/zenodo.48445",
     "publisher": "Zenodo",
     "title": "Dhimmel/Medline V1.0: Disease, Symptom, And Anatomy Cooccurence In Medline",
-    "URL": "https://doi.org/f3mqts"
+    "URL": "https://doi.org/f3mqts",
+    "version": "v1.0"
   },
   {
     "type": "article",
@@ -10229,7 +10257,8 @@
     "DOI": "10.5281/zenodo.48810",
     "publisher": "Zenodo",
     "title": "Dhimmel/Pathways V2.0: Compiling Human Pathway Gene Sets",
-    "URL": "https://doi.org/bfq3"
+    "URL": "https://doi.org/bfq3",
+    "version": "v2.0"
   },
   {
     "type": "article",
@@ -10260,7 +10289,8 @@
     "DOI": "10.5281/zenodo.61571",
     "publisher": "Zenodo",
     "title": "Dhimmel/Hetio V0.2.0: Neo4J Export, Cypher Query Creation, Hetnet Stats, And Other Enhancements",
-    "URL": "https://doi.org/gbr42q"
+    "URL": "https://doi.org/gbr42q",
+    "version": "v0.2.0"
   },
   {
     "publisher": "Ubiquity Press, Ltd.",

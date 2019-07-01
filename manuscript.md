@@ -9,7 +9,7 @@ author-meta:
 - Ari Green
 - "Pouya\_Khankhanian"
 - "Sergio\_E.\_Baranzini"
-date-meta: '2019-03-14'
+date-meta: '2019-07-01'
 keywords:
 - Rephetio
 - Hetionet
@@ -30,10 +30,10 @@ This manuscript was published in _eLife_ on February 9, 2018. The DOI-citable ve
 
 <small><em>
 This manuscript
-([permalink](https://dhimmel.github.io/rephetio-manuscript/v/b7f9f14047594c835bfeaf3368cd35924e4eac31/))
+([permalink](https://dhimmel.github.io/rephetio-manuscript/v/98ff8634b58beb166d5cb565b9f8f5c465fedae1/))
 was automatically generated
-from [dhimmel/rephetio-manuscript@b7f9f14](https://github.com/dhimmel/rephetio-manuscript/tree/b7f9f14047594c835bfeaf3368cd35924e4eac31)
-on March 14, 2019.
+from [dhimmel/rephetio-manuscript@98ff863](https://github.com/dhimmel/rephetio-manuscript/tree/98ff8634b58beb166d5cb565b9f8f5c465fedae1)
+on July 1, 2019.
 </em></small>
 
 ## Authors
