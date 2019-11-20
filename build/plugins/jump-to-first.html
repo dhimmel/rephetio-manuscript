@@ -169,6 +169,7 @@
             // trigger any function listening for "onscroll" event
             window.dispatchEvent(new Event('scroll'));
             window.scrollTo(0, y);
+            document.activeElement.blur();
             element.focus();
         }
 
@@ -177,8 +178,8 @@
             let rect = {};
             rect.left = 0;
             rect.top = 0;
-            rect.right = window.innerWidth;
-            rect.bottom = window.innerHeight;
+            rect.right = document.documentElement.clientWidth;
+            rect.bottom = document.documentElement.clientHeight;
             let style = {};
 
             if (element instanceof HTMLElement) {
