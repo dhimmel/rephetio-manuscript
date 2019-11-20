@@ -28,10 +28,10 @@
   "title": "Anatomical Therapeutic Chemical Classification System (WHO)",
   "container-title": "The SAGE Encyclopedia of Pharmacology and Society",
   "URL": "https://doi.org/gbr42m",
-  "standard_citation": "doi:10.4135/9781483349985.n37"
+  "id": "doi:10.4135/9781483349985.n37"
 },
 {
-  "standard_citation": "doi:10.1007/978-3-540-69828-9_12",
+  "id": "doi:10.1007/978-3-540-69828-9_12",
   "publisher-location": "Berlin, Heidelberg",
   "publisher": "Springer Berlin Heidelberg",
   "DOI": "10.1007/978-3-540-69828-9_12",
@@ -76,7 +76,7 @@
   "URL": "https://doi.org/b6wnrr"
 },
 {
-  "standard_citation": "doi:10.1016/s1059-1311(03)00082-7",
+  "id": "doi:10.1016/s1059-1311(03)00082-7",
   "type": "article-journal",
   "title": "The effect of antiepileptic drugs on visual performance",
   "volume": "13",
