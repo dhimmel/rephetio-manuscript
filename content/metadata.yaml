@@ -18,60 +18,60 @@ author_info:
     twitter: dhimmel
     email: daniel.himmelstein@gmail.com
     affiliations:
-      - "Program in Biological & Medical Informatics, University of California, San Francisco"
-      - "Department of Systems Pharmacology & Translational Therapeutics, University of Pennsylvania"
+      - "Program in Biological & Medical Informatics, University of California, San Francisco"
+      - "Department of Systems Pharmacology & Translational Therapeutics, University of Pennsylvania"
   -
     github: antoine-lizee
-    name: Antoine Lizee
+    name: Antoine Lizee
     orcid: 0000-0002-1073-3190
     twitter: A_Lizee
     email: antoine.lizee@gmail.com
     affiliations:
-      - "Department of Neurology, University of California, San Francisco"
-      - "ITUN-CRTI-UMR 1064 Inserm, University of Nantes"
+      - "Department of Neurology, University of California, San Francisco"
+      - "ITUN-CRTI-UMR 1064 Inserm, University of Nantes"
   -
-    name: Christine Hessler
+    name: Christine Hessler
     initials: CH
     affiliations:
-      - "Department of Neurology, University of California, San Francisco"
+      - "Department of Neurology, University of California, San Francisco"
   -
     github: LABrueggs
-    name: Leo Brueggeman
+    name: Leo Brueggeman
     orcid: 0000-0002-3586-3442
     twitter: LeoBman
     affiliations:
-      - "Department of Neurology, University of California, San Francisco"
-      - "University of Iowa"
+      - "Department of Neurology, University of California, San Francisco"
+      - "University of Iowa"
   -
     github: sabrinalchen
-    name: Sabrina L. Chen
+    name: Sabrina L. Chen
     affiliations:
-      - "Department of Neurology, University of California, San Francisco"
-      - "Johns Hopkins University"
+      - "Department of Neurology, University of California, San Francisco"
+      - "Johns Hopkins University"
   -
     github: idrdex
-    name: Dexter Hadley
+    name: Dexter Hadley
     orcid: 0000-0003-0990-4674
     twitter: iDrDex
     affiliations:
-      - "Institute for Computational Health Sciences, Department of Pediatrics"
-      - "University of California, San Francisco"
+      - "Institute for Computational Health Sciences, Department of Pediatrics"
+      - "University of California, San Francisco"
   -
     name: Ari Green
     orcid: 0000-0001-9275-3066
     affiliations:
-      - "Department of Neurology, University of California, San Francisco"
+      - "Department of Neurology, University of California, San Francisco"
   -
-    name: Pouya Khankhanian
+    name: Pouya Khankhanian
     orcid: 0000-0001-8075-4176
     affiliations:
-      - "Department of Neurology, University of California, San Francisco"
-      - "Center for Neuroengineering and Therapeutics, University of Pennsylvania"
+      - "Department of Neurology, University of California, San Francisco"
+      - "Center for Neuroengineering and Therapeutics, University of Pennsylvania"
   -
     github: sebaran
-    name: Sergio E. Baranzini
+    name: Sergio E. Baranzini
     orcid: 0000-0003-0067-194X
     email: sergio.baranzini@ucsf.edu
     affiliations:
-      - "Department of Neurology, University of California, San Francisco"
+      - "Department of Neurology, University of California, San Francisco"
 html_url: https://git.dhimmel.com/rephetio-manuscript/
