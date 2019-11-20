@@ -1,7 +1,7 @@
 # Output directory containing the formatted manuscript
 
 The [`gh-pages`](https://github.com/dhimmel/rephetio-manuscript/tree/gh-pages) branch hosts the contents of this directory at https://dhimmel.github.io/rephetio-manuscript/.
-The permalink for this webpage version is https://dhimmel.github.io/rephetio-manuscript/v/44ada2dadeee7277e44ea69782047df0939f3d41/.
+The permalink for this webpage version is https://dhimmel.github.io/rephetio-manuscript/v/222cfc7b7a706dcf28e61c468cd4aab5901337b9/.
 To redirect to the permalink for the latest manuscript version at anytime, use the link https://dhimmel.github.io/rephetio-manuscript/v/freeze/.
 
 ## Files
@@ -36,4 +36,4 @@ Verifying timestamps with the `ots verify` command requires running a local bitc
 ## Source
 
 The manuscripts in this directory were built from
-[`44ada2dadeee7277e44ea69782047df0939f3d41`](https://github.com/dhimmel/rephetio-manuscript/commit/44ada2dadeee7277e44ea69782047df0939f3d41).
+[`222cfc7b7a706dcf28e61c468cd4aab5901337b9`](https://github.com/dhimmel/rephetio-manuscript/commit/222cfc7b7a706dcf28e61c468cd4aab5901337b9).
