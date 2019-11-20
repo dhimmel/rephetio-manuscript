@@ -1,16 +1,152 @@
 ---
 author-meta:
 - Daniel S. Himmelstein
-- "Antoine\_Lizee"
-- "Christine\_Hessler"
-- "Leo\_Brueggeman"
-- "\_Sabrina\_L.\_Chen"
-- "\_Dexter\_Hadley"
+- Antoine Lizee
+- Christine Hessler
+- Leo Brueggeman
+- Sabrina L. Chen
+- Dexter Hadley
 - Ari Green
-- "Pouya\_Khankhanian"
-- "Sergio\_E.\_Baranzini"
+- Pouya Khankhanian
+- Sergio E. Baranzini
 date-meta: '2019-11-20'
-header-includes: "<!--\nManubot generated metadata rendered from header-includes-template.html.\nSuggest improvements at https://github.com/manubot/manubot/blob/master/manubot/process/header-includes-template.html\n-->\n<meta name=\"dc.format\" content=\"text/html\" />\n<meta name=\"dc.title\" content=\"Systematic integration of biomedical knowledge prioritizes drugs for repurposing\" />\n<meta name=\"citation_title\" content=\"Systematic integration of biomedical knowledge prioritizes drugs for repurposing\" />\n<meta property=\"og:title\" content=\"Systematic integration of biomedical knowledge prioritizes drugs for repurposing\" />\n<meta property=\"twitter:title\" content=\"Systematic integration of biomedical knowledge prioritizes drugs for repurposing\" />\n<meta name=\"dc.date\" content=\"2019-11-20\" />\n<meta name=\"citation_publication_date\" content=\"2019-11-20\" />\n<meta name=\"dc.language\" content=\"en-US\" />\n<meta name=\"citation_language\" content=\"en-US\" />\n<meta name=\"dc.relation.ispartof\" content=\"Manubot\" />\n<meta name=\"dc.publisher\" content=\"Manubot\" />\n<meta name=\"citation_journal_title\" content=\"Manubot\" />\n<meta name=\"citation_technical_report_institution\" content=\"Manubot\" />\n<meta name=\"citation_author\" content=\"Daniel S. Himmelstein\" />\n<meta name=\"citation_author_institution\" content=\"Program\_in\_Biological\_&amp;\_Medical\_Informatics,\_University\_of\_California,\_San\_Francisco\" />\n<meta name=\"citation_author_institution\" content=\"Department\_of\_Systems\_Pharmacology\_&amp;\_Translational\_Therapeutics,\_University\_of\_Pennsylvania\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0002-3012-7446\" />\n<meta name=\"twitter:creator\" content=\"@dhimmel\" />\n<meta name=\"citation_author\" content=\"Antoine\_Lizee\" />\n<meta name=\"citation_author_institution\" content=\"Department\_of\_Neurology,\_University\_of\_California,\_San\_Francisco\" />\n<meta name=\"citation_author_institution\" content=\"ITUN-CRTI-UMR\_1064\_Inserm,\_University\_of\_Nantes\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0002-1073-3190\" />\n<meta name=\"twitter:creator\" content=\"@A_Lizee\" />\n<meta name=\"citation_author\" content=\"Christine\_Hessler\" />\n<meta name=\"citation_author_institution\" content=\"Department\_of\_Neurology,\_University\_of\_California,\_San\_Francisco\" />\n<meta name=\"citation_author\" content=\"Leo\_Brueggeman\" />\n<meta name=\"citation_author_institution\" content=\"Department\_of\_Neurology,\_University\_of\_California,\_San\_Francisco\" />\n<meta name=\"citation_author_institution\" content=\"University\_of\_Iowa\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0002-3586-3442\" />\n<meta name=\"twitter:creator\" content=\"@LeoBman\" />\n<meta name=\"citation_author\" content=\"\_Sabrina\_L.\_Chen\" />\n<meta name=\"citation_author_institution\" content=\"Department\_of\_Neurology,\_University\_of\_California,\_San\_Francisco\" />\n<meta name=\"citation_author_institution\" content=\"Johns\_Hopkins\_University\" />\n<meta name=\"citation_author\" content=\"\_Dexter\_Hadley\" />\n<meta name=\"citation_author_institution\" content=\"Institute\_for\_Computational\_Health\_Sciences,\_Department\_of\_Pediatrics\" />\n<meta name=\"citation_author_institution\" content=\"University\_of\_California,\_San\_Francisco\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0003-0990-4674\" />\n<meta name=\"twitter:creator\" content=\"@iDrDex\" />\n<meta name=\"citation_author\" content=\"Ari Green\" />\n<meta name=\"citation_author_institution\" content=\"Department\_of\_Neurology,\_University\_of\_California,\_San\_Francisco\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0001-9275-3066\" />\n<meta name=\"citation_author\" content=\"Pouya\_Khankhanian\" />\n<meta name=\"citation_author_institution\" content=\"Department\_of\_Neurology,\_University\_of\_California,\_San\_Francisco\" />\n<meta name=\"citation_author_institution\" content=\"Center\_for\_Neuroengineering\_and\_Therapeutics,\_University\_of\_Pennsylvania\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0001-8075-4176\" />\n<meta name=\"citation_author\" content=\"Sergio\_E.\_Baranzini\" />\n<meta name=\"citation_author_institution\" content=\"Department\_of\_Neurology,\_University\_of\_California,\_San\_Francisco\" />\n<meta name=\"citation_author_orcid\" content=\"0000-0003-0067-194X\" />\n<link rel=\"canonical\" href=\"https://dhimmel.github.io/rephetio-manuscript/\" />\n<meta property=\"og:url\" content=\"https://dhimmel.github.io/rephetio-manuscript/\" />\n<meta property=\"twitter:url\" content=\"https://dhimmel.github.io/rephetio-manuscript/\" />\n<meta name=\"citation_fulltext_html_url\" content=\"https://dhimmel.github.io/rephetio-manuscript/\" />\n<meta name=\"citation_pdf_url\" content=\"https://dhimmel.github.io/rephetio-manuscript/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"application/pdf\" href=\"https://dhimmel.github.io/rephetio-manuscript/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"text/html\" href=\"https://dhimmel.github.io/rephetio-manuscript/v/d0204436da9a778655673666e5dfc906aa1e1439/\" />\n<meta name=\"manubot_html_url_versioned\" content=\"https://dhimmel.github.io/rephetio-manuscript/v/d0204436da9a778655673666e5dfc906aa1e1439/\" />\n<meta name=\"manubot_pdf_url_versioned\" content=\"https://dhimmel.github.io/rephetio-manuscript/v/d0204436da9a778655673666e5dfc906aa1e1439/manuscript.pdf\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"twitter:card\" content=\"summary_large_image\" />\n<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"https://manubot.org/favicon-192x192.png\" />\n<link rel=\"mask-icon\" href=\"https://manubot.org/safari-pinned-tab.svg\" color=\"#ad1457\" />\n<meta name=\"theme-color\" content=\"#ad1457\" />\n<!-- end Manubot generated metadata -->"
+header-includes: '<!--
+
+  Manubot generated metadata rendered from header-includes-template.html.
+
+  Suggest improvements at https://github.com/manubot/manubot/blob/master/manubot/process/header-includes-template.html
+
+  -->
+
+  <meta name="dc.format" content="text/html" />
+
+  <meta name="dc.title" content="Systematic integration of biomedical knowledge prioritizes drugs for repurposing" />
+
+  <meta name="citation_title" content="Systematic integration of biomedical knowledge prioritizes drugs for repurposing" />
+
+  <meta property="og:title" content="Systematic integration of biomedical knowledge prioritizes drugs for repurposing" />
+
+  <meta property="twitter:title" content="Systematic integration of biomedical knowledge prioritizes drugs for repurposing" />
+
+  <meta name="dc.date" content="2019-11-20" />
+
+  <meta name="citation_publication_date" content="2019-11-20" />
+
+  <meta name="dc.language" content="en-US" />
+
+  <meta name="citation_language" content="en-US" />
+
+  <meta name="dc.relation.ispartof" content="Manubot" />
+
+  <meta name="dc.publisher" content="Manubot" />
+
+  <meta name="citation_journal_title" content="Manubot" />
+
+  <meta name="citation_technical_report_institution" content="Manubot" />
+
+  <meta name="citation_author" content="Daniel S. Himmelstein" />
+
+  <meta name="citation_author_institution" content="Program in Biological &amp; Medical Informatics, University of California, San Francisco" />
+
+  <meta name="citation_author_institution" content="Department of Systems Pharmacology &amp; Translational Therapeutics, University of Pennsylvania" />
+
+  <meta name="citation_author_orcid" content="0000-0002-3012-7446" />
+
+  <meta name="twitter:creator" content="@dhimmel" />
+
+  <meta name="citation_author" content="Antoine Lizee" />
+
+  <meta name="citation_author_institution" content="Department of Neurology, University of California, San Francisco" />
+
+  <meta name="citation_author_institution" content="ITUN-CRTI-UMR 1064 Inserm, University of Nantes" />
+
+  <meta name="citation_author_orcid" content="0000-0002-1073-3190" />
+
+  <meta name="twitter:creator" content="@A_Lizee" />
+
+  <meta name="citation_author" content="Christine Hessler" />
+
+  <meta name="citation_author_institution" content="Department of Neurology, University of California, San Francisco" />
+
+  <meta name="citation_author" content="Leo Brueggeman" />
+
+  <meta name="citation_author_institution" content="Department of Neurology, University of California, San Francisco" />
+
+  <meta name="citation_author_institution" content="University of Iowa" />
+
+  <meta name="citation_author_orcid" content="0000-0002-3586-3442" />
+
+  <meta name="twitter:creator" content="@LeoBman" />
+
+  <meta name="citation_author" content="Sabrina L. Chen" />
+
+  <meta name="citation_author_institution" content="Department of Neurology, University of California, San Francisco" />
+
+  <meta name="citation_author_institution" content="Johns Hopkins University" />
+
+  <meta name="citation_author" content="Dexter Hadley" />
+
+  <meta name="citation_author_institution" content="Institute for Computational Health Sciences, Department of Pediatrics" />
+
+  <meta name="citation_author_institution" content="University of California, San Francisco" />
+
+  <meta name="citation_author_orcid" content="0000-0003-0990-4674" />
+
+  <meta name="twitter:creator" content="@iDrDex" />
+
+  <meta name="citation_author" content="Ari Green" />
+
+  <meta name="citation_author_institution" content="Department of Neurology, University of California, San Francisco" />
+
+  <meta name="citation_author_orcid" content="0000-0001-9275-3066" />
+
+  <meta name="citation_author" content="Pouya Khankhanian" />
+
+  <meta name="citation_author_institution" content="Department of Neurology, University of California, San Francisco" />
+
+  <meta name="citation_author_institution" content="Center for Neuroengineering and Therapeutics, University of Pennsylvania" />
+
+  <meta name="citation_author_orcid" content="0000-0001-8075-4176" />
+
+  <meta name="citation_author" content="Sergio E. Baranzini" />
+
+  <meta name="citation_author_institution" content="Department of Neurology, University of California, San Francisco" />
+
+  <meta name="citation_author_orcid" content="0000-0003-0067-194X" />
+
+  <link rel="canonical" href="https://git.dhimmel.com/rephetio-manuscript/" />
+
+  <meta property="og:url" content="https://git.dhimmel.com/rephetio-manuscript/" />
+
+  <meta property="twitter:url" content="https://git.dhimmel.com/rephetio-manuscript/" />
+
+  <meta name="citation_fulltext_html_url" content="https://git.dhimmel.com/rephetio-manuscript/" />
+
+  <meta name="citation_pdf_url" content="https://git.dhimmel.com/rephetio-manuscript/manuscript.pdf" />
+
+  <link rel="alternate" type="application/pdf" href="https://git.dhimmel.com/rephetio-manuscript/manuscript.pdf" />
+
+  <link rel="alternate" type="text/html" href="https://git.dhimmel.com/rephetio-manuscript/v/44ada2dadeee7277e44ea69782047df0939f3d41/" />
+
+  <meta name="manubot_html_url_versioned" content="https://git.dhimmel.com/rephetio-manuscript/v/44ada2dadeee7277e44ea69782047df0939f3d41/" />
+
+  <meta name="manubot_pdf_url_versioned" content="https://git.dhimmel.com/rephetio-manuscript/v/44ada2dadeee7277e44ea69782047df0939f3d41/manuscript.pdf" />
+
+  <meta property="og:type" content="article" />
+
+  <meta property="twitter:card" content="summary_large_image" />
+
+  <meta property="og:image" content="https://github.com/dhimmel/rephetio-manuscript/raw/44ada2dadeee7277e44ea69782047df0939f3d41/thumbnail.png" />
+
+  <meta property="twitter:image" content="https://github.com/dhimmel/rephetio-manuscript/raw/44ada2dadeee7277e44ea69782047df0939f3d41/thumbnail.png" />
+
+  <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
+
+  <link rel="mask-icon" href="https://manubot.org/safari-pinned-tab.svg" color="#ad1457" />
+
+  <meta name="theme-color" content="#ad1457" />
+
+  <!-- end Manubot generated metadata -->'
 keywords:
 - Rephetio
 - Hetionet
@@ -31,9 +167,9 @@ This manuscript was published in _eLife_ on February 9, 2018. The DOI-citable ve
 
 <small><em>
 This manuscript
-([permalink](https://dhimmel.github.io/rephetio-manuscript/v/d0204436da9a778655673666e5dfc906aa1e1439/))
+([permalink](https://git.dhimmel.com/rephetio-manuscript/v/44ada2dadeee7277e44ea69782047df0939f3d41/))
 was automatically generated
-from [dhimmel/rephetio-manuscript@d020443](https://github.com/dhimmel/rephetio-manuscript/tree/d0204436da9a778655673666e5dfc906aa1e1439)
+from [dhimmel/rephetio-manuscript@44ada2d](https://github.com/dhimmel/rephetio-manuscript/tree/44ada2dadeee7277e44ea69782047df0939f3d41)
 on November 20, 2019.
 </em></small>
 
@@ -49,10 +185,10 @@ on November 20, 2019.
     · ![Twitter icon](images/twitter.svg){.inline_icon}
     [dhimmel](https://twitter.com/dhimmel)<br>
   <small>
-     Program in Biological & Medical Informatics, University of California, San Francisco; Department of Systems Pharmacology & Translational Therapeutics, University of Pennsylvania
+     Program in Biological & Medical Informatics, University of California, San Francisco; Department of Systems Pharmacology & Translational Therapeutics, University of Pennsylvania
   </small>
 
-+ **Antoine Lizee**<br>
++ **Antoine Lizee**<br>
     ![ORCID icon](images/orcid.svg){.inline_icon}
     [0000-0002-1073-3190](https://orcid.org/0000-0002-1073-3190)
     · ![GitHub icon](images/github.svg){.inline_icon}
@@ -60,15 +196,15 @@ on November 20, 2019.
     · ![Twitter icon](images/twitter.svg){.inline_icon}
     [A_Lizee](https://twitter.com/A_Lizee)<br>
   <small>
-     Department of Neurology, University of California, San Francisco; ITUN-CRTI-UMR 1064 Inserm, University of Nantes
+     Department of Neurology, University of California, San Francisco; ITUN-CRTI-UMR 1064 Inserm, University of Nantes
   </small>
 
-+ **Christine Hessler**<br><br>
++ **Christine Hessler**<br><br>
   <small>
-     Department of Neurology, University of California, San Francisco
+     Department of Neurology, University of California, San Francisco
   </small>
 
-+ **Leo Brueggeman**<br>
++ **Leo Brueggeman**<br>
     ![ORCID icon](images/orcid.svg){.inline_icon}
     [0000-0002-3586-3442](https://orcid.org/0000-0002-3586-3442)
     · ![GitHub icon](images/github.svg){.inline_icon}
@@ -76,17 +212,17 @@ on November 20, 2019.
     · ![Twitter icon](images/twitter.svg){.inline_icon}
     [LeoBman](https://twitter.com/LeoBman)<br>
   <small>
-     Department of Neurology, University of California, San Francisco; University of Iowa
+     Department of Neurology, University of California, San Francisco; University of Iowa
   </small>
 
-+ ** Sabrina L. Chen**<br>
++ **Sabrina L. Chen**<br>
     · ![GitHub icon](images/github.svg){.inline_icon}
     [sabrinalchen](https://github.com/sabrinalchen)<br>
   <small>
-     Department of Neurology, University of California, San Francisco; Johns Hopkins University
+     Department of Neurology, University of California, San Francisco; Johns Hopkins University
   </small>
 
-+ ** Dexter Hadley**<br>
++ **Dexter Hadley**<br>
     ![ORCID icon](images/orcid.svg){.inline_icon}
     [0000-0003-0990-4674](https://orcid.org/0000-0003-0990-4674)
     · ![GitHub icon](images/github.svg){.inline_icon}
@@ -94,30 +230,30 @@ on November 20, 2019.
     · ![Twitter icon](images/twitter.svg){.inline_icon}
     [iDrDex](https://twitter.com/iDrDex)<br>
   <small>
-     Institute for Computational Health Sciences, Department of Pediatrics; University of California, San Francisco
+     Institute for Computational Health Sciences, Department of Pediatrics; University of California, San Francisco
   </small>
 
 + **Ari Green**<br>
     ![ORCID icon](images/orcid.svg){.inline_icon}
     [0000-0001-9275-3066](https://orcid.org/0000-0001-9275-3066)<br>
   <small>
-     Department of Neurology, University of California, San Francisco
+     Department of Neurology, University of California, San Francisco
   </small>
 
-+ **Pouya Khankhanian**<br>
++ **Pouya Khankhanian**<br>
     ![ORCID icon](images/orcid.svg){.inline_icon}
     [0000-0001-8075-4176](https://orcid.org/0000-0001-8075-4176)<br>
   <small>
-     Department of Neurology, University of California, San Francisco; Center for Neuroengineering and Therapeutics, University of Pennsylvania
+     Department of Neurology, University of California, San Francisco; Center for Neuroengineering and Therapeutics, University of Pennsylvania
   </small>
 
-+ **Sergio E. Baranzini**<br>
++ **Sergio E. Baranzini**<br>
     ![ORCID icon](images/orcid.svg){.inline_icon}
     [0000-0003-0067-194X](https://orcid.org/0000-0003-0067-194X)
     · ![GitHub icon](images/github.svg){.inline_icon}
     [sebaran](https://github.com/sebaran)<br>
   <small>
-     Department of Neurology, University of California, San Francisco
+     Department of Neurology, University of California, San Francisco
   </small>
 
 
