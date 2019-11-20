@@ -27,7 +27,7 @@
             // un-hovering
             clickUnhighlight: 'false',
             // whether to also highlight links that are unique
-            highlightUnique: 'false',
+            highlightUnique: 'true',
             // whether plugin is on or not
             enabled: 'true'
         };
@@ -44,7 +44,7 @@
             const links = getLinks();
             for (const link of links) {
                 // attach mouse and focus listeners to link
-                link.addEventListener('mouseover', onLinkFocus);
+                link.addEventListener('mouseenter', onLinkFocus);
                 link.addEventListener('focus', onLinkFocus);
                 link.addEventListener('mouseleave', onLinkUnhover);
             }
