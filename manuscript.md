@@ -126,19 +126,19 @@ header-includes: '<!--
 
   <link rel="alternate" type="application/pdf" href="https://git.dhimmel.com/rephetio-manuscript/manuscript.pdf" />
 
-  <link rel="alternate" type="text/html" href="https://git.dhimmel.com/rephetio-manuscript/v/44ada2dadeee7277e44ea69782047df0939f3d41/" />
+  <link rel="alternate" type="text/html" href="https://git.dhimmel.com/rephetio-manuscript/v/222cfc7b7a706dcf28e61c468cd4aab5901337b9/" />
 
-  <meta name="manubot_html_url_versioned" content="https://git.dhimmel.com/rephetio-manuscript/v/44ada2dadeee7277e44ea69782047df0939f3d41/" />
+  <meta name="manubot_html_url_versioned" content="https://git.dhimmel.com/rephetio-manuscript/v/222cfc7b7a706dcf28e61c468cd4aab5901337b9/" />
 
-  <meta name="manubot_pdf_url_versioned" content="https://git.dhimmel.com/rephetio-manuscript/v/44ada2dadeee7277e44ea69782047df0939f3d41/manuscript.pdf" />
+  <meta name="manubot_pdf_url_versioned" content="https://git.dhimmel.com/rephetio-manuscript/v/222cfc7b7a706dcf28e61c468cd4aab5901337b9/manuscript.pdf" />
 
   <meta property="og:type" content="article" />
 
   <meta property="twitter:card" content="summary_large_image" />
 
-  <meta property="og:image" content="https://github.com/dhimmel/rephetio-manuscript/raw/44ada2dadeee7277e44ea69782047df0939f3d41/thumbnail.png" />
+  <meta property="og:image" content="https://github.com/dhimmel/rephetio-manuscript/raw/222cfc7b7a706dcf28e61c468cd4aab5901337b9/thumbnail.png" />
 
-  <meta property="twitter:image" content="https://github.com/dhimmel/rephetio-manuscript/raw/44ada2dadeee7277e44ea69782047df0939f3d41/thumbnail.png" />
+  <meta property="twitter:image" content="https://github.com/dhimmel/rephetio-manuscript/raw/222cfc7b7a706dcf28e61c468cd4aab5901337b9/thumbnail.png" />
 
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
 
@@ -167,9 +167,9 @@ This manuscript was published in _eLife_ on February 9, 2018. The DOI-citable ve
 
 <small><em>
 This manuscript
-([permalink](https://git.dhimmel.com/rephetio-manuscript/v/44ada2dadeee7277e44ea69782047df0939f3d41/))
+([permalink](https://git.dhimmel.com/rephetio-manuscript/v/222cfc7b7a706dcf28e61c468cd4aab5901337b9/))
 was automatically generated
-from [dhimmel/rephetio-manuscript@44ada2d](https://github.com/dhimmel/rephetio-manuscript/tree/44ada2dadeee7277e44ea69782047df0939f3d41)
+from [dhimmel/rephetio-manuscript@222cfc7](https://github.com/dhimmel/rephetio-manuscript/tree/222cfc7b7a706dcf28e61c468cd4aab5901337b9)
 on November 20, 2019.
 </em></small>
 
