@@ -1,5 +1,5 @@
 abided
-Acamprosate
+acamprosate
 acamprosate’s
 acetylcholine
 AdG
@@ -87,7 +87,7 @@ DdG
 desflurane
 dhimmel
 Didonna
-differentially
+Differentially
 DigitalOcean’s
 directionality
 DisGeNET
@@ -111,7 +111,7 @@ dysregulated
 dysregulation
 ee
 EHR
-ehrlink
+EHRLink
 EHRs
 eLife
 Entrez
@@ -169,7 +169,7 @@ LabeledIn
 LABrueggs
 LeoBman
 LINCS
-lizee
+Lizee
 LM
 logit
 Malladi
@@ -177,9 +177,9 @@ MEDI
 MEDLINE
 MedlinePlus
 metaedge
-metaedges
+Metaedges
 metagraph
-Metanode
+metanode
 metanodes
 metapath
 metapath’s
@@ -267,7 +267,7 @@ superset
 taurine
 Thinklab
 timepoints
-transcriptional
+Transcriptional
 transcriptomics
 transformative
 Translational

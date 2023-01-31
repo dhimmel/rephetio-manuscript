@@ -10,7 +10,7 @@ keywords:
 - machine learning
 - data science
 lang: en-US
-date-meta: '2023-01-31'
+date-meta: '2017-09-22'
 author-meta:
 - Daniel S. Himmelstein
 - Antoine Lizee
@@ -32,11 +32,11 @@ header-includes: |
   <meta name="citation_title" content="Systematic integration of biomedical knowledge prioritizes drugs for repurposing" />
   <meta property="og:title" content="Systematic integration of biomedical knowledge prioritizes drugs for repurposing" />
   <meta property="twitter:title" content="Systematic integration of biomedical knowledge prioritizes drugs for repurposing" />
-  <meta name="dc.date" content="2023-01-31" />
-  <meta name="citation_publication_date" content="2023-01-31" />
-  <meta property="article:published_time" content="2023-01-31" />
-  <meta name="dc.modified" content="2023-01-31T13:46:15+00:00" />
-  <meta property="article:modified_time" content="2023-01-31T13:46:15+00:00" />
+  <meta name="dc.date" content="2017-09-22" />
+  <meta name="citation_publication_date" content="2017-09-22" />
+  <meta property="article:published_time" content="2017-09-22" />
+  <meta name="dc.modified" content="2023-01-31T13:48:16+00:00" />
+  <meta property="article:modified_time" content="2023-01-31T13:48:16+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -63,6 +63,7 @@ header-includes: |
   <meta name="citation_author" content="Sabrina L. Chen" />
   <meta name="citation_author_institution" content="Department of Neurology, University of California, San Francisco" />
   <meta name="citation_author_institution" content="Johns Hopkins University" />
+  <meta name="citation_author_orcid" content="0000-0001-5470-4810" />
   <meta name="citation_author" content="Dexter Hadley" />
   <meta name="citation_author_institution" content="Institute for Computational Health Sciences, Department of Pediatrics" />
   <meta name="citation_author_institution" content="University of California, San Francisco" />
@@ -84,13 +85,13 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://git.dhimmel.com/rephetio-manuscript/" />
   <meta name="citation_pdf_url" content="https://git.dhimmel.com/rephetio-manuscript/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://git.dhimmel.com/rephetio-manuscript/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://git.dhimmel.com/rephetio-manuscript/v/ddc85b5749e6cd6a21dd838db8a6b608f569b316/" />
-  <meta name="manubot_html_url_versioned" content="https://git.dhimmel.com/rephetio-manuscript/v/ddc85b5749e6cd6a21dd838db8a6b608f569b316/" />
-  <meta name="manubot_pdf_url_versioned" content="https://git.dhimmel.com/rephetio-manuscript/v/ddc85b5749e6cd6a21dd838db8a6b608f569b316/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://git.dhimmel.com/rephetio-manuscript/v/aad857607955d1c20b2dc0742d2cfd96cf788167/" />
+  <meta name="manubot_html_url_versioned" content="https://git.dhimmel.com/rephetio-manuscript/v/aad857607955d1c20b2dc0742d2cfd96cf788167/" />
+  <meta name="manubot_pdf_url_versioned" content="https://git.dhimmel.com/rephetio-manuscript/v/aad857607955d1c20b2dc0742d2cfd96cf788167/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="og:image" content="https://github.com/dhimmel/rephetio-manuscript/raw/ddc85b5749e6cd6a21dd838db8a6b608f569b316/thumbnail.png" />
-  <meta property="twitter:image" content="https://github.com/dhimmel/rephetio-manuscript/raw/ddc85b5749e6cd6a21dd838db8a6b608f569b316/thumbnail.png" />
+  <meta property="og:image" content="https://github.com/dhimmel/rephetio-manuscript/raw/aad857607955d1c20b2dc0742d2cfd96cf788167/thumbnail.png" />
+  <meta property="twitter:image" content="https://github.com/dhimmel/rephetio-manuscript/raw/aad857607955d1c20b2dc0742d2cfd96cf788167/thumbnail.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
   <link rel="mask-icon" href="https://manubot.org/safari-pinned-tab.svg" color="#ad1457" />
   <meta name="theme-color" content="#ad1457" />
@@ -106,17 +107,18 @@ manubot-clear-requests-cache: false
 
 
 
-_This manuscript was published in _eLife_ on February 9, 2018. The DOI-citable version is available at <https://doi.org/10.7554/eLife.26726>._
+_This manuscript was published in _eLife_ on September 22, 2017. The DOI-citable version is available at <https://doi.org/10.7554/eLife.26726>._
 
 
 <small><em>
 This manuscript
-([permalink](https://git.dhimmel.com/rephetio-manuscript/v/ddc85b5749e6cd6a21dd838db8a6b608f569b316/))
+([permalink](https://git.dhimmel.com/rephetio-manuscript/v/aad857607955d1c20b2dc0742d2cfd96cf788167/))
 was automatically generated
-from [dhimmel/rephetio-manuscript@ddc85b5](https://github.com/dhimmel/rephetio-manuscript/tree/ddc85b5749e6cd6a21dd838db8a6b608f569b316)
+from [dhimmel/rephetio-manuscript@aad8576](https://github.com/dhimmel/rephetio-manuscript/tree/aad857607955d1c20b2dc0742d2cfd96cf788167)
 on January 31, 2023.
 </em></small>
 
+Published: September 22, 2017
 
 
 ## Authors
@@ -170,6 +172,8 @@ on January 31, 2023.
 
 + **Sabrina L. Chen**
   <br>
+    ![ORCID icon](images/orcid.svg){.inline_icon width=16 height=16}
+    [0000-0001-5470-4810](https://orcid.org/0000-0001-5470-4810)
     · ![GitHub icon](images/github.svg){.inline_icon width=16 height=16}
     [sabrinalchen](https://github.com/sabrinalchen)
     <br>
